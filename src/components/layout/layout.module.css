@@ -1,0 +1,12 @@
+.Layout {
+  background: rgb(255, 204, 79);
+  height: 100%;
+  margin: 1em;
+  padding:  2em 1em;
+  text-align: center;
+
+  & span {
+    font-family: Montserrat, sans-serif;
+  }
+}
+
