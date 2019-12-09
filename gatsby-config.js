@@ -20,8 +20,18 @@ module.exports = {
       options: {
         typeName: "swapi",
         fieldName: "swapi",
-        url: "https://amazee-swapi.azurewebsites.net/api/graphql",
+        url: "https://swapi.graph.cool/",
       },
     },
-  ],
+  ].concat(process.env.NODE_ENV === 'development' ? [
+    // TODO: Add mock servers for external data sources.
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "swapiMocked",
+        fieldName: "swapi",
+        url: "http://localhost:4000",
+      },
+    },
+  ]: []),
 }
