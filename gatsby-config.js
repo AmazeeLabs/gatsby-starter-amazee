@@ -5,12 +5,22 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    // TODO: Adjust the static site navigation or remove it entirely.
+    navigation: [
+      {path: '/', label: 'Home', description: 'Navigate to the home page'}
+    ]
+  },
   plugins: [
-    `gatsby-plugin-typescript`,
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-postcss',
+    // TODO: Add static data sources and remove this example.
     {
-      resolve: `gatsby-plugin-postcss`,
+      resolve: "gatsby-source-graphql",
       options: {
-        postCssPlugins: [require(`postcss-preset-env`)({ stage: 0 })],
+        typeName: "swapi",
+        fieldName: "swapi",
+        url: "https://amazee-swapi.azurewebsites.net/api/graphql",
       },
     },
   ],

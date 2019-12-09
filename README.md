@@ -8,6 +8,7 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
 * Typescript
 * PostCSS with `postcss-preset-env`
 * CSS Modules
+* TailwindCSS
 
 ## 🚀 Quick start
 

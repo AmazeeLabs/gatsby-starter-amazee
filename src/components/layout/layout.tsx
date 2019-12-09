@@ -1,10 +1,10 @@
 import * as React from 'react';
+import { ReactNode } from 'react';
 
-require('./global.css');
-const styles = require('./layout.module.css');
-
-export default ({children}) => {
+const Layout = ({children}: {children: ReactNode}) => {
   return (
-    <div className={styles.Layout}>{children}</div>
+    <div className="bg-amazee-yellow text-amazee-dark p-5 text-center font-bold hover:bg-amazee-blue">{children}</div>
   );
-}
+};
+
+export default Layout;

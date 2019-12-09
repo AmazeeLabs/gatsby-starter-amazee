@@ -1,0 +1,43 @@
+/* TODO: Add necessary webfonts or remove this example. */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700&display=swap');
+
+@tailwind base;
+
+/* TODO: Adjust global styling. */
+/* Use tailwind @apply and the `config` functions access the global tailwind theme configuration: */
+/* https://tailwindcss.com/docs/functions-and-directives/#apply */
+/* https://tailwindcss.com/docs/functions-and-directives/#theme */
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: theme('colors.amazee.dark');
+}
+
+h1 {
+  @apply text-2xl;
+}
+
+h2 {
+  @apply text-xl;
+}
+
+h3 {
+  @apply text-lg;
+}
+
+em {
+  @apply italic;
+}
+
+strong {
+  @apply font-bold;
+}
+
+@tailwind components;
+
+/* TODO: Add custom components. */
+/* https://tailwindcss.com/docs/extracting-components#extracting-css-components-with-apply */
+
+@tailwind utilities;
+
+/* TODO: Add custom utilities. */
+/* https://tailwindcss.com/docs/adding-new-utilities/#using-css */
