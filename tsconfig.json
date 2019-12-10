@@ -15,5 +15,6 @@
     "noEmit": false,
     "jsx": "react"
   },
-  "include": ["src", "mocks"]
+  "exclude": ["node_modules"],
+  "include": ["src"]
 }

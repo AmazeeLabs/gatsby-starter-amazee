@@ -16,22 +16,22 @@ module.exports = {
     'gatsby-plugin-postcss',
     // TODO: Add static data sources and remove this example.
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-graphql',
       options: {
-        typeName: "swapi",
-        fieldName: "swapi",
-        url: "https://swapi.graph.cool/",
+        typeName: 'swapi',
+        fieldName: 'swapi',
+        url: 'https://swapi.graph.cool/',
       },
     },
   ].concat(process.env.NODE_ENV === 'development' ? [
     // TODO: Add mock servers for external data sources.
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-graphql',
       options: {
-        typeName: "swapiMocked",
-        fieldName: "swapi",
-        url: "http://localhost:4000",
+        typeName: 'swapiMocked',
+        fieldName: 'swapi',
+        url: 'http://localhost:4000',
       },
     },
   ]: []),
-}
+};
