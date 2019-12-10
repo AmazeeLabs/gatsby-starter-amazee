@@ -8,7 +8,10 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
 * Typescript
 * PostCSS with `postcss-preset-env`
 * CSS Modules
-* TailwindCSS
+* TailwindCSS + PurgeCSS
+* Unit tests with jest
+* Integration tests with Cypress
+* Mocking of GraphQL API's with Apollo
 
 ## 🚀 Quick start
 
