@@ -1188,19 +1188,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bahmutov/add-typescript-to-cypress@^2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@bahmutov/add-typescript-to-cypress/-/add-typescript-to-cypress-2.1.2.tgz#998b68165bc264eaca4bef86ed9c2800d07cce2c"
-  integrity sha512-fOfkDxs+3KAE9PmJOrSW0wqM7ZpGJOObq/qxv2rI9+8h7f8LGcRzKGVthkrl08HFQ/Ij8Le/fawcG7TXBuckDg==
-  dependencies:
-    "@cypress/webpack-preprocessor" "4.1.0"
-    am-i-a-dependency "1.1.2"
-    chalk "2.4.2"
-    debug "4.1.1"
-    shelljs "0.8.3"
-    terminal-banner "1.1.0"
-    ts-loader "5.4.5"
-
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
@@ -1246,18 +1233,6 @@
     cli-cursor "^1.0.2"
     date-fns "^1.27.2"
     figures "^1.7.0"
-
-"@cypress/webpack-preprocessor@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@cypress/webpack-preprocessor/-/webpack-preprocessor-4.1.0.tgz#8c4debc0b1abf045b62524d1996dd9aeaf7e86a8"
-  integrity sha512-LbxsdYVpHGoC2fMOdW0aQvuvVRD7aZx8p8DrP53HISpl7bD1PqLGWKzhHn7cGG24UHycBJrbaEeKEosW29W1dg==
-  dependencies:
-    bluebird "3.5.0"
-    debug "3.1.0"
-  optionalDependencies:
-    "@babel/core" "^7.0.1"
-    "@babel/preset-env" "^7.0.0"
-    babel-loader "^8.0.2"
 
 "@cypress/webpack-preprocessor@latest":
   version "4.1.1"
@@ -2314,11 +2289,6 @@
     "@types/connect" "*"
     "@types/node" "*"
 
-"@types/chai@^4.2.6":
-  version "4.2.6"
-  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.2.6.tgz#a55625d151d9c7c7a0a95920632131d66480bce9"
-  integrity sha512-HF8faEUA4JurIm+68VaA2KedtZf5LYdXpQEAbIAN79DwWQbO82BNTksZgCH3UMqbZHXex9C6TrBfg7OUInRISQ==
-
 "@types/classnames@^2.2.9":
   version "2.2.9"
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.9.tgz#d868b6febb02666330410fe7f58f3c4b8258be7b"
@@ -2534,11 +2504,6 @@
   version "0.3.29"
   resolved "https://registry.yarnpkg.com/@types/mkdirp/-/mkdirp-0.3.29.tgz#7f2ad7ec55f914482fc9b1ec4bb1ae6028d46066"
   integrity sha1-fyrX7FX5FEgvybHsS7GuYCjUYGY=
-
-"@types/mocha@^5.2.7":
-  version "5.2.7"
-  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-5.2.7.tgz#315d570ccb56c53452ff8638738df60726d5b6ea"
-  integrity sha512-NYrtPht0wGzhwe9+/idPaBB+TqkY9AhTvOLMkThm0IoEfLaiVQZwBwyJ5puCkO3AUCWrmcoePjp2mbFocKy4SQ==
 
 "@types/node@*", "@types/node@>=6", "@types/node@^12.12.14":
   version "12.12.16"
@@ -3038,11 +3003,6 @@ alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
-
-am-i-a-dependency@1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/am-i-a-dependency/-/am-i-a-dependency-1.1.2.tgz#f9d3422304d6f642f821e4c407565035f6167f1f"
-  integrity sha1-+dNCIwTW9kL4IeTEB1ZQNfYWfx8=
 
 ansi-align@^2.0.0:
   version "2.0.0"
@@ -6208,13 +6168,6 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.3, debug@^2.6.
   dependencies:
     ms "2.0.0"
 
-debug@3.1.0, debug@=3.1.0, debug@~3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
-  dependencies:
-    ms "2.0.0"
-
 debug@3.2.6, debug@^3.0.0, debug@^3.0.1, debug@^3.1.0, debug@^3.1.1, debug@^3.2.5, debug@^3.2.6:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
@@ -6228,6 +6181,13 @@ debug@4.1.1, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@~4.1.0:
   integrity sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==
   dependencies:
     ms "^2.1.1"
+
+debug@=3.1.0, debug@~3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
+  dependencies:
+    ms "2.0.0"
 
 decamelize@^1.2.0:
   version "1.2.0"
@@ -15009,7 +14969,7 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
-"semver@2 || 3 || 4 || 5", semver@^5.0.1, semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0, semver@^5.7.1:
+"semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0, semver@^5.7.1:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
   integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
@@ -15204,7 +15164,7 @@ shell-quote@1.7.2, shell-quote@^1.4.2, shell-quote@^1.6.1:
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
 
-shelljs@0.8.3, shelljs@^0.8.3:
+shelljs@^0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.3.tgz#a7f3319520ebf09ee81275b2368adb286659b097"
   integrity sha512-fc0BKlAWiLpwZljmOvAOTE/gXawtCoNrP5oaY7KIaQbbyHeQVg01pSEuEGvGh3HEdBU4baCD7wQBwADmM/7f7A==
@@ -16150,11 +16110,6 @@ term-size@^2.1.0:
   resolved "https://registry.yarnpkg.com/term-size/-/term-size-2.1.0.tgz#3aec444c07a7cf936e157c1dc224b590c3c7eef2"
   integrity sha512-I42EWhJ+2aeNQawGx1VtpO0DFI9YcfuvAMNIdKyf/6sRbHJ4P+ZQ/zIT87tE+ln1ymAGcCJds4dolfSAS0AcNg==
 
-terminal-banner@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/terminal-banner/-/terminal-banner-1.1.0.tgz#ef81ce7d9d7e541a81d09eb2c0257c3d5463c3ea"
-  integrity sha512-A70B8Io5gGOTKQuoqU6LUPLouNd9DvFLgw3cPh6bfrQjdy7HWW1t04VJfQwjTnygTVDX0xremaj1cg3SQaCGyg==
-
 terser-webpack-plugin@1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-1.4.1.tgz#61b18e40eaee5be97e771cdbb10ed1280888c2b4"
@@ -16463,17 +16418,6 @@ ts-jest@^24.2.0:
     resolve "1.x"
     semver "^5.5"
     yargs-parser "10.x"
-
-ts-loader@5.4.5:
-  version "5.4.5"
-  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-5.4.5.tgz#a0c1f034b017a9344cef0961bfd97cc192492b8b"
-  integrity sha512-XYsjfnRQCBum9AMRZpk2rTYSVpdZBpZK+kDh0TeT3kxmQNBDVIeUjdPjY5RZry4eIAb8XHc4gYSUiUWPYvzSRw==
-  dependencies:
-    chalk "^2.3.0"
-    enhanced-resolve "^4.0.0"
-    loader-utils "^1.0.2"
-    micromatch "^3.1.4"
-    semver "^5.0.1"
 
 ts-loader@^6.2.1:
   version "6.2.1"

@@ -12,7 +12,7 @@ export const wrapRootElement = ({ element}: {
   // data in the browser. If the site is completely static the wrapping provider
   // can be removed.
   const client = new ApolloClient({
-    uri: 'http://graphql.org/swapi-graphql/',
+    uri: process.env.GATSBY_SWAPI_ENDPOINT,
     fetch,
   });
 

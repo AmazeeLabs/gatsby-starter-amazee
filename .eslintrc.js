@@ -4,6 +4,7 @@ module.exports = {
         'es6': true,
         'node': true
     },
+    'ignorePatterns': ['cypress'],
     'settings': {
         'react': {
             'version': 'detect',

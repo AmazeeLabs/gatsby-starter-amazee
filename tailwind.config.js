@@ -25,6 +25,9 @@ module.exports = {
   variants: {
     // TODO: Configure variants to control pseudo classes.
     // https://tailwindcss.com/docs/pseudo-class-variants
+    padding: ['first', 'last', 'responsive'],
+    margin: ['first', 'last', 'responsive'],
+    borderWidth: ['first', 'last'],
   },
   plugins: [
     // TODO: Add custom plugins to implement dynamic utilities or components.

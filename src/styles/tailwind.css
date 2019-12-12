@@ -1,5 +1,5 @@
 /* TODO: Add necessary webfonts or remove this example. */
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 @tailwind base;
 
@@ -36,6 +36,17 @@ strong {
 
 /* TODO: Add custom components. */
 /* https://tailwindcss.com/docs/extracting-components#extracting-css-components-with-apply */
+
+/**
+ * A responsive centered page container.
+ */
+.page-centered {
+  @apply px-2;
+  & > * {
+    @apply mx-auto max-w-6xl;
+  }
+}
+
 
 @tailwind utilities;
 

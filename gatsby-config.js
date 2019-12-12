@@ -4,6 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+// Read in environment variables based on the current `NODE_ENV`.
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     // TODO: Adjust the static site navigation or remove it entirely.
@@ -20,17 +25,18 @@ module.exports = {
       options: {
         typeName: 'swapi',
         fieldName: 'swapi',
-        url: 'https://swapi.graph.cool/',
+        url: process.env.GATSBY_SWAPI_ENDPOINT,
       },
     },
   ].concat(process.env.NODE_ENV === 'development' ? [
     // TODO: Add mock servers for external data sources.
+    // This is a very bad example for a data source override. Find a better one.
     {
       resolve: 'gatsby-source-graphql',
       options: {
         typeName: 'swapiMocked',
         fieldName: 'swapi',
-        url: 'http://localhost:4000',
+        url: process.env.GATSBY_SWAPI_ENDPOINT,
       },
     },
   ]: []),
