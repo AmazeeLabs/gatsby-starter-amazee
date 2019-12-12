@@ -10,5 +10,7 @@ cache:
 install:
   - yarn
 script:
+  - yarn mocks &
+  - wait 5
   - yarn jest
   - yarn cypress:test

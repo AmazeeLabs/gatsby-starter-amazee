@@ -15,7 +15,7 @@
     "clean": "gatsby clean",
     "jest": "jest",
     "tailwind": "tailwind build src/styles/tailwind.css > src/styles/tailwind.build.css",
-    "cypress:environment": "CI=true concurrently -s first npm:mock-* \"$(gatsby develop || true)\"",
+    "cypress:environment": "CI=true gatsby develop || true",
     "cypress:test": "start-server-and-test cypress:environment http://localhost:8000 cypress:run",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
