@@ -10,7 +10,11 @@ cache:
 install:
   - yarn
 script:
-  - $(yarn mocks || true) &
-  - wait 5
   - yarn jest
+  - yarn mocks &
+  - until curl -s localhost:4000; do true; done > /dev/null
+  - yarn develop &
+  - until curl -s localhost:8000; do true; done > /dev/null
   - yarn cypress:test
+  - kill $(jobs -p) || true
+
