@@ -4,6 +4,8 @@ import { Header } from '../components/header/header';
 import { StaticNavigation } from '../components/navigation/navigation';
 import { List } from '../components/list/list';
 
+// By exporting this query, we tell Gatsby to execute it with the context
+// variables provided as arguments and to fill it with the query result.
 export const FilmQuery = graphql`
   query FilmQuery($id: ID!) {
     swapi {

@@ -11,6 +11,7 @@ export const wrapRootElement = ({ element}: {
   // The Apollo client and wrapping provider are necessary for loading dynamic
   // data in the browser. If the site is completely static the wrapping provider
   // can be removed.
+  // https://www.gatsbyjs.org/docs/client-data-fetching/
   const client = new ApolloClient({
     uri: process.env.GATSBY_SWAPI_ENDPOINT,
     fetch,

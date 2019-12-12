@@ -13,6 +13,12 @@ export interface NavigationProps {
   currentPath: string
 }
 
+/**
+ * Helper method to determine if a path is a subpath of another one.
+ *
+ * @param subPath
+ * @param path
+ */
 export const isSubPathOf = (subPath: string, path: string) => {
   return ((a: string[], b: string[]) =>
     a.map((v, i) => b[i] === v).reduce((p, c) => p && c)
@@ -60,13 +66,17 @@ export const Navigation = ({items, currentPath}: NavigationProps) => (
 
 export const StaticNavigation = ({currentPath}: {currentPath: string}) => {
 
-  const data : {
+  // Use static query allows to execute a static query at build time from any
+  // component. But without arguments.
+  // TODO: Learn about static queries.
+  // https://www.gatsbyjs.org/docs/static-query/#usestaticquery
+  const data  = useStaticQuery<{
     site: {
       siteMetadata: {
         navigation: NavigationItem[]
       }
     }
-  } = useStaticQuery(graphql`
+  }>(graphql`
     query StaticNavigationQuery {
       site {
         siteMetadata {

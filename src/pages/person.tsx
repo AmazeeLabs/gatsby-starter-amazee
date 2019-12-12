@@ -23,6 +23,10 @@ interface Film {
 }
 
 const PersonPage = ({id}: PersonPageProps) => {
+  // Apollo`s useQuery hook allows us to query for additional data at runtime
+  // from the client.
+  // TODO: Learn about querying data at runtime.
+  // https://www.gatsbyjs.org/docs/static-query/#usestaticquery
   const {data, error, loading}= useQuery<{ Person: PersonResult}>(gql`
     query PersonQuery ($id: ID!) {
       Person(id: $id)  {

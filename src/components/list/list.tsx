@@ -16,5 +16,5 @@ export const List = ({items}: {items: ListItem[]}) => (
         </li>
       ))}
     </ul>
-  ) : null
+  ) : <p className="text-center italic">No results found.</p>
 );
