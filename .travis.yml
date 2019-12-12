@@ -12,9 +12,9 @@ install:
 script:
   - yarn jest
   - yarn mocks &
-  - until curl -s localhost:4000; do true; done > /dev/null
+  - until nc -z 127.0.0.1 4000; do sleep 1 ; done
   - yarn develop &
-  - until curl -s localhost:8000; do true; done > /dev/null
+  - until nc -z 127.0.0.1 8000; do sleep 1 ; done
   - yarn cypress:run
   - kill $(jobs -p) || true
 
