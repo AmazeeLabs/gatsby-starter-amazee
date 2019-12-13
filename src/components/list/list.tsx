@@ -1,13 +1,21 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 
-export interface ListItem {
-  id: string,
-  label: string
-  path: string
+export interface ListProps {
+  /**
+   * List item definitions, containing a unique id, a label and a path.
+   */
+  items: {
+    id: string,
+    label: string
+    path: string
+  }[]
 }
 
-export const List = ({items}: {items: ListItem[]}) => (
+/**
+ * A simple list of links.
+ */
+export const List = ({items}: ListProps) => (
   items.length ? (
     <ul>
       {items.map(item => (

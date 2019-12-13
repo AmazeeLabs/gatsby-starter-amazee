@@ -2,7 +2,8 @@ import * as React from 'react';
 import { List } from './list';
 
 export default {
-  title: 'List'
+  title: 'List',
+  component: List,
 };
 
 export const Filled = () => <List items={[

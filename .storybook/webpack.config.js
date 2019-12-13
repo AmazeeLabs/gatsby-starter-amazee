@@ -1,28 +1,5 @@
 module.exports = ({ config, mode }) => {
 
-  // Write as *.tsx or *.mdx files.
-  config.module.rules.push({
-    test: /\.stories\.(tsx|mdx)?$/,
-    loaders: [
-      require.resolve('@storybook/source-loader'),
-      require.resolve("react-docgen-typescript-loader"),
-    ],
-    enforce: 'pre',
-  });
-
-  // Transpile typescript with babel.
-  config.module.rules.push({
-    test: /\.(ts|tsx)$/,
-    loader: require.resolve('babel-loader'),
-    options: {
-      presets: [['react-app', { flow: false, typescript: true }]],
-      plugins: [
-        '@babel/plugin-proposal-class-properties',
-      ]
-    },
-  });
-  config.resolve.extensions.push('.ts', '.tsx');
-
   // Make sure *.module.css files are processed with PostCSS.
   config.module.rules.push({
     test: /\.module\.css$/,

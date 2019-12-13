@@ -2,22 +2,33 @@ import * as React from 'react';
 import { graphql, Link, navigate, useStaticQuery } from 'gatsby';
 import classnames from 'classnames';
 
-export interface NavigationItem {
-  label: string
-  path: string
-  description: string
-}
-
 export interface NavigationProps {
-  items: NavigationItem[]
+  /**
+   * The list of navigation items.
+   */
+  items: {
+    /**
+     * The navigation item label.
+     */
+    label: string
+    /**
+     * The path to navigate to.
+     */
+    path: string
+    /**
+     * A brief description of the target page. Displayed on hover.
+     */
+    description: string
+  }[]
+
+  /**
+   * The current page path.
+   */
   currentPath: string
 }
 
 /**
- * Helper method to determine if a path is a subpath of another one.
- *
- * @param subPath
- * @param path
+ * Helper method to determine if a path is a sub-path of another one.
  */
 export const isSubPathOf = (subPath: string, path: string) => {
   return ((a: string[], b: string[]) =>
@@ -29,11 +40,9 @@ export const isSubPathOf = (subPath: string, path: string) => {
 };
 
 /**
- * The navigation element.
+ * The navigation UI element.
  *
- * @param items
- * @param currentPath
- * @constructor
+ * Accepts a list of navigation items and the current path as arguments.
  */
 export const Navigation = ({items, currentPath}: NavigationProps) => (
   items.length ? (
@@ -66,14 +75,18 @@ export const Navigation = ({items, currentPath}: NavigationProps) => (
 
 export const StaticNavigation = ({currentPath}: {currentPath: string}) => {
 
-  // Use static query allows to execute a static query at build time from any
+  // Use static query allows to execute a query at build time from any
   // component. But without arguments.
   // TODO: Learn about static queries.
   // https://www.gatsbyjs.org/docs/static-query/#usestaticquery
   const data  = useStaticQuery<{
     site: {
       siteMetadata: {
-        navigation: NavigationItem[]
+        navigation: {
+          path: string
+          description: string
+          label: string
+        }[]
       }
     }
   }>(graphql`
