@@ -10,6 +10,7 @@ cache:
 install:
   - yarn
 script:
+  - yarn lint
   - yarn jest
   - yarn mocks &
   - until nc -z 127.0.0.1 4000; do sleep 1 ; done

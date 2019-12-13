@@ -42,7 +42,7 @@ const PersonPage = ({id}: PersonPageProps) => {
   `, {variables: {id}});
 
   if (loading) {
-    return <p className="text-center italic">Loading ...</p>
+    return <p className="text-center italic">Loading ...</p>;
   }
 
   if (error) {
