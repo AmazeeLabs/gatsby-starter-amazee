@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { Header } from '../components/header/header';
-import { StaticNavigation } from '../components/navigation/navigation';
 import { List } from '../components/list/list';
 
 // By exporting this query, we tell Gatsby to execute it with the context
@@ -36,19 +34,15 @@ interface FilmResult {
   }
 }
 
-const MoviePage = ({data, location}: {data: FilmResult, location: Location}) => (
-  <div>
-    <Header/>
-    <StaticNavigation currentPath={location.pathname}/>
-    <div className="page-centered py-8">
-      <h1 className="mb-8">Characters in &quot;{data.swapi.Film.title}&quot;</h1>
-      <List items={data.swapi.Film.characters.map(character => ({
-        id: character.id,
-        label: character.name,
-        path: `/person/${character.id}`,
-      }))} />
-    </div>
-  </div>
+const MoviePage = ({data}: {data: FilmResult}) => (
+  <>
+    <h1 className="mb-8">Characters in &quot;{data.swapi.Film.title}&quot;</h1>
+    <List items={data.swapi.Film.characters.map(character => ({
+      id: character.id,
+      label: character.name,
+      path: `/person/${character.id}`,
+    }))} />
+  </>
 );
 
 export default MoviePage;

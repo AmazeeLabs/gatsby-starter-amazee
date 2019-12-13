@@ -62,16 +62,10 @@ const PersonPage = ({id}: PersonPageProps) => {
   ) : <p className="text-center italic">An error occurred. We are very sorry ...</p>;
 };
 
-const DynamicPersonPage = ({location}: {location: Location}) => (
-  <div>
-    <Header/>
-    <StaticNavigation currentPath={location.pathname}/>
-    <div className="page-centered py-8">
-      <Router>
-        <PersonPage path="person/:id" />
-      </Router>
-    </div>
-  </div>
+const DynamicPersonPage = () => (
+  <Router>
+    <PersonPage path="person/:id" />
+  </Router>
 );
 
 export default DynamicPersonPage;

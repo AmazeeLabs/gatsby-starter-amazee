@@ -1,15 +1,36 @@
 const path = require(`path`)
+const {languages, defaultLanguage} = require('./languages');
 
 exports.onCreatePage = async ({ page, actions }) => {
-  // TODO: Adjust client only paths.
-  // Paths matching this pattern will be generated once and will load
-  // information on the client.
-  // https://www.gatsbyjs.org/docs/client-only-routes-and-user-authentication/
-  const { createPage } = actions
-  if (page.path.match(/^\/person/)) {
-    page.matchPath = "/person/*"
-    createPage(page)
-  }
+  const { createPage, deletePage} = actions
+  deletePage(page);
+
+  return new Promise(resolve => {
+    Object.keys(languages).forEach( lang => {
+
+      // TODO: Adjust client only paths.
+      // Paths matching this pattern will be generated once and will load
+      // information on the client.
+      // https://www.gatsbyjs.org/docs/client-only-routes-and-user-authentication/
+      const languagePrefix = lang === defaultLanguage ? '' : `${lang}/`;
+
+      if (page.path.match(/^\/person/)) {
+        page.matchPath = `/${languagePrefix}person/*`
+      }
+
+      return createPage({
+        ...page,
+        path: `/${languagePrefix}${page.path.substr(1)}`,
+        context: {
+          language: lang
+        }
+      });
+
+    });
+    resolve();
+  });
+
+
 }
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -33,12 +54,17 @@ exports.createPages = async ({ graphql, actions }) => {
     throw filmsResult.errors
   }
 
-  filmsResult.data.swapi.allFilms.forEach(({ id }) => {
-    createPage({
-      path: `/film/${id}`,
-      component: path.resolve(`./src/templates/film.tsx`),
-      context: { id },
-    })
+  Object.keys(languages).forEach( lang => {
+    filmsResult.data.swapi.allFilms.forEach(({ id }) => {
+      const languagePrefix = lang === defaultLanguage ? '' : `${lang}/`;
+      createPage({
+        path: `/${languagePrefix}film/${id}`,
+        component: path.resolve(`./src/templates/film.tsx`),
+        context: {
+          id,
+          language: lang
+        },
+      })
+    });
   });
-
 }

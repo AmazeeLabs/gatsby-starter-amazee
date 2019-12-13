@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { graphql, Link, navigate, useStaticQuery } from 'gatsby';
+import { graphql,  useStaticQuery } from 'gatsby';
+import { Link, navigate } from '../../utils/localized-link';
 import classnames from 'classnames';
 
 export interface NavigationProps {
