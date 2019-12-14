@@ -8,9 +8,9 @@ export const Link = ({to, ...rest}) => {
   const {i18n} = useTranslation();
   const languagePrefix = i18n.language === defaultLanguage
     ? ''
-    : `${i18n.language}`;
+    : `/${i18n.language}`;
 
-  const newTarget = `/${languagePrefix}${to}`;
+  const newTarget = `${languagePrefix}${to}`;
   return <GatsbyLink to={newTarget} {...rest} />;
 };
 

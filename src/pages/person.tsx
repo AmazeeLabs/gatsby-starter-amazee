@@ -65,6 +65,7 @@ const PersonPage = ({id}: PersonPageProps) => {
 const DynamicPersonPage = () => (
   <Router>
     <PersonPage path="person/:id" />
+    <PersonPage path=":language/person/:id" />
   </Router>
 );
 
