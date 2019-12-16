@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Navigation } from './navigation';
-import { withKnobs, array, text} from '@storybook/addon-knobs';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
 
 export default {
   title: 'Navigation',
@@ -23,9 +23,13 @@ export const Inactive = () => <Navigation items={[
 export const Empty = () => <Navigation items={[]} currentPath={'/'} />;
 
 export const Playground = () => <Navigation items={
-  array('Items', ['a', 'b', 'c']).map((v, i) => ({
-    label: text('Label', `Item ${v.toUpperCase()}`,  `Item ${i + 1}`),
-    path: text('Path', `/${v}`, `Item ${i + 1}`),
-    description: text('Description', `Got to page ${v}`, `Item ${i + 1}`)
+  Array.from(Array(number('Items', 3, {
+    range: true,
+    min: 0,
+    max: 10
+  })).keys()).map(v => v + 1).map((v) => ({
+    label: text('Label', `Item ${String.fromCharCode(64 + v)}`,  `Item ${v}`),
+    path: text('Path', `/${String.fromCharCode(64 + v).toLowerCase()}`, `Item ${v}`),
+    description: text('Description', `Got to page ${String.fromCharCode(64 + v)}`, `Item ${v}`)
   }))
 } currentPath={text('Active Path', '/a')} />;

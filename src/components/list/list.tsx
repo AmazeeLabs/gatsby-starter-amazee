@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+import { LocalizedLink } from '../../utils/localized-link';
 
 export interface ListProps {
   /**
@@ -20,7 +20,7 @@ export const List = ({items}: ListProps) => (
     <ul>
       {items.map(item => (
         <li key={item.id} className="border-solid border-gray-300 border-b-2 last:border-b-0">
-          <Link className="block px-5 py-2 hover:bg-gray-100" to={item.path}>{item.label}</Link>
+          <LocalizedLink className="block px-5 py-2 hover:bg-gray-100" to={item.path}>{item.label}</LocalizedLink>
         </li>
       ))}
     </ul>

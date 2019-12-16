@@ -18,6 +18,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-typescript',
+    'gatsby-plugin-layout',
     'gatsby-plugin-postcss',
     // TODO: Add static data sources and remove this example.
     {
