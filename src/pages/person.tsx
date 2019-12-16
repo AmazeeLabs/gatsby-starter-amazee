@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { RouteComponentProps, Router } from '@reach/router';
-import { Header } from '../components/header/header';
-import { StaticNavigation } from '../components/navigation/navigation';
 import { List } from '../components/list/list';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
+import { useTranslation } from 'react-i18next';
 
 interface PersonPageProps extends RouteComponentProps {
   id?: number
@@ -23,6 +22,8 @@ interface Film {
 }
 
 const PersonPage = ({id}: PersonPageProps) => {
+  const {t} = useTranslation();
+
   // Apollo`s useQuery hook allows us to query for additional data at runtime
   // from the client.
   // TODO: Learn about querying data at runtime.
@@ -46,13 +47,13 @@ const PersonPage = ({id}: PersonPageProps) => {
   }
 
   if (error) {
-    // TODO: Replace with messages.
     console.log(error);
   }
 
+
   return data ? (
     <>
-      <h1 className="mb-8">Films with &quot;{data.Person.name}&quot;</h1>
+      <h1 className="mb-8">{t('Films with "{{name}}"', {name: data.Person.name})}</h1>
       <List items={data.Person.films.map((film: Film) => ({
         id: film.id,
         label: `${film.title} (Episode ${film.episodeId})`,

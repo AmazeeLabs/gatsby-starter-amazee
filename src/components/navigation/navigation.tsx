@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { graphql,  useStaticQuery } from 'gatsby';
-import { Link, navigate } from '../../utils/localized-link';
+import { LocalizedLink, localizedNavigate } from '../../utils/localized-link';
 import classnames from 'classnames';
+import { useCurrentPath } from '../../hooks/current_path';
 
 export interface NavigationProps {
   /**
@@ -50,7 +51,7 @@ export const Navigation = ({items, currentPath}: NavigationProps) => (
     <div className="page-centered bg-amazee-dark text-white py-2 sm:py-0">
       <select
         className=" sm:hidden block appearance-none w-full bg-amazee-dark border-2 border-amazee-yellow px-3 py-2"
-        onChange={(event) => navigate(event.target.value)}
+        onChange={(event) => localizedNavigate(event.target.value)}
       >
         {items.map(item => (
           <option key={item.path} value={item.path}>{item.label}</option>
@@ -59,14 +60,14 @@ export const Navigation = ({items, currentPath}: NavigationProps) => (
       <ul className="hidden sm:flex">
         {items.map(item => (
           <li key={item.path}>
-            <Link to={item.path} title={item.description} className={
+            <LocalizedLink to={item.path} title={item.description} className={
               `block mx-5 first:ml-0 py-2 hover:text-amazee-yellow border-solid border-b-4 ${classnames({
                 'border-amazee-dark': !isSubPathOf(currentPath, item.path),
                 'border-amazee-yellow': isSubPathOf(currentPath, item.path),
               })}`
             }>
               {item.label}
-            </Link>
+            </LocalizedLink>
           </li>
         ))}
       </ul>
@@ -74,7 +75,8 @@ export const Navigation = ({items, currentPath}: NavigationProps) => (
   ) : null
 );
 
-export const StaticNavigation = ({currentPath}: {currentPath: string}) => {
+export const StaticNavigation = () => {
+  const currentPath = useCurrentPath();
 
   // Use static query allows to execute a query at build time from any
   // component. But without arguments.

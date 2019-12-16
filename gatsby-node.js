@@ -1,4 +1,4 @@
-const path = require(`path`)
+const path = require(`path`);
 const {languages, defaultLanguage} = require('./languages');
 
 exports.onCreatePage = async ({ page, actions }) => {

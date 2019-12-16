@@ -65,6 +65,7 @@
     "@storybook/addon-viewport": "^5.2.8",
     "@storybook/addons": "^5.2.6",
     "@storybook/react": "^5.2.6",
+    "@testing-library/cypress": "^5.0.2",
     "@types/classnames": "^2.2.9",
     "@types/isomorphic-fetch": "^0.0.35",
     "@types/jest": "^24.0.23",
