@@ -35,7 +35,7 @@ interface FilmResult {
   }
 }
 
-const MoviePage = ({data}: {data: FilmResult}) => {
+const FilmPage = ({data}: {data: FilmResult}) => {
   const {t} = useTranslation();
   return (
     <>
@@ -49,4 +49,4 @@ const MoviePage = ({data}: {data: FilmResult}) => {
   );
 };
 
-export default MoviePage;
+export default FilmPage;

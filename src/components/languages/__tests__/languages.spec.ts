@@ -1,4 +1,4 @@
-import { localizePath } from '../languages';
+import { delocalizePath, localizePath } from '../languages';
 
 describe('localizePath', () => {
 
@@ -27,5 +27,17 @@ describe('localizePath', () => {
   it('changes the prefix if the current and target languages are not the default language', () => {
     expect(localizePath('/de', 'fr', 'de', 'en')).toEqual('/fr');
     expect(localizePath('/de/a', 'fr', 'de', 'en')).toEqual('/fr/a');
+  });
+});
+
+describe('delocalizePath', () => {
+  it('does not change paths in the default language', () => {
+    expect(delocalizePath('/', 'en', 'en')).toEqual('/');
+    expect(delocalizePath('/a', 'en', 'en')).toEqual('/a');
+  });
+
+  it('removes the prefix if not in default language', () => {
+    expect(delocalizePath('/de', 'de', 'en')).toEqual('/');
+    expect(delocalizePath('/de/a', 'de', 'en')).toEqual('/a');
   });
 });

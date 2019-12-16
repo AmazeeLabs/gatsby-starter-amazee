@@ -4,6 +4,8 @@ import { StaticNavigation } from '../components/navigation/navigation';
 import { ReactNode, useEffect } from 'react';
 import i18n from '../../i18n';
 import { CurrentPathProvider } from '../hooks/current_path';
+import { delocalizePath } from '../components/languages/languages';
+import { defaultLanguage } from '../../languages';
 
 declare global {
   interface Window { __gatsby_language: string; }
@@ -17,6 +19,14 @@ interface LayoutProps {
   }
 }
 
+/**
+ * Global layout component.
+ *
+ * This layout will be shared across all pages.
+ *
+ * TODO: Adapt this layout to your needs.
+ * https://www.gatsbyjs.org/packages/gatsby-plugin-layout/
+ */
 const Layout = ({children, location, pageContext}: LayoutProps) => {
 
   useEffect(() => {
@@ -27,7 +37,7 @@ const Layout = ({children, location, pageContext}: LayoutProps) => {
   }, [pageContext.language]);
 
   return (
-    <CurrentPathProvider path={location.pathname}>
+    <CurrentPathProvider path={delocalizePath(location.pathname, pageContext.language,  defaultLanguage)}>
       <div>
         <Header/>
         <StaticNavigation/>

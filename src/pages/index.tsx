@@ -3,6 +3,10 @@ import { graphql } from 'gatsby';
 import { List } from '../components/list/list';
 import { useTranslation } from 'react-i18next';
 
+// By exporting this query, we tell Gatsby to execute it with the context
+// variables provided as arguments and to fill it with the query result.
+// TODO: Learn about Gatsby's GraphQL layer.
+// https://www.gatsbyjs.org/docs/graphql-concepts/
 export const FilmsQuery = graphql`
   query FilmsQuery {
     swapi {

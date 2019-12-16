@@ -12,6 +12,7 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
 * Unit tests with jest
 * Integration tests with Cypress
 * Mocking of GraphQL API's with Apollo
+* Multilingual interfaces with i18next
 
 ## 🚀 Quick start
 
@@ -30,7 +31,8 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
 
     ```shell
     cd my-project/
-    gatsby develop
+    yarn mocks &
+    yarn develop
     ```
 
 1.  **Open the source code and start editing!**
@@ -41,3 +43,13 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
 
     Open the `my-project` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and the browser will update in real time!
 
+## Package commands overview
+
+* `yarn mocks`: Start the mocked GraphQL mocked services for local development.
+* `yarn build`: Build the production web application package.
+* `yarn serve`: Locally serve the web application package.
+* `yarn jest`: Run all jest unit tests.
+* `yarn cypress:test`: Run all Cypress tests.
+* `yarn lint`: Run eslint checks.
+* `yarn storybook:develop`: Run storybook to work on components.
+* `yarn tailwind`: (Re-)build a local version of the full tailwind stylesheet for development reference.

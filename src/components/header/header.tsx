@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Languages } from '../languages/languages';
 
 /**
- * A simple header component, displaying the page title.
+ * A simple header component, displaying the page title and the language switcher.
  */
 export const Header = () => {
   const {t} = useTranslation();

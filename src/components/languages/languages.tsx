@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import {defaultLanguage, languages} from '../../../languages';
 import { useCurrentPath } from '../../hooks/current_path';
 import { navigate } from 'gatsby';
+import { ChangeEvent } from 'react';
 
 /**
  * Handle language prefixes on paths.
@@ -39,17 +40,36 @@ export const localizePath = (path: string, targetLanguage: string, currentLangua
   return `/${segments.filter(s => s.length).join('/')}`;
 };
 
+/**
+ * Remove a language prefix from the current path if present.
+ */
+export const delocalizePath = (path: string, currentLanguage: string, defaultLanguage: string) => {
+  if (currentLanguage === defaultLanguage) {
+    return path;
+  }
+  const segments = path.split('/');
+  segments.splice(1,1);
+  return `/${segments.filter(s => s.length).join('/')}`;
+};
+
+/**
+ * Component allowing the user to switch the current site language.
+ */
 export const Languages = () => {
   const {t, i18n} = useTranslation();
   const currentPath = useCurrentPath();
   const currentLanguage = i18n.language;
 
+  const handleChange = (evt : ChangeEvent<HTMLSelectElement>) => {
+    navigate(localizePath(currentPath, evt.target.value, defaultLanguage, defaultLanguage));
+  };
+
   return (
     <div>
       <label htmlFor="language-switcher" className="sr-only">{t('Change language:')}</label>
-      <select id="language-switcher" onChange={evt => navigate(evt.target.value)} value={currentPath} className="px-3 py-2 bg-amazee-gray appearance-none text-white">
+      <select id="language-switcher" onChange={handleChange} value={currentLanguage} className="px-3 py-2 bg-amazee-gray appearance-none text-white">
         {Object.keys(languages).map(lang => (
-          <option key={lang} value={localizePath(currentPath, lang, currentLanguage, defaultLanguage)}>
+          <option key={lang} value={lang}>
             {languages[lang]}
           </option>
         ))}
