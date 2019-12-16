@@ -8,11 +8,13 @@ import { Languages } from '../languages/languages';
 export const Header = () => {
   const {t} = useTranslation();
   return (
-    <div className="page-centered font-black bg-amazee-yellow text-amazee-dark sm:flex sm:content-between py-3">
-      <header className="text-2xl">
-        {t('Amazee Labs Gatsby Starter')}
-      </header>
-      <Languages/>
+    <div className="page-centered font-black bg-amazee-yellow text-amazee-dark">
+      <div className=" sm:flex sm:justify-between py-3">
+        <header className="text-2xl">
+          {t('Amazee Labs Gatsby Starter')}
+        </header>
+        <Languages/>
+      </div>
     </div>
   );
 };

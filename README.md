@@ -42,6 +42,11 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
     Open the `my-project` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and the browser will update in real time!
+    
+1. **Review the TODO's:**
+   
+   After creation the project is full of `TODO` comments that will lead you to different parts that can/have to be
+   modified and also point you to external documentation on these.
 
 ## Package commands overview
 
