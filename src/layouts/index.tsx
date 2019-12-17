@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Header } from '../components/header/header';
 import { StaticNavigation } from '../components/navigation/navigation';
-import { ReactNode, useEffect } from 'react';
+import { useEffect } from 'react';
 import i18n from '../../i18n';
 import { CurrentPathProvider } from '../hooks/current_path';
 import { delocalizePath } from '../components/languages/languages';
@@ -9,14 +9,6 @@ import { defaultLanguage } from '../../languages';
 
 declare global {
   interface Window { __gatsby_language: string; }
-}
-
-interface LayoutProps {
-  children: ReactNode
-  location: Location
-  pageContext: {
-    language: string
-  }
 }
 
 /**
@@ -27,7 +19,18 @@ interface LayoutProps {
  * TODO: Adapt this layout to your needs.
  * https://www.gatsbyjs.org/packages/gatsby-plugin-layout/
  */
-const Layout = ({children, location, pageContext}: LayoutProps) => {
+const Layout : React.FC<{
+  /**
+   * The location object passed in by Gatsby.
+   */
+  location: Location
+  /**
+   * The page context assembled in gatsby-node.js
+   */
+  pageContext: {
+    language: string
+  }
+}> = ({children, location, pageContext}) => {
 
   useEffect(() => {
     i18n.changeLanguage(pageContext.language);

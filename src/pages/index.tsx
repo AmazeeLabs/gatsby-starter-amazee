@@ -19,17 +19,17 @@ export const FilmsQuery = graphql`
   }
 `;
 
-interface FilmsResult {
-  swapi: {
-    allFilms: {
-      id: string
-      title: string
-      episodeId: number
-    }[]
+const IndexPage : React.FC<{
+  data: {
+    swapi: {
+      allFilms: {
+        id: string
+        title: string
+        episodeId: number
+      }[]
+    }
   }
-}
-
-const IndexPage = ({data}: {data: FilmsResult}) => {
+}> = ({data}) => {
   const {t} = useTranslation();
   return (
     <>

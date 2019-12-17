@@ -21,7 +21,7 @@ interface Film {
   episodeId: string
 }
 
-const PersonPage = ({id}: PersonPageProps) => {
+const PersonPage : React.FC<PersonPageProps> = ({id}) => {
   const {t} = useTranslation();
 
   // Apollo`s useQuery hook allows us to query for additional data at runtime
@@ -50,7 +50,6 @@ const PersonPage = ({id}: PersonPageProps) => {
     console.log(error);
   }
 
-
   return data ? (
     <>
       <h1 className="mb-8">{t('Films with "{{name}}"', {name: data.Person.name})}</h1>
@@ -63,7 +62,7 @@ const PersonPage = ({id}: PersonPageProps) => {
   ) : <p className="text-center italic">An error occurred. We are very sorry ...</p>;
 };
 
-const DynamicPersonPage = () => (
+const DynamicPersonPage : React.FC = () => (
   <Router>
     <PersonPage path="person/:id" />
     <PersonPage path=":language/person/:id" />

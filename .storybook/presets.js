@@ -12,5 +12,9 @@ module.exports = [
   },
   {
     name: '@storybook/addon-docs/react/preset',
+    options: {
+      // FIXME: Re-enable story source display when typing issues are resolved.
+      sourceLoaderOptions: null
+    }
   }
 ];

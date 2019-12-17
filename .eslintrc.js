@@ -52,6 +52,7 @@ module.exports = {
             'error',
             'always'
         ],
+        'react/prop-types': ['off'],
         'react/prefer-stateless-function': ['error'],
         'no-unused-vars': ['off'],
         '@typescript-eslint/no-unused-vars-experimental': ['error'],
