@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Header } from '../components/header/header';
 import { StaticNavigation } from '../components/navigation/navigation';
-import { ReactNode, useEffect } from 'react';
+import { useEffect } from 'react';
 import i18n from '../../i18n';
 import { CurrentPathProvider } from '../hooks/current_path';
 import { delocalizePath } from '../components/languages/languages';
