@@ -6156,6 +6156,11 @@ cypress-cucumber-preprocessor@^1.18.0:
     ps-node "^0.1.6"
     through "^2.3.8"
 
+cypress-wait-until@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/cypress-wait-until/-/cypress-wait-until-1.6.1.tgz#2554191e5ecdc9ff21a045e09289e5a1ee76f6b7"
+  integrity sha512-bI4p9Pou6EoIU0v9RyjPOoKH6aiNXg1TIVXyGmlpjcOhdIbg1OVSs3fmMQLxnQAm6xVY4rLWWQg3gbIzuToxTw==
+
 cypress@^3.5.0:
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-3.8.0.tgz#7d4cd08f81f9048ee36760cc9ee3b9014f9e84ab"
@@ -8179,13 +8184,6 @@ gatsby-core-utils@^1.0.22:
   dependencies:
     ci-info "2.0.0"
     node-object-hash "^2.0.0"
-
-gatsby-cypress@^0.2.19:
-  version "0.2.19"
-  resolved "https://registry.yarnpkg.com/gatsby-cypress/-/gatsby-cypress-0.2.19.tgz#4152a92b972251fdb9e25c6b69442dd2eab3baad"
-  integrity sha512-X3fZD/6M4q6pHN2+EWfWLhMNPeX5CsdYH8dMkrXGQoO9kRTi/ZoxMlimUf72xk+Q5Iq5FIGiSJw8sYGkUyev0Q==
-  dependencies:
-    "@babel/runtime" "^7.7.6"
 
 gatsby-graphiql-explorer@^0.2.29:
   version "0.2.31"
