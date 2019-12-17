@@ -26,3 +26,11 @@
 
 import '@testing-library/cypress/add-commands';
 import 'cypress-wait-until';
+
+Cypress.Commands.add('waitForNavigate', { prevSubject: 'optional'}, () => {
+  cy.window().then( win => {
+    const currentPath = win.location.pathname;
+    cy.waitUntil(() => cy.window().then(win => win.location.pathname !== currentPath));
+  });
+
+});

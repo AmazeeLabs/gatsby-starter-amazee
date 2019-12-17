@@ -12,11 +12,8 @@ When(/^the user uses the language switcher to change the site language to "([^"]
   cy.get('#language-switcher').contains(lang).then(result => {
     const langCode = result.attr('value');
     cy.get('#language-switcher').select(langCode);
-    // After switching the language, we have to wait for Gatsby to actually
-    // change the url path, since there might not be a http request that cypress
-    // will wait for automatically.
-    cy.waitUntil(() => cy.window().then(win => {
-      return win.location.pathname.substr(1, langCode.length) === langCode;
-    }));
+    // Wait for gatsby to actually change the window location, since this might
+    // not include a HTTP request that cypress waits for automatically.
+    cy.waitForNavigate();
   });
 });
