@@ -10,8 +10,8 @@ Then(/^the page title should read "([^"]*)"$/, function(title) {
 
 When(/^the user uses the language switcher to change the site language to "([^"]*)"$/, function(lang) {
   cy.get('#language-switcher').contains(lang).then(result => {
-    cy.get('#language-switcher').select(result.attr('value'));
+    cy.get('#language-switcher').select(result.attr('value')).wait(1000);
     // TODO: We have to wait for Gatsby to navigate.
-    cy.wait(1000);
+    // cy.wait(1000);
   });
 });
