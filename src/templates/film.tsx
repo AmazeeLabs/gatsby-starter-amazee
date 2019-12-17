@@ -21,21 +21,21 @@ export const FilmQuery = graphql`
   }
 `;
 
-interface FilmResult {
-  swapi: {
-    Film: {
-      id: string
-      title: string
-      episodeId: number
-      characters: {
+const FilmPage : React.FC<{
+  data: {
+    swapi: {
+      Film: {
         id: string
-        name: string
-      }[]
+        title: string
+        episodeId: number
+        characters: {
+          id: string
+          name: string
+        }[]
+      }
     }
   }
-}
-
-const FilmPage = ({data}: {data: FilmResult}) => {
+}> = ({data}) => {
   const {t} = useTranslation();
   return (
     <>

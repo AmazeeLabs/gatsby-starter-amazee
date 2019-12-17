@@ -8,7 +8,7 @@
  * https://reactjs.org/docs/hooks-intro.html
  * https://reactjs.org/docs/hooks-reference.html#usecontext
  */
-import { ReactNode, useContext } from 'react';
+import { useContext } from 'react';
 import * as React from 'react';
 
 // Create a new react context with initial value '/'.
@@ -16,7 +16,7 @@ const CurrentPathContext = React.createContext<string>('/');
 
 // Provide a `CurrentPathProvider` component that is used to set the path in the
 // global layout component (see `src/layouts/index.tsx).
-export const CurrentPathProvider = ({path, children}: {path: string, children: ReactNode}) => (
+export const CurrentPathProvider : React.FC<{path: string}> = ({path, children}) => (
   <CurrentPathContext.Provider value={path}>{children}</CurrentPathContext.Provider>
 );
 

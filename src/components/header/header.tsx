@@ -5,7 +5,7 @@ import { Languages } from '../languages/languages';
 /**
  * A simple header component, displaying the page title and the language switcher.
  */
-export const Header = () => {
+export const Header : React.FC = () => {
   const {t} = useTranslation();
   return (
     <div className="page-centered font-black bg-amazee-yellow text-amazee-dark">

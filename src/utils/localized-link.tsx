@@ -31,7 +31,7 @@ export function LocalizedLink<TState>({to, ...rest}: GatsbyLinkProps<TState>) {
  *
  * To be used identically to Gatsby `navigate`.
  */
-export const localizedNavigate = (to, options = {}) => {
+export const localizedNavigate = (to: string, options = {}) => {
   if (typeof window === 'undefined') {
     return;
   }

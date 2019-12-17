@@ -5,6 +5,8 @@ import { useCurrentPath } from '../../hooks/current_path';
 import { navigate } from 'gatsby';
 import { ChangeEvent } from 'react';
 
+const languageOptions : {[key: string]: string} = languages;
+
 /**
  * Handle language prefixes on paths.
  *
@@ -55,7 +57,7 @@ export const delocalizePath = (path: string, currentLanguage: string, defaultLan
 /**
  * Component allowing the user to switch the current site language.
  */
-export const Languages = () => {
+export const Languages : React.FC = () => {
   const {t, i18n} = useTranslation();
   const currentPath = useCurrentPath();
   const currentLanguage = i18n.language;
@@ -70,7 +72,7 @@ export const Languages = () => {
       <select id="language-switcher" onChange={handleChange} value={currentLanguage} className="px-3 py-2 bg-amazee-gray appearance-none text-white">
         {Object.keys(languages).map(lang => (
           <option key={lang} value={lang}>
-            {languages[lang]}
+            {languageOptions[lang]}
           </option>
         ))}
       </select>

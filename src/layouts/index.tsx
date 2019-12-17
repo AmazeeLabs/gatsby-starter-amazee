@@ -11,14 +11,6 @@ declare global {
   interface Window { __gatsby_language: string; }
 }
 
-interface LayoutProps {
-  children: ReactNode
-  location: Location
-  pageContext: {
-    language: string
-  }
-}
-
 /**
  * Global layout component.
  *
@@ -27,7 +19,18 @@ interface LayoutProps {
  * TODO: Adapt this layout to your needs.
  * https://www.gatsbyjs.org/packages/gatsby-plugin-layout/
  */
-const Layout = ({children, location, pageContext}: LayoutProps) => {
+const Layout : React.FC<{
+  /**
+   * The location object passed in by Gatsby.
+   */
+  location: Location
+  /**
+   * The page context assembled in gatsby-node.js
+   */
+  pageContext: {
+    language: string
+  }
+}> = ({children, location, pageContext}) => {
 
   useEffect(() => {
     i18n.changeLanguage(pageContext.language);

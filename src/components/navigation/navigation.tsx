@@ -4,7 +4,24 @@ import { LocalizedLink, localizedNavigate } from '../../utils/localized-link';
 import classnames from 'classnames';
 import { useCurrentPath } from '../../hooks/current_path';
 
-export interface NavigationProps {
+/**
+ * Helper method to determine if a path is a sub-path of another one.
+ */
+export const isSubPathOf = (subPath: string, path: string) => {
+  return ((a: string[], b: string[]) =>
+    a.map((v, i) => b[i] === v).reduce((p, c) => p && c)
+  )(
+    subPath.split('/').slice(0, path.split('/').length),
+    path.split('/')
+  ) ;
+};
+
+/**
+ * The navigation UI element.
+ *
+ * Accepts a list of navigation items and the current path as arguments.
+ */
+export const Navigation : React.FC<{
   /**
    * The list of navigation items.
    */
@@ -27,26 +44,7 @@ export interface NavigationProps {
    * The current page path.
    */
   currentPath: string
-}
-
-/**
- * Helper method to determine if a path is a sub-path of another one.
- */
-export const isSubPathOf = (subPath: string, path: string) => {
-  return ((a: string[], b: string[]) =>
-    a.map((v, i) => b[i] === v).reduce((p, c) => p && c)
-  )(
-    subPath.split('/').slice(0, path.split('/').length),
-    path.split('/')
-  ) ;
-};
-
-/**
- * The navigation UI element.
- *
- * Accepts a list of navigation items and the current path as arguments.
- */
-export const Navigation = ({items, currentPath}: NavigationProps) => (
+}> = ({items, currentPath}) => (
   items.length ? (
     <div className="page-centered bg-amazee-dark text-white py-2 sm:py-0">
       <select
@@ -75,7 +73,7 @@ export const Navigation = ({items, currentPath}: NavigationProps) => (
   ) : null
 );
 
-export const StaticNavigation = () => {
+export const StaticNavigation : React.FC = () => {
   const currentPath = useCurrentPath();
 
   // Use static query allows to execute a query at build time from any

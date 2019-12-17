@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { LocalizedLink } from '../../utils/localized-link';
 
-export interface ListProps {
+/**
+ * A simple list of links.
+ */
+export const List : React.FC<{
   /**
    * List item definitions, containing a unique id, a label and a path.
    */
@@ -10,12 +13,7 @@ export interface ListProps {
     label: string
     path: string
   }[]
-}
-
-/**
- * A simple list of links.
- */
-export const List = ({items}: ListProps) => (
+}> = ({items}) => (
   items.length ? (
     <ul>
       {items.map(item => (
