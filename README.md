@@ -53,8 +53,10 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
 * `yarn mocks`: Start the mocked GraphQL mocked services for local development.
 * `yarn build`: Build the production web application package.
 * `yarn serve`: Locally serve the web application package.
+* `yarn develop`: Run the live-refreshing development host.
 * `yarn jest`: Run all jest unit tests.
-* `yarn cypress:test`: Run all Cypress tests.
+* `yarn cypress:run:api`: Run all tests that target the API (requires `yarn mocks` and `yarn develop` to be already running).
+* `yarn cypress:test`: Run all Cypress tests (requires `yarn mocks` and `yarn develop` to be already running).
 * `yarn lint`: Run eslint checks.
 * `yarn storybook:develop`: Run storybook to work on components.
 * `yarn tailwind`: (Re-)build a local version of the full tailwind stylesheet for development reference.
