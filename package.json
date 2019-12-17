@@ -15,10 +15,10 @@
     "clean": "gatsby clean",
     "jest": "jest",
     "tailwind": "tailwind build src/styles/tailwind.css > src/styles/tailwind.build.css",
-    "cypress:environment": "CI=true gatsby develop || true",
-    "cypress:test": "start-server-and-test cypress:environment http://localhost:8000 cypress:run",
     "cypress:open": "cypress open",
+    "cypress:open:api": "CYPRESS_SWAPI=http://localhost:4000 CYPRESS_TEST_LEVEL=api CYPRESS_TAGS='not @UI' cypress open",
     "cypress:run": "cypress run",
+    "cypress:run:api": "CYPRESS_SWAPI=http://localhost:4000 CYPRESS_TEST_LEVEL=api cypress-tags run -e TAGS='not @UI'",
     "storybook:develop": "start-storybook -p 6006 --ci",
     "storybook:build": "build-storybook"
   },
@@ -35,7 +35,7 @@
     "classnames": "^2.2.6",
     "concurrently": "^5.0.0",
     "cypress": "^3.7.0",
-    "cypress-cucumber-preprocessor": "^1.18.0",
+    "cypress-cucumber-preprocessor": "https://github.com/liamchilds/cypress-cucumber-preprocessor.git#configurable-loc-non-global-steps",
     "cypress-wait-until": "^1.6.1",
     "eslint": "^6.7.2",
     "gatsby": "^2.18.4",
@@ -90,8 +90,5 @@
   },
   "bugs": {
     "url": "https://github.com/AmazeeLabs/gatsby-starter-amazee/issues"
-  },
-  "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
   }
 }
