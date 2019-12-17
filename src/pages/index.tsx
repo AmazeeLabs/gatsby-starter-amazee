@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { Header } from '../components/header/header';
-import { StaticNavigation } from '../components/navigation/navigation';
 import { List } from '../components/list/list';
+import { useTranslation } from 'react-i18next';
 
+// By exporting this query, we tell Gatsby to execute it with the context
+// variables provided as arguments and to fill it with the query result.
+// TODO: Learn about Gatsby's GraphQL layer.
+// https://www.gatsbyjs.org/docs/graphql-concepts/
 export const FilmsQuery = graphql`
   query FilmsQuery {
     swapi {
@@ -26,19 +29,18 @@ interface FilmsResult {
   }
 }
 
-const IndexPage = ({data, location}: {data: FilmsResult, location: Location}) => (
-  <div>
-    <Header/>
-    <StaticNavigation currentPath={location.pathname}/>
-    <div className="page-centered py-8">
-      <h1 className="mb-8">Movie listing</h1>
+const IndexPage = ({data}: {data: FilmsResult}) => {
+  const {t} = useTranslation();
+  return (
+    <>
+      <h1 className="mb-8">{t('Movie listing')}</h1>
       <List items={data.swapi.allFilms.map(film => ({
         id: film.id,
         label: film.title,
         path: `/film/${film.id}`,
       }))} />
-    </div>
-  </div>
-);
+    </>
+  );
+};
 
 export default IndexPage;
