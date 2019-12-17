@@ -34,3 +34,14 @@ Cypress.Commands.add('waitForNavigate', { prevSubject: 'optional'}, () => {
   });
 
 });
+
+Cypress.Commands.add('graphqlQuery', (query, variables = {}) => {
+  return cy.request({
+    url: Cypress.env('SWAPI'),
+    method: 'POST',
+    body: {
+      query: query,
+      variables: variables,
+    }
+  });
+})

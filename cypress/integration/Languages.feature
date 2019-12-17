@@ -1,3 +1,4 @@
+@UI
 Feature: Languages
   A language switcher in the page header allows visitors to change the websites,
   language which will cause all translated interface texts to change.

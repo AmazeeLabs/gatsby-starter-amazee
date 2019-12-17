@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - 10
+  -
+
+env:
+  - CI=true
 
 cache:
   directories:
@@ -17,5 +21,6 @@ script:
   - yarn develop &
   - until nc -z 127.0.0.1 8000; do sleep 1 ; done
   - yarn cypress:run
+  - yarn cypress:run:api
   - kill $(jobs -p) || true
 
