@@ -56,7 +56,7 @@ const PersonPage : React.FC<PersonPageProps> = ({id}) => {
       <List items={data.Person.films.map((film: Film) => ({
         id: film.id,
         label: `${film.title} (Episode ${film.episodeId})`,
-        path: `/film/${film.id}`,
+        path: `/films/${film.id}`,
       }))} />
     </>
   ) : <p className="text-center italic">An error occurred. We are very sorry ...</p>;
@@ -64,8 +64,8 @@ const PersonPage : React.FC<PersonPageProps> = ({id}) => {
 
 const DynamicPersonPage : React.FC = () => (
   <Router>
-    <PersonPage path="person/:id" />
-    <PersonPage path=":language/person/:id" />
+    <PersonPage path="persons/:id" />
+    <PersonPage path=":language/persons/:id" />
   </Router>
 );
 

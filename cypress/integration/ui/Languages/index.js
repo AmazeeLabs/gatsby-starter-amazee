@@ -1,6 +1,6 @@
 import {Given, When, Then} from 'cypress-cucumber-preprocessor/steps';
 
-Given(/^a user visits the page for movie listings$/, function() {
+Given(/^a user visits the home page$/, function() {
   cy.visit('/');
 });
 

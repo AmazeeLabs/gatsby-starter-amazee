@@ -65,6 +65,7 @@ films[2].characters = [persons[1], persons[2]];
   typeDefs: gql`
     type Query {
       allFilms: [Film]!
+      allPersons: [Person]!
       Person(id: ID!): Person
       Film(id: ID!): Film
     }
@@ -85,6 +86,7 @@ films[2].characters = [persons[1], persons[2]];
   mocks: <any>{
     Query : () => ({
       allFilms: () => films,
+      allPersons: () => persons,
       Person: (_:any, {id}: {id: String}) => persons.filter(person => person.id === id).pop(),
       Film: (_: any, {id}: {id: String}) => films.filter(film => film.id === id).pop(),
     }),

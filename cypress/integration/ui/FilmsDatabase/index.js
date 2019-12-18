@@ -5,7 +5,7 @@ Then(/^the list should contain "([^"]*)"$/, function(title) {
 });
 
 Given(/^a visitor requests the film listing$/, function() {
-  cy.visit('/')
+  cy.visit('/films')
 });
 
 But(/^the list should not contain "([^"]*)"$/, function(title) {
@@ -13,9 +13,11 @@ But(/^the list should not contain "([^"]*)"$/, function(title) {
 });
 
 Given(/^a visitor requests the list of films with "([^"]*)"$/, function(name) {
-  cy.visit('/person/1');
+  cy.visit('/persons');
+  cy.contains(name).click();
 });
 
-Given(/^a visitor requests the list of characters in "([^"]*)"$/, function() {
-  cy.visit('/film/1');
+Given(/^a visitor requests the list of characters in "([^"]*)"$/, function(title) {
+  cy.visit('/films');
+  cy.contains(title).click();
 });

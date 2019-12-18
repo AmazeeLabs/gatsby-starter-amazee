@@ -4,10 +4,12 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   de: {
     translation: {
-      'Amazee Labs Gatsby Starter': 'Amazee Labs Gatsby Starter - German',
-      'Movie listing': 'Filmliste',
+      'Star Wars Database': 'Star Wars Datenbank',
+      'Films': 'Filme',
       'Films with "{{name}}"': 'Filme mit "{{name}}"',
       'Characters in "{{title}}"': 'Charaktere in "{{title}}"',
+      'Welcome': 'Willkommen',
+      'This is a Gatsby example project.': 'Das ist ein beispielhaftes Gatsby Projekt.'
     }
   }
 };

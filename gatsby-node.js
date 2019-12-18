@@ -2,21 +2,12 @@ const path = require(`path`);
 const {languages, defaultLanguage} = require('./languages');
 
 exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage, deletePage} = actions
+  const { createPage, deletePage} = actions;
   deletePage(page);
 
   return new Promise(resolve => {
     Object.keys(languages).forEach( lang => {
-
-      // TODO: Adjust client only paths.
-      // Paths matching this pattern will be generated once and will load
-      // information on the client.
-      // https://www.gatsbyjs.org/docs/client-only-routes-and-user-authentication/
       const languagePrefix = lang === defaultLanguage ? '' : `${lang}/`;
-
-      if (page.path.match(/^\/person/)) {
-        page.matchPath = `/${languagePrefix}person/*`
-      }
 
       return createPage({
         ...page,
@@ -55,10 +46,11 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   Object.keys(languages).forEach( lang => {
+    const languagePrefix = lang === defaultLanguage ? '' : `${lang}/`;
+
     filmsResult.data.swapi.allFilms.forEach(({ id }) => {
-      const languagePrefix = lang === defaultLanguage ? '' : `${lang}/`;
       createPage({
-        path: `/${languagePrefix}film/${id}`,
+        path: `/${languagePrefix}films/${id}`,
         component: path.resolve(`./src/templates/film.tsx`),
         context: {
           id,
@@ -66,5 +58,14 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
     });
+
+    createPage({
+      path: `/${languagePrefix}persons/:id`,
+      matchPath: `/${languagePrefix}persons/*`,
+      component: path.resolve(`./src/templates/person.tsx`),
+      context: {
+        language: lang
+      },
+    })
   });
 }

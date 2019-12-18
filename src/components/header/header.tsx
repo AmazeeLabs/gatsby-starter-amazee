@@ -11,7 +11,7 @@ export const Header : React.FC = () => {
     <div className="page-centered font-black bg-amazee-yellow text-amazee-dark">
       <div className=" sm:flex sm:justify-between py-3">
         <header className="text-2xl">
-          {t('Amazee Labs Gatsby Starter')}
+          {t('Star Wars Database')}
         </header>
         <Languages/>
       </div>
