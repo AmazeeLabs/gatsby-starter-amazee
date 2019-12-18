@@ -1,6 +1,7 @@
 const path = require(`path`);
 const {languages, defaultLanguage} = require('./languages');
 
+// FIXME: Move language iteration into a gatsby plugin.
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage, deletePage} = actions;
   deletePage(page);
@@ -45,9 +46,11 @@ exports.createPages = async ({ graphql, actions }) => {
     throw filmsResult.errors
   }
 
+  // FIXME: Move language iteration into a gatsby plugin.
   Object.keys(languages).forEach( lang => {
     const languagePrefix = lang === defaultLanguage ? '' : `${lang}/`;
 
+    // Create a page for each film result row.
     filmsResult.data.swapi.allFilms.forEach(({ id }) => {
       createPage({
         path: `/${languagePrefix}films/${id}`,
@@ -59,9 +62,14 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     });
 
+    // TODO: Create virtual pages for client only routes.
+    // Create a virtual page for the dynamic person template.
     createPage({
+      // Every page has to have a path, even if in this case it is not used.
       path: `/${languagePrefix}persons/:id`,
+      // Define a pattern that will trigger this template.
       matchPath: `/${languagePrefix}persons/*`,
+      // Reference the page template to be used.
       component: path.resolve(`./src/templates/person.tsx`),
       context: {
         language: lang
