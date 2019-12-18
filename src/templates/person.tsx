@@ -21,6 +21,9 @@ interface Film {
   episodeId: string
 }
 
+/**
+ * The main visual template for the person page, including an apollo query.
+ */
 const PersonPage : React.FC<PersonPageProps> = ({id}) => {
   const {t} = useTranslation();
 
@@ -50,22 +53,27 @@ const PersonPage : React.FC<PersonPageProps> = ({id}) => {
     console.log(error);
   }
 
-  return data ? (
+  return data && data.Person ? (
     <>
       <h1 className="mb-8">{t('Films with "{{name}}"', {name: data.Person.name})}</h1>
       <List items={data.Person.films.map((film: Film) => ({
         id: film.id,
         label: `${film.title} (Episode ${film.episodeId})`,
-        path: `/film/${film.id}`,
+        path: `/films/${film.id}`,
       }))} />
     </>
   ) : <p className="text-center italic">An error occurred. We are very sorry ...</p>;
 };
 
+/**
+ * The person template entry point.
+ * Parses the path and calls the PersonPage component with the url arguments.
+ */
 const DynamicPersonPage : React.FC = () => (
   <Router>
-    <PersonPage path="person/:id" />
-    <PersonPage path=":language/person/:id" />
+    <PersonPage path="persons/:id" />
+    {/*FIXME: Remove language prefix before path is handed over to the router.*/}
+    <PersonPage path=":language/persons/:id" />
   </Router>
 );
 

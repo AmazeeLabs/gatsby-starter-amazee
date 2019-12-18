@@ -27,6 +27,7 @@
 import '@testing-library/cypress/add-commands';
 import 'cypress-wait-until';
 
+// FIXME: Move to dedicated plugin.
 Cypress.Commands.add('waitForNavigate', { prevSubject: 'optional'}, () => {
   cy.window().then( win => {
     const currentPath = win.location.pathname;
@@ -35,6 +36,7 @@ Cypress.Commands.add('waitForNavigate', { prevSubject: 'optional'}, () => {
 
 });
 
+// FIXME: Move to dedicated plugin.
 Cypress.Commands.add('graphqlQuery', (query, variables = {}) => {
   return cy.request({
     url: Cypress.env('SWAPI'),

@@ -1,22 +1,14 @@
 const path = require(`path`);
 const {languages, defaultLanguage} = require('./languages');
 
+// FIXME: Move language iteration into a gatsby plugin.
 exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage, deletePage} = actions
+  const { createPage, deletePage} = actions;
   deletePage(page);
 
   return new Promise(resolve => {
     Object.keys(languages).forEach( lang => {
-
-      // TODO: Adjust client only paths.
-      // Paths matching this pattern will be generated once and will load
-      // information on the client.
-      // https://www.gatsbyjs.org/docs/client-only-routes-and-user-authentication/
       const languagePrefix = lang === defaultLanguage ? '' : `${lang}/`;
-
-      if (page.path.match(/^\/person/)) {
-        page.matchPath = `/${languagePrefix}person/*`
-      }
 
       return createPage({
         ...page,
@@ -54,11 +46,14 @@ exports.createPages = async ({ graphql, actions }) => {
     throw filmsResult.errors
   }
 
+  // FIXME: Move language iteration into a gatsby plugin.
   Object.keys(languages).forEach( lang => {
+    const languagePrefix = lang === defaultLanguage ? '' : `${lang}/`;
+
+    // Create a page for each film result row.
     filmsResult.data.swapi.allFilms.forEach(({ id }) => {
-      const languagePrefix = lang === defaultLanguage ? '' : `${lang}/`;
       createPage({
-        path: `/${languagePrefix}film/${id}`,
+        path: `/${languagePrefix}films/${id}`,
         component: path.resolve(`./src/templates/film.tsx`),
         context: {
           id,
@@ -66,5 +61,19 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
     });
+
+    // TODO: Create virtual pages for client only routes.
+    // Create a virtual page for the dynamic person template.
+    createPage({
+      // Every page has to have a path, even if in this case it is not used.
+      path: `/${languagePrefix}persons/:id`,
+      // Define a pattern that will trigger this template.
+      matchPath: `/${languagePrefix}persons/*`,
+      // Reference the page template to be used.
+      component: path.resolve(`./src/templates/person.tsx`),
+      context: {
+        language: lang
+      },
+    })
   });
 }

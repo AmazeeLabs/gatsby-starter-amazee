@@ -63,6 +63,7 @@ export const Languages : React.FC = () => {
   const currentLanguage = i18n.language;
 
   const handleChange = (evt : ChangeEvent<HTMLSelectElement>) => {
+    console.log(localizePath(currentPath, evt.target.value, defaultLanguage, defaultLanguage));
     navigate(localizePath(currentPath, evt.target.value, defaultLanguage, defaultLanguage));
   };
 
