@@ -18,7 +18,7 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
 
 1.  **Create a Gatsby site.**
 
-    Use the Gatsby CLI to create a new site, specifying the hello-world starter.
+    Use the [Gatsby CLI](https://www.gatsbyjs.org/tutorial/part-zero/#using-the-gatsby-cli) to create a new site, specifying the hello-world starter.
 
     ```shell
     # create a new Gatsby site using the Amazee starter
