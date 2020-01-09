@@ -14,7 +14,7 @@ const resources = {
       'Welcome': 'Willkommen',
       'This is a Gatsby example project.':
         'Das ist ein beispielhaftes Gatsby Projekt.',
-      'Characters in "{{title}}"': 'Charaktere in "{{title}}"',
+      'Episode {{episodeId}}': 'Zeichen {{episodeId}}',
       'Films with "{{name}}"': 'Filme mit "{{name}}"',
     },
   },
