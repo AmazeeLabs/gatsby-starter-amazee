@@ -15,7 +15,11 @@ module.exports = {
     navigation: [
       { path: '/', label: 'Home', description: 'Navigate to the home page' },
       { path: '/films', label: 'Films', description: 'Film listing' },
-      { path: '/persons', label: 'Persons', description: 'Character listing' },
+      {
+        path: '/persons',
+        label: 'Characters',
+        description: 'Character listing',
+      },
     ],
   },
   plugins: [

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 import { LocalizedLink, localizedNavigate } from '../../utils/localized-link';
 import classnames from 'classnames';
 import { useCurrentPath } from '../../hooks/current_path';
@@ -43,16 +44,18 @@ export const Navigation: React.FC<{
    * The current page path.
    */
   currentPath: string;
-}> = ({ items, currentPath }) =>
-  items.length ? (
+}> = ({ items, currentPath }) => {
+  const { t } = useTranslation();
+
+  return items.length ? (
     <div className="page-centered bg-amazee-dark text-white py-2 sm:py-0">
       <select
-        className=" sm:hidden block appearance-none w-full bg-amazee-dark border-2 border-amazee-yellow px-3 py-2"
+        className="sm:hidden block appearance-none w-full bg-amazee-dark border-2 border-amazee-yellow px-3 py-2"
         onChange={event => localizedNavigate(event.target.value)}
       >
         {items.map(item => (
           <option key={item.path} value={item.path}>
-            {item.label}
+            {t(item.label)}
           </option>
         ))}
       </select>
@@ -69,13 +72,14 @@ export const Navigation: React.FC<{
                 }
               )}`}
             >
-              {item.label}
+              {t(item.label)}
             </LocalizedLink>
           </li>
         ))}
       </ul>
     </div>
   ) : null;
+};
 
 export const StaticNavigation: React.FC = () => {
   const currentPath = useCurrentPath();
