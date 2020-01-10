@@ -28,12 +28,13 @@ import '@testing-library/cypress/add-commands';
 import 'cypress-wait-until';
 
 // FIXME: Move to dedicated plugin.
-Cypress.Commands.add('waitForNavigate', { prevSubject: 'optional'}, () => {
-  cy.window().then( win => {
+Cypress.Commands.add('waitForNavigate', { prevSubject: 'optional' }, () => {
+  cy.window().then(win => {
     const currentPath = win.location.pathname;
-    cy.waitUntil(() => cy.window().then(win => win.location.pathname !== currentPath));
+    cy.waitUntil(() =>
+      cy.window().then(win => win.location.pathname !== currentPath)
+    );
   });
-
 });
 
 // FIXME: Move to dedicated plugin.
@@ -44,6 +45,6 @@ Cypress.Commands.add('graphqlQuery', (query, variables = {}) => {
     body: {
       query: query,
       variables: variables,
-    }
+    },
   });
-})
+});

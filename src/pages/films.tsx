@@ -19,26 +19,28 @@ export const FilmsQuery = graphql`
   }
 `;
 
-const IndexPage : React.FC<{
+const IndexPage: React.FC<{
   data: {
     swapi: {
       allFilms: {
-        id: string
-        title: string
-        episodeId: number
-      }[]
-    }
-  }
-}> = ({data}) => {
-  const {t} = useTranslation();
+        id: string;
+        title: string;
+        episodeId: number;
+      }[];
+    };
+  };
+}> = ({ data }) => {
+  const { t } = useTranslation();
   return (
     <>
       <h1 className="mb-8">{t('Films')}</h1>
-      <List items={data.swapi.allFilms.map(film => ({
-        id: film.id,
-        label: film.title,
-        path: `/films/${film.id}`,
-      }))} />
+      <List
+        items={data.swapi.allFilms.map(film => ({
+          id: film.id,
+          label: film.title,
+          path: `/films/${film.id}`,
+        }))}
+      />
     </>
   );
 };

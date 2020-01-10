@@ -16,8 +16,13 @@ const CurrentPathContext = React.createContext<string>('/');
 
 // Provide a `CurrentPathProvider` component that is used to set the path in the
 // global layout component (see `src/layouts/index.tsx).
-export const CurrentPathProvider : React.FC<{path: string}> = ({path, children}) => (
-  <CurrentPathContext.Provider value={path}>{children}</CurrentPathContext.Provider>
+export const CurrentPathProvider: React.FC<{ path: string }> = ({
+  path,
+  children,
+}) => (
+  <CurrentPathContext.Provider value={path}>
+    {children}
+  </CurrentPathContext.Provider>
 );
 
 // Expose a `useCurrentPath` hook for other components to quickly retrieve

@@ -4,15 +4,15 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
 
 ## Features
 
-* Storybook
-* Typescript
-* PostCSS with `postcss-preset-env`
-* CSS Modules
-* TailwindCSS + PurgeCSS
-* Unit tests with jest
-* Integration tests with Cypress
-* Mocking of GraphQL API's with Apollo
-* Multilingual interfaces with i18next
+- Storybook
+- Typescript
+- PostCSS with `postcss-preset-env`
+- CSS Modules
+- TailwindCSS + PurgeCSS
+- Unit tests with jest
+- Integration tests with Cypress
+- Mocking of GraphQL API's with Apollo
+- Multilingual interfaces with i18next
 
 ## 🚀 Quick start
 
@@ -42,21 +42,21 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
     Open the `my-project` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and the browser will update in real time!
-    
-1. **Review the TODO's:**
-   
-   After creation the project is full of `TODO` comments that will lead you to different parts that can/have to be
-   modified and also point you to external documentation on these.
+
+1.  **Review the TODO's:**
+
+    After creation the project is full of `TODO` comments that will lead you to different parts that can/have to be
+    modified and also point you to external documentation on these.
 
 ## Package commands overview
 
-* `yarn mocks`: Start the mocked GraphQL mocked services for local development.
-* `yarn build`: Build the production web application package.
-* `yarn serve`: Locally serve the web application package.
-* `yarn develop`: Run the live-refreshing development host.
-* `yarn jest`: Run all jest unit tests.
-* `yarn cypress:run:api`: Run all tests that target the API (requires `yarn mocks` and `yarn develop` to be already running).
-* `yarn cypress:test`: Run all Cypress tests (requires `yarn mocks` and `yarn develop` to be already running).
-* `yarn lint`: Run eslint checks.
-* `yarn storybook:develop`: Run storybook to work on components.
-* `yarn tailwind`: (Re-)build a local version of the full tailwind stylesheet for development reference.
+- `yarn mocks`: Start the mocked GraphQL mocked services for local development.
+- `yarn build`: Build the production web application package.
+- `yarn serve`: Locally serve the web application package.
+- `yarn develop`: Run the live-refreshing development host.
+- `yarn jest`: Run all jest unit tests.
+- `yarn cypress:run:api`: Run all tests that target the API (requires `yarn mocks` and `yarn develop` to be already running).
+- `yarn cypress:test`: Run all Cypress tests (requires `yarn mocks` and `yarn develop` to be already running).
+- `yarn lint`: Run eslint checks.
+- `yarn storybook:develop`: Run storybook to work on components.
+- `yarn tailwind`: (Re-)build a local version of the full tailwind stylesheet for development reference.

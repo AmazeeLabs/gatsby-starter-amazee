@@ -18,25 +18,27 @@ export const PersonsQuery = graphql`
   }
 `;
 
-const PersonsPage : React.FC<{
+const PersonsPage: React.FC<{
   data: {
     swapi: {
       allPersons: {
-        id: string
-        name: string
-      }[]
-    }
-  }
-}> = ({data}) => {
-  const {t} = useTranslation();
+        id: string;
+        name: string;
+      }[];
+    };
+  };
+}> = ({ data }) => {
+  const { t } = useTranslation();
   return (
     <>
       <h1 className="mb-8">{t('Characters')}</h1>
-      <List items={data.swapi.allPersons.map(person => ({
-        id: person.id,
-        label: person.name,
-        path: `/persons/${person.id}`,
-      }))} />
+      <List
+        items={data.swapi.allPersons.map(person => ({
+          id: person.id,
+          label: person.name,
+          path: `/persons/${person.id}`,
+        }))}
+      />
     </>
   );
 };

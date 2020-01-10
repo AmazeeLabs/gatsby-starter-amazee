@@ -1,6 +1,5 @@
 module.exports = {
   theme: {
-
     // TODO: Decide if pre-packaged tailwind components should be used.
     // To replace the entire pre-configured tailwind theme, remove this
     // `extend` key and move all entries directly under the `theme` key.
@@ -18,9 +17,9 @@ module.exports = {
           gray: '#64675E',
           dark: '#2c3539',
           blue: '#60839b',
-        }
-      }
-    }
+        },
+      },
+    },
   },
   variants: {
     // TODO: Configure variants to control pseudo classes.
@@ -33,5 +32,5 @@ module.exports = {
     // TODO: Add custom plugins to implement dynamic utilities or components.
     // https://tailwindcss.com/docs/extracting-components#writing-a-component-plugin
     // https://tailwindcss.com/docs/adding-new-utilities#using-a-plugin
-  ]
-}
+  ],
+};
