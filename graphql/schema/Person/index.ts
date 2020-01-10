@@ -1,5 +1,6 @@
 import { gql } from 'apollo-server';
 import { Film } from '../Film';
+import { mockPersonResolver, mockAllPeopleResolver } from './resolvers';
 
 //
 // TypeScript definition
@@ -25,3 +26,24 @@ export const TypeDef = gql`
     films: [Film]!
   }
 `;
+
+//
+// Resolvers
+//
+// @TODO Add here.
+// export const resolvers = {
+//   Query: {
+//     person: personResolver,
+//     allPeople: allPeopleResolver,
+//   },
+// };
+
+//
+// Mocked resolvers
+//
+export const mockResolvers = {
+  Query: {
+    person: mockPersonResolver,
+    allPeople: mockAllPeopleResolver,
+  },
+};
