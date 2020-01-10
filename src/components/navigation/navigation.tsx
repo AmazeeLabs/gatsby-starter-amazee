@@ -48,7 +48,14 @@ export const Navigation: React.FC<{
   const { t } = useTranslation();
 
   return items.length ? (
-    <div className="page-centered bg-amazee-dark text-white py-2 sm:py-0">
+    <nav
+      role="navigation"
+      aria-labelledby="navigation"
+      className="page-centered bg-amazee-dark text-white py-2 sm:py-0"
+    >
+      <h2 id="navigation" className="sr-only">
+        Main navigation
+      </h2>
       <select
         className="sm:hidden block appearance-none w-full bg-amazee-dark border-2 border-amazee-yellow px-3 py-2"
         onChange={event => localizedNavigate(event.target.value)}
@@ -77,7 +84,7 @@ export const Navigation: React.FC<{
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   ) : null;
 };
 
