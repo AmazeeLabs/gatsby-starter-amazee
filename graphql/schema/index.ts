@@ -1,41 +1,18 @@
 import { gql } from 'apollo-server';
+import * as Film from './Film';
+import * as Person from './Person';
 
-export const typeDefs = gql`
-  type Query {
-    allFilms: [Film]!
-    allPersons: [Person]!
-    Person(id: ID!): Person
-    Film(id: ID!): Film
-  }
+export const typeDefs = [
+  gql`
+    type Query {
+      _empty: String
+    }
+  `,
+  Film.TypeDef,
+  Person.TypeDef,
+];
 
-  type Film {
-    id: ID!
-    title: String!
-    episodeId: Int!
-    characters: [Person]!
-  }
-
-  type Person {
-    id: ID!
-    name: String!
-    films: [Film]!
-  }
-`;
-
-interface Film {
-  id: string;
-  title: string;
-  episodeId: number;
-  characters: Character[];
-}
-
-interface Character {
-  id: string;
-  name: string;
-  films: Film[];
-}
-
-const films: Film[] = [
+const films: Film.Film[] = [
   {
     id: '1',
     title: 'A New Hope',
@@ -56,7 +33,7 @@ const films: Film[] = [
   },
 ];
 
-const persons: Character[] = [
+const persons: Person.Person[] = [
   {
     id: '1',
     name: 'Luke Skywalker',
