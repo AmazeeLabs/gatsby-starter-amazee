@@ -1,4 +1,26 @@
-import { ApolloServer, gql } from 'apollo-server';
+import { gql } from 'apollo-server';
+
+export const typeDefs = gql`
+  type Query {
+    allFilms: [Film]!
+    allPersons: [Person]!
+    Person(id: ID!): Person
+    Film(id: ID!): Film
+  }
+
+  type Film {
+    id: ID!
+    title: String!
+    episodeId: Int!
+    characters: [Person]!
+  }
+
+  type Person {
+    id: ID!
+    name: String!
+    films: [Film]!
+  }
+`;
 
 interface Film {
   id: string;
@@ -60,48 +82,15 @@ films[0].characters = [persons[0], persons[2]];
 films[1].characters = [persons[0], persons[1], persons[2]];
 films[2].characters = [persons[1], persons[2]];
 
-new ApolloServer({
-  typeDefs: gql`
-    type Query {
-      allFilms: [Film]!
-      allPersons: [Person]!
-      Person(id: ID!): Person
-      Film(id: ID!): Film
-    }
-
-    type Film {
-      id: ID!
-      title: String!
-      episodeId: Int!
-      characters: [Person]!
-    }
-
-    type Person {
-      id: ID!
-      name: String!
-      films: [Film]!
-    }
-  `,
-  mocks: <any>{
-    Query: () => ({
-      allFilms: () => films,
-      allPersons: () => persons,
-      Person: (_: any, { id }: { id: String }) =>
-        persons.filter((person) => person.id === id).pop(),
-      Film: (_: any, { id }: { id: String }) =>
-        films.filter((film) => film.id === id).pop(),
-    }),
-  },
-  formatError: (error) => {
-    console.log(error);
-    return error;
-  },
-})
-  .listen({ port: 4001 })
-  .then(({ url }) => {
-    console.log(`🚀 Server ready at ${url}`);
-    return;
-  })
-  .catch((reason) => {
-    console.error(reason);
-  });
+export const mockResolvers = <any>{
+  Query: () => ({
+    allFilms: () => films,
+    allPersons: () => persons,
+    Person: (_: any, { id }: { id: String }) => {
+      return persons.filter((person) => person.id === id).pop();
+    },
+    Film: (_: any, { id }: { id: String }) => {
+      return films.filter((film) => film.id === id).pop();
+    },
+  }),
+};
