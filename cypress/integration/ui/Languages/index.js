@@ -8,6 +8,10 @@ Then(/^the page title should read "([^"]*)"$/, function(title) {
   cy.get('h1').contains(title);
 });
 
+Then(/^the main navigation should contain "([^"]*)"$/, function(title) {
+  cy.get('nav > h2#navigation ~ ul').contains(title);
+});
+
 When(
   /^the user uses the language switcher to change the site language to "([^"]*)"$/,
   function(lang) {

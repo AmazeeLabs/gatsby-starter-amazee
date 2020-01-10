@@ -8,12 +8,14 @@ const resources = {
   de: {
     translation: {
       'Star Wars Database': 'Star Wars Datenbank',
+      'Home': 'Startseite',
       'Films': 'Filme',
-      'Films with "{{name}}"': 'Filme mit "{{name}}"',
-      'Characters in "{{title}}"': 'Charaktere in "{{title}}"',
+      'Characters': 'Charaktere',
       'Welcome': 'Willkommen',
       'This is a Gatsby example project.':
         'Das ist ein beispielhaftes Gatsby Projekt.',
+      'Characters in "{{title}}"': 'Charaktere in "{{title}}"',
+      'Films with "{{name}}"': 'Filme mit "{{name}}"',
     },
   },
 };
