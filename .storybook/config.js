@@ -1,5 +1,5 @@
 import { configure } from '@storybook/react';
-import { action } from "@storybook/addon-actions"
+import { action } from '@storybook/addon-actions';
 
 // Make sure the global stylesheet is added to the storybook build.
 import '!style-loader!css-loader!postcss-loader!../src/styles/tailwind.css';
@@ -15,7 +15,7 @@ global.___loader = {
 };
 
 // Gatsby internal mocking to prevent unnecessary errors in storybook testing environment
-global.__PATH_PREFIX__ = ""
+global.__PATH_PREFIX__ = '';
 
 // This is to utilized to override the window.___navigate method Gatsby defines and uses to report what path a Link would be taking us to if it wasn't inside a storybook
 window.___navigate = pathname => {

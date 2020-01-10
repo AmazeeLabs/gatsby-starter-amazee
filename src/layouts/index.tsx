@@ -8,7 +8,9 @@ import { delocalizePath } from '../components/languages/languages';
 import { defaultLanguage } from '../../languages';
 
 declare global {
-  interface Window { __gatsby_language: string; }
+  interface Window {
+    __gatsby_language: string;
+  }
 }
 
 /**
@@ -19,19 +21,18 @@ declare global {
  * TODO: Adapt this layout to your needs.
  * https://www.gatsbyjs.org/packages/gatsby-plugin-layout/
  */
-const Layout : React.FC<{
+const Layout: React.FC<{
   /**
    * The location object passed in by Gatsby.
    */
-  location: Location
+  location: Location;
   /**
    * The page context assembled in gatsby-node.js
    */
   pageContext: {
-    language: string
-  }
-}> = ({children, location, pageContext}) => {
-
+    language: string;
+  };
+}> = ({ children, location, pageContext }) => {
   useEffect(() => {
     i18n.changeLanguage(pageContext.language);
     if (typeof window !== 'undefined') {
@@ -40,13 +41,17 @@ const Layout : React.FC<{
   }, [pageContext.language]);
 
   return (
-    <CurrentPathProvider path={delocalizePath(location.pathname, pageContext.language,  defaultLanguage)}>
+    <CurrentPathProvider
+      path={delocalizePath(
+        location.pathname,
+        pageContext.language,
+        defaultLanguage
+      )}
+    >
       <div>
-        <Header/>
-        <StaticNavigation/>
-        <div className="page-centered py-8">
-          {children}
-        </div>
+        <Header />
+        <StaticNavigation />
+        <div className="page-centered py-8">{children}</div>
       </div>
     </CurrentPathProvider>
   );

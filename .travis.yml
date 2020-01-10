@@ -14,6 +14,7 @@ install:
   - yarn
 script:
   - yarn lint
+  - yarn format:check
   - yarn jest
   - yarn mocks &
   - until nc -z 127.0.0.1 4000; do sleep 1 ; done

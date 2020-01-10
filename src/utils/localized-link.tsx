@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { defaultLanguage } from '../../languages';
 
-import { Link as GatsbyLink, navigate as gatsbyNavigate, GatsbyLinkProps } from 'gatsby';
+import {
+  Link as GatsbyLink,
+  navigate as gatsbyNavigate,
+  GatsbyLinkProps,
+} from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -12,11 +16,13 @@ import { useTranslation } from 'react-i18next';
  *
  * To be used identically to Gatsby Link.
  */
-export function LocalizedLink<TState>({to, ...rest}: GatsbyLinkProps<TState>) {
-  const {i18n} = useTranslation();
-  const languagePrefix = i18n.language === defaultLanguage
-    ? ''
-    : `/${i18n.language}`;
+export function LocalizedLink<TState>({
+  to,
+  ...rest
+}: GatsbyLinkProps<TState>) {
+  const { i18n } = useTranslation();
+  const languagePrefix =
+    i18n.language === defaultLanguage ? '' : `/${i18n.language}`;
 
   const newTarget = `${languagePrefix}${to}`;
   // @ts-ignore: Typing issue with Gatsby's link props.
@@ -38,9 +44,7 @@ export const localizedNavigate = (to: string, options = {}) => {
 
   const language = window.__gatsby_language;
 
-  const languagePrefix = language === defaultLanguage
-    ? ''
-    : `${language}`;
+  const languagePrefix = language === defaultLanguage ? '' : `${language}`;
 
   const link = `/${languagePrefix}${to}`;
   gatsbyNavigate(link, options);

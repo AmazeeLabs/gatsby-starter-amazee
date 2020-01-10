@@ -58,6 +58,9 @@ public
 # Mac files
 .DS_Store
 
+# Development tools
+.idea
+
 # Yarn
 yarn-error.log
 .pnp/
