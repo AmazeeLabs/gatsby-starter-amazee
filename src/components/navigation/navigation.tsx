@@ -34,10 +34,6 @@ export const Navigation: React.FC<{
      * The path to navigate to.
      */
     path: string;
-    /**
-     * A brief description of the target page. Displayed on hover.
-     */
-    description: string;
   }[];
 
   /**
@@ -71,7 +67,6 @@ export const Navigation: React.FC<{
           <li key={item.path}>
             <LocalizedLink
               to={item.path}
-              title={item.description}
               className={`block mx-5 first:ml-0 py-2 hover:text-amazee-yellow border-solid border-b-4 ${classnames(
                 {
                   'border-amazee-dark': !isSubPathOf(currentPath, item.path),
@@ -100,7 +95,6 @@ export const StaticNavigation: React.FC = () => {
       siteMetadata: {
         navigation: {
           path: string;
-          description: string;
           label: string;
         }[];
       };
@@ -110,7 +104,6 @@ export const StaticNavigation: React.FC = () => {
       site {
         siteMetadata {
           navigation {
-            description
             label
             path
           }
