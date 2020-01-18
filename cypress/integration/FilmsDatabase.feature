@@ -1,3 +1,4 @@
+@COMPLETED
 Feature: Films database
   A simple interface the shows a list of all Star Wars films, along with
   the characters appear in them.
@@ -19,4 +20,3 @@ Feature: Films database
     Then the list should contain "Luke Skywalker"
     And the list should contain "Han Solo"
     But the list should not contain "Leia Organa"
-

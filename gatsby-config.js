@@ -31,7 +31,7 @@ module.exports = {
       options: {
         typeName: 'swapi',
         fieldName: 'swapi',
-        url: process.env.GATSBY_SWAPI_ENDPOINT,
+        url: process.env.GATSBY_GRAPHQL_BUILD_ENDPOINT,
       },
     },
   ].concat(
@@ -44,7 +44,7 @@ module.exports = {
             options: {
               typeName: 'swapiMocked',
               fieldName: 'swapi',
-              url: process.env.GATSBY_SWAPI_ENDPOINT,
+              url: process.env.GATSBY_GRAPHQL_LIVE_ENDPOINT,
             },
           },
         ]

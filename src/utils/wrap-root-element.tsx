@@ -10,7 +10,7 @@ export const wrapRootElement = ({ element }: { element: ReactNode }) => {
   // can be removed.
   // https://www.gatsbyjs.org/docs/client-data-fetching/
   const client = new ApolloClient({
-    uri: process.env.GATSBY_SWAPI_ENDPOINT,
+    uri: process.env.GATSBY_GRAPHQL_LIVE_ENDPOINT,
     fetch,
   });
 

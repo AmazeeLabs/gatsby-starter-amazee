@@ -40,7 +40,7 @@ Cypress.Commands.add('waitForNavigate', { prevSubject: 'optional' }, () => {
 // FIXME: Move to dedicated plugin.
 Cypress.Commands.add('graphqlQuery', (query, variables = {}) => {
   return cy.request({
-    url: Cypress.env('SWAPI'),
+    url: Cypress.env('API_URL'),
     method: 'POST',
     body: {
       query: query,

@@ -17,7 +17,7 @@ script:
   - yarn format:check
   - yarn jest
   - yarn mocks &
-  - until nc -z 127.0.0.1 4000; do sleep 1 ; done
+  - until nc -z 127.0.0.1 4001; do sleep 1 ; done
   - yarn develop &
   - until nc -z 127.0.0.1 8000; do sleep 1 ; done
   - yarn cypress:run:api
