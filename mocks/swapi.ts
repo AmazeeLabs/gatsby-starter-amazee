@@ -1,20 +1,19 @@
-import {ApolloServer, gql} from 'apollo-server';
+import { ApolloServer, gql } from 'apollo-server';
 
 interface Film {
-  id: string,
-  title: string,
-  episodeId: number,
-  characters: Character[],
-
+  id: string;
+  title: string;
+  episodeId: number;
+  characters: Character[];
 }
 
 interface Character {
-  id: string,
-  name: string,
-  films: Film[],
+  id: string;
+  name: string;
+  films: Film[];
 }
 
-const films : Film[] = [
+const films: Film[] = [
   {
     id: '1',
     title: 'A New Hope',
@@ -35,7 +34,7 @@ const films : Film[] = [
   },
 ];
 
-const persons : Character[] = [
+const persons: Character[] = [
   {
     id: '1',
     name: 'Luke Skywalker',
@@ -61,7 +60,7 @@ films[0].characters = [persons[0], persons[2]];
 films[1].characters = [persons[0], persons[1], persons[2]];
 films[2].characters = [persons[1], persons[2]];
 
-(new ApolloServer({
+new ApolloServer({
   typeDefs: gql`
     type Query {
       allFilms: [Film]!
@@ -69,14 +68,14 @@ films[2].characters = [persons[1], persons[2]];
       Person(id: ID!): Person
       Film(id: ID!): Film
     }
-    
+
     type Film {
       id: ID!
       title: String!
       episodeId: Int!
       characters: [Person]!
     }
-    
+
     type Person {
       id: ID!
       name: String!
@@ -84,18 +83,21 @@ films[2].characters = [persons[1], persons[2]];
     }
   `,
   mocks: <any>{
-    Query : () => ({
+    Query: () => ({
       allFilms: () => films,
       allPersons: () => persons,
-      Person: (_:any, {id}: {id: String}) => persons.filter(person => person.id === id).pop(),
-      Film: (_: any, {id}: {id: String}) => films.filter(film => film.id === id).pop(),
+      Person: (_: any, { id }: { id: String }) =>
+        persons.filter(person => person.id === id).pop(),
+      Film: (_: any, { id }: { id: String }) =>
+        films.filter(film => film.id === id).pop(),
     }),
   },
   formatError: error => {
     console.log(error);
     return error;
-  }
-})).listen({port: 4000}).then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
-});
-
+  },
+})
+  .listen({ port: 4000 })
+  .then(({ url }) => {
+    console.log(`🚀 Server ready at ${url}`);
+  });
