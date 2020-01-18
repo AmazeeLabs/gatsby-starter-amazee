@@ -14,6 +14,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
+    // Prettier always goes last.
+    'prettier',
   ],
   globals: {
     Atomics: 'readonly',
@@ -21,7 +23,6 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: 'tsconfig.json',
     ecmaFeatures: {
       jx: true,
     },
@@ -32,13 +33,9 @@ module.exports = {
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'indent': ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    'quotes': ['error', 'single'],
-    'semi': ['error', 'always'],
     'react/prop-types': ['off'],
     'react/prefer-stateless-function': ['error'],
     'no-unused-vars': ['off'],
-    '@typescript-eslint/no-unused-vars-experimental': ['error'],
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
 };
