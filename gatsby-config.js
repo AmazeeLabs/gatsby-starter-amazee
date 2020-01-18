@@ -13,12 +13,11 @@ module.exports = {
   siteMetadata: {
     // TODO: Adjust the static site navigation or remove it entirely.
     navigation: [
-      { path: '/', label: 'Home', description: 'Navigate to the home page' },
-      { path: '/films', label: 'Films', description: 'Film listing' },
+      { path: '/', label: 'Home' },
+      { path: '/films', label: 'Films' },
       {
         path: '/persons',
         label: 'Characters',
-        description: 'Character listing',
       },
     ],
   },
