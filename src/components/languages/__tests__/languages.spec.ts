@@ -1,7 +1,6 @@
 import { delocalizePath, localizePath } from '../languages';
 
 describe('localizePath', () => {
-
   it('does not add prefixes for the default language', () => {
     expect(localizePath('/', 'en', 'en', 'en')).toEqual('/');
     expect(localizePath('/a', 'en', 'en', 'en')).toEqual('/a');
