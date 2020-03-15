@@ -13,7 +13,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-    "jsx": "react"
+    "jsx": "react",
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "sourceMap": true
   },
-  "include": ["src", "mocks"]
+  "include": [".storybook", "src", "mocks"]
 }
