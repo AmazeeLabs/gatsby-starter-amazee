@@ -1,0 +1,18 @@
+# Supported browsers should be documented for the project:
+# TODO: Add the URL for the project's supported browser list.
+#
+# The browser list queries in this file use the following format:
+# https://github.com/browserslist/browserslist#queries
+
+# Always support the last 3 versions of all browsers.
+last 3 versions
+
+# Always support these browsers.
+Firefox ESR
+IE 11
+
+# Support browsers that are used by more than 1 of every 500 users.
+> 0.2%
+
+# Only support browsers that are still under support by their developers.
+not dead
