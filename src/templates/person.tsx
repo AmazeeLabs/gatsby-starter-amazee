@@ -6,7 +6,7 @@ import { gql } from 'apollo-boost';
 import { useTranslation } from 'react-i18next';
 
 interface PersonPageProps extends RouteComponentProps {
-  id: number;
+  id?: number;
 }
 
 interface PersonResult {
