@@ -7,20 +7,20 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
-    "serve": "gatsby serve",
-    "mock:api": "ts-node mocks/swapi.ts",
     "mocks": "nodemon -w mocks -e ts ./node_modules/.bin/concurrently npm:mock:*",
-    "clean": "gatsby clean",
+    "mock:api": "ts-node mocks/swapi.ts",
     "jest": "jest",
     "tailwind": "tailwind build src/styles/tailwind.css > src/styles/tailwind.build.css",
     "cypress:open": "cypress open",
     "cypress:open:api": "CYPRESS_API_URL=http://localhost:4001 CYPRESS_TEST_LEVEL=api CYPRESS_TAGS='not @UI' cypress open",
     "cypress:run": "./cypress-tests",
     "cypress:run:api": "CYPRESS_API_URL=http://localhost:4001 ./cypress-tests api",
-    "storybook:develop": "start-storybook -p 6006 --ci",
+    "storybook": "start-storybook -p 6006 --ci",
     "storybook:build": "build-storybook"
   },
   "dependencies": {
@@ -83,6 +83,7 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "fork-ts-checker-webpack-plugin": "^4.1.0",
+    "husky": "^4.2.3",
     "jest": "^24.9.0",
     "postcss-discard-comments": "^4.0.2",
     "postcss-import": "^12.0.1",
@@ -105,5 +106,10 @@
   },
   "bugs": {
     "url": "https://github.com/AmazeeLabs/gatsby-starter-amazee/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn run format:check || echo -e '\\n\\033[0;31mWARNING:  YOUR PR WILL HAVE FAILING TESTS.\\033[0m\\n'"
+    }
   }
 }
