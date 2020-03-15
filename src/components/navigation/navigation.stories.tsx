@@ -11,9 +11,9 @@ export default {
 export const Active = () => (
   <Navigation
     items={[
-      { label: 'Item A', path: '/a', description: 'Got to page A' },
-      { label: 'Item B', path: '/b', description: 'Got to page B' },
-      { label: 'Item C', path: '/c', description: 'Got to page C' },
+      { label: 'Item A', path: '/a' },
+      { label: 'Item B', path: '/b' },
+      { label: 'Item C', path: '/c' },
     ]}
     currentPath={'/a'}
   />
@@ -22,9 +22,9 @@ export const Active = () => (
 export const Inactive = () => (
   <Navigation
     items={[
-      { label: 'Item A', path: '/a', description: 'Got to page A' },
-      { label: 'Item B', path: '/b', description: 'Got to page B' },
-      { label: 'Item C', path: '/c', description: 'Got to page C' },
+      { label: 'Item A', path: '/a' },
+      { label: 'Item B', path: '/b' },
+      { label: 'Item C', path: '/c' },
     ]}
     currentPath={'/d'}
   />
