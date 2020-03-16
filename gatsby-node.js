@@ -1,5 +1,6 @@
+require('ts-node').register();
 const path = require(`path`);
-const { languages, defaultLanguage } = require('./languages');
+const { languages, defaultLanguage } = require('./src/utils/languages');
 
 // FIXME: Move language iteration into a gatsby plugin.
 exports.onCreatePage = async ({ page, actions }) => {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { defaultLanguage, languages } from '../../../languages';
+import { defaultLanguage, languages } from '../../utils/languages';
 import { useCurrentPath } from '../../hooks/current_path';
 import { navigate } from 'gatsby';
 import { ChangeEvent } from 'react';
