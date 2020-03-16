@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { defaultLanguage } from '../../languages';
+import { defaultLanguage } from './languages';
 
 import {
   Link as GatsbyLink,
