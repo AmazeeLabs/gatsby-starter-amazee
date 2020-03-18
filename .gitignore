@@ -70,3 +70,6 @@ yarn-error.log
 
 # Storybook
 storybook-static
+
+# Local .env file
+.env

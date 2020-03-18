@@ -6,8 +6,10 @@
 
 // Read in environment variables based on the current `NODE_ENV`.
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.environments/${process.env.NODE_ENV || 'local'}.env`,
 });
+require('dotenv').config({ path: `.env` });
+require('dotenv').config({ path: `.env.example` });
 
 module.exports = {
   siteMetadata: {
