@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Navigation } from './navigation';
 import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { Component as Navigation } from './index';
 
 export default {
   title: 'Navigation',

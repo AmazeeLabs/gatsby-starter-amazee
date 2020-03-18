@@ -1,27 +1,18 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useTranslation } from 'react-i18next';
-import { LocalizedLink, localizedNavigate } from '../../utils/localized-link';
 import classnames from 'classnames';
+import Link from '../Link';
+import navigate from '../../utils/navigate';
+import { isSubPath } from '../../utils/paths';
 import { useCurrentPath } from '../../hooks/current_path';
-
-/**
- * Helper method to determine if a path is a sub-path of another one.
- */
-export const isSubPathOf = (subPath: string, path: string) => {
-  return ((a: string[], b: string[]) =>
-    a.map((v, i) => b[i] === v).reduce((p, c) => p && c))(
-    subPath.split('/').slice(0, path.split('/').length),
-    path.split('/')
-  );
-};
 
 /**
  * The navigation UI element.
  *
  * Accepts a list of navigation items and the current path as arguments.
  */
-export const Navigation: React.FC<{
+export const Component: React.FC<{
   /**
    * The list of navigation items.
    */
@@ -54,7 +45,7 @@ export const Navigation: React.FC<{
       </h2>
       <select
         className="sm:hidden block appearance-none w-full bg-amazee-dark border-2 border-amazee-yellow px-3 py-2"
-        onChange={event => localizedNavigate(event.target.value)}
+        onChange={event => navigate(event.target.value)}
       >
         {items.map(item => (
           <option key={item.path} value={item.path}>
@@ -65,17 +56,17 @@ export const Navigation: React.FC<{
       <ul className="hidden sm:flex">
         {items.map(item => (
           <li key={item.path}>
-            <LocalizedLink
+            <Link
               to={item.path}
               className={`block mx-5 first:ml-0 py-2 hover:text-amazee-yellow border-solid border-b-4 ${classnames(
                 {
-                  'border-amazee-dark': !isSubPathOf(currentPath, item.path),
-                  'border-amazee-yellow': isSubPathOf(currentPath, item.path),
+                  'border-amazee-dark': !isSubPath(currentPath, item.path),
+                  'border-amazee-yellow': isSubPath(currentPath, item.path),
                 }
               )}`}
             >
               {t(item.label)}
-            </LocalizedLink>
+            </Link>
           </li>
         ))}
       </ul>
@@ -83,7 +74,7 @@ export const Navigation: React.FC<{
   ) : null;
 };
 
-export const StaticNavigation: React.FC = () => {
+const Navigation: React.FC = () => {
   const currentPath = useCurrentPath();
 
   // Use static query allows to execute a query at build time from any
@@ -113,9 +104,11 @@ export const StaticNavigation: React.FC = () => {
   `);
 
   return (
-    <Navigation
+    <Component
       items={data.site.siteMetadata.navigation}
       currentPath={currentPath}
     />
   );
 };
+
+export default Navigation;

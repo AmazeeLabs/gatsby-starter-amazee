@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Languages } from '../languages/languages';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 /**
  * A simple header component, displaying the page title and the language switcher.
@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
     <div className="page-centered font-black bg-amazee-yellow text-amazee-dark">
       <div className=" sm:flex sm:justify-between py-3">
         <header className="text-2xl">{t('Star Wars Database')}</header>
-        <Languages />
+        <LanguageSwitcher />
       </div>
     </div>
   );

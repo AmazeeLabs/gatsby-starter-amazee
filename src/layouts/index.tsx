@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { Header } from '../components/header/header';
-import { StaticNavigation } from '../components/navigation/navigation';
+import Navigation from '../components/Navigation';
 import { useEffect } from 'react';
 import i18n from '../utils/i18n';
 import { CurrentPathProvider } from '../hooks/current_path';
-import { delocalizePath } from '../components/languages/languages';
-import { defaultLanguage } from '../utils/languages';
+import { defaultLanguage, delocalizePath } from '../utils/languages';
 
 declare global {
   interface Window {
@@ -48,11 +47,9 @@ const Layout: React.FC<{
         defaultLanguage
       )}
     >
-      <div>
-        <Header />
-        <StaticNavigation />
-        <div className="page-centered py-8">{children}</div>
-      </div>
+      <Header />
+      <Navigation />
+      <div className="page-centered py-8">{children}</div>
     </CurrentPathProvider>
   );
 };
