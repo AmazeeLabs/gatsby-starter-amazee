@@ -19,7 +19,6 @@ There is a set of secrets that have to be defined **and not committed** if the s
 
 @TODO add per application
 
-
 ## Usage
 
 @TODO explain different usages of the process.env object: within Gatsby, loading in src/utils/config.ts
