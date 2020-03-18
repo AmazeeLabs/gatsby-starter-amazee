@@ -4,7 +4,7 @@ import Link from '../Link';
 /**
  * A simple list of links.
  */
-export const List: React.FC<{
+const List: React.FC<{
   /**
    * List item definitions, containing a unique id, a label and a path.
    */
@@ -30,3 +30,5 @@ export const List: React.FC<{
   ) : (
     <p className="text-center italic">No results found.</p>
   );
+
+export default List;
