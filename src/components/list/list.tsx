@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LocalizedLink } from '../../utils/localized-link';
+import Link from '../Link';
 
 /**
  * A simple list of links.
@@ -21,12 +21,9 @@ export const List: React.FC<{
           key={item.id}
           className="border-solid border-gray-300 border-b-2 last:border-b-0"
         >
-          <LocalizedLink
-            className="block px-5 py-2 hover:bg-gray-100"
-            to={item.path}
-          >
+          <Link to={item.path} className="block px-5 py-2 hover:bg-gray-100">
             {item.label}
-          </LocalizedLink>
+          </Link>
         </li>
       ))}
     </ul>
