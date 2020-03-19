@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Header } from '../components/header/header';
+import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import { useEffect } from 'react';
 import i18n from '../utils/i18n';
