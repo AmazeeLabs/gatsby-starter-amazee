@@ -24,7 +24,7 @@ There is a set of secrets that have to be defined **and not committed** if the s
 As an example, our app needs to have a secret access token to access SWAPI, that should not be commited.
 
 - For the repository, we need to add an example line to `.env.example` to make it known to developers, using a placeholder as a value.  
-E.g. 
+  E.g.
 
 ```
 SWAPI_ACCESS_TOKEN=replaceme
@@ -33,7 +33,6 @@ SWAPI_ACCESS_TOKEN=replaceme
 - The developers will need to get the real key and add it to their own local `.env` (which is ignored on git)
 
 - Make sure all other environments have the key added. (e.g. travis-ci, lagoon, prod, dev)
-
 
 ## Usage
 
