@@ -4,12 +4,12 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-// Read in environment variables based on the current `NODE_ENV`.
-require('dotenv').config({
-  path: `.environments/${process.env.NODE_ENV || 'local'}.env`,
-});
 require('dotenv').config({ path: `.env` });
-require('dotenv').config({ path: `.env.example` });
+
+// Read in environment variables based on the current `PROJECT_ENV`.
+require('dotenv').config({
+  path: `.environments/${process.env.PROJECT_ENV || 'local'}.env`,
+});
 
 module.exports = {
   siteMetadata: {
