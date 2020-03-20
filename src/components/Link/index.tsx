@@ -20,8 +20,8 @@ const Link: React.FC<GatsbyLinkProps<any> & { toLanguage?: string }> = ({
   const { i18n } = useTranslation();
   // Allow the toLanguage prop to override the current site language.
   const language = toLanguage ? toLanguage : i18n.language;
-  if (language !== defaultLanguage) {
-    to = `/${i18n.language}${to}`;
+  if (language && language !== defaultLanguage) {
+    to = `/${language}${to}`;
   }
 
   // @ts-ignore: Typing issue with Gatsby's link props.

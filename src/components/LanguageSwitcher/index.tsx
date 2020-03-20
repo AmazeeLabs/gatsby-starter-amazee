@@ -8,7 +8,7 @@ import { ChangeEvent } from 'react';
 const languageOptions: { [key: string]: string } = languages;
 
 /**
- * Component allowing the user to switch the current site language.
+ * Component that allows the user to switch the site's language.
  */
 const LanguageSwitcher: React.FC = () => {
   const { t, i18n } = useTranslation();
