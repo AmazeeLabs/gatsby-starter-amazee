@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Header from '../components/Header';
-import Navigation from '../components/Navigation';
+import PageWrapper from '../components/PageWrapper';
 import { useEffect } from 'react';
 import i18n from '../utils/i18n';
 import { CurrentPathProvider } from '../hooks/current_path';
@@ -43,9 +42,7 @@ const Layout: React.FC<{
     <CurrentPathProvider
       path={delocalizePath(location.pathname, pageContext.language)}
     >
-      <Header />
-      <Navigation />
-      <div className="page-centered py-8">{children}</div>
+      <PageWrapper>{children}</PageWrapper>
     </CurrentPathProvider>
   );
 };

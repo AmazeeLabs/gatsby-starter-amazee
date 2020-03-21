@@ -2,7 +2,7 @@ import * as React from 'react';
 import LanguageSwitcher from './index';
 
 export default {
-  title: 'Languages',
+  title: 'Components/LanguageSwitcher',
   component: LanguageSwitcher,
 };
 

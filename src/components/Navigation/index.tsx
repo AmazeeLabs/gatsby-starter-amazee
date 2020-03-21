@@ -7,32 +7,35 @@ import navigate from '../../utils/navigate';
 import { isSubPath } from '../../utils/paths';
 import { useCurrentPath } from '../../hooks/current_path';
 
-/**
- * The navigation UI element.
- *
- * Accepts a list of navigation items and the current path as arguments.
- */
-export const Component: React.FC<{
-  /**
-   * The list of navigation items.
-   */
-  items: {
-    /**
-     * The navigation item label.
-     */
-    label: string;
-    /**
-     * The path to navigate to.
-     */
-    path: string;
-  }[];
-
-  /**
-   * The current page path.
-   */
-  currentPath: string;
-}> = ({ items, currentPath }) => {
+const Navigation: React.FC = () => {
   const { t } = useTranslation();
+  const currentPath = useCurrentPath();
+
+  // useStaticQuery allows to execute a query at build time from any component,
+  // but without arguments.
+  // https://www.gatsbyjs.org/docs/static-query/#usestaticquery
+  const data = useStaticQuery<{
+    site: {
+      siteMetadata: {
+        navigation: {
+          path: string;
+          label: string;
+        }[];
+      };
+    };
+  }>(graphql`
+    query StaticNavigationQuery {
+      site {
+        siteMetadata {
+          navigation {
+            label
+            path
+          }
+        }
+      }
+    }
+  `);
+  const items = data.site.siteMetadata.navigation;
 
   return items.length ? (
     <nav
@@ -72,43 +75,6 @@ export const Component: React.FC<{
       </ul>
     </nav>
   ) : null;
-};
-
-const Navigation: React.FC = () => {
-  const currentPath = useCurrentPath();
-
-  // Use static query allows to execute a query at build time from any
-  // component. But without arguments.
-  // TODO: Learn about static queries.
-  // https://www.gatsbyjs.org/docs/static-query/#usestaticquery
-  const data = useStaticQuery<{
-    site: {
-      siteMetadata: {
-        navigation: {
-          path: string;
-          label: string;
-        }[];
-      };
-    };
-  }>(graphql`
-    query StaticNavigationQuery {
-      site {
-        siteMetadata {
-          navigation {
-            label
-            path
-          }
-        }
-      }
-    }
-  `);
-
-  return (
-    <Component
-      items={data.site.siteMetadata.navigation}
-      currentPath={currentPath}
-    />
-  );
 };
 
 export default Navigation;

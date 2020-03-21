@@ -1,66 +1,38 @@
 import * as React from 'react';
-import { withKnobs, text, number } from '@storybook/addon-knobs';
-import { Component as Navigation } from './index';
+import { DecoratorFn } from '@storybook/react';
+import { select } from '@storybook/addon-knobs';
+import Navigation from './index';
+import { CurrentPathProvider } from '../../hooks/current_path';
 
 export default {
-  title: 'Navigation',
+  title: 'Components/Navigation',
   component: Navigation,
-  decorators: [withKnobs],
 };
 
-export const Active = () => (
-  <Navigation
-    items={[
-      { label: 'Item A', path: '/a' },
-      { label: 'Item B', path: '/b' },
-      { label: 'Item C', path: '/c' },
-    ]}
-    currentPath={'/a'}
-  />
+const pathDecorator: DecoratorFn = storyFn => (
+  <CurrentPathProvider
+    path={select<string>(
+      'Current path',
+      {
+        Home: '/',
+        Films: '/films',
+        Characters: '/persons',
+        Other: '/non-matching-path',
+      },
+      '/'
+    )}
+  >
+    {storyFn()}
+  </CurrentPathProvider>
 );
 
-export const Inactive = () => (
-  <Navigation
-    items={[
-      { label: 'Item A', path: '/a' },
-      { label: 'Item B', path: '/b' },
-      { label: 'Item C', path: '/c' },
-    ]}
-    currentPath={'/d'}
-  />
-);
+export const Default = () => <Navigation />;
+Default.story = {
+  decorators: [pathDecorator],
+};
 
-export const Empty = () => <Navigation items={[]} currentPath={'/'} />;
-
-export const Playground = () => (
-  <Navigation
-    items={Array.from(
-      Array(
-        number('Items', 3, {
-          range: true,
-          min: 0,
-          max: 10,
-        })
-      ).keys()
-    )
-      .map(v => v + 1)
-      .map(v => ({
-        label: text(
-          'Label',
-          `Item ${String.fromCharCode(64 + v)}`,
-          `Item ${v}`
-        ),
-        path: text(
-          'Path',
-          `/${String.fromCharCode(64 + v).toLowerCase()}`,
-          `Item ${v}`
-        ),
-        description: text(
-          'Description',
-          `Got to page ${String.fromCharCode(64 + v)}`,
-          `Item ${v}`
-        ),
-      }))}
-    currentPath={text('Active Path', '/a')}
-  />
+export const NoActiveItem = () => (
+  <CurrentPathProvider path="/non-matching-path">
+    <Navigation />
+  </CurrentPathProvider>
 );
