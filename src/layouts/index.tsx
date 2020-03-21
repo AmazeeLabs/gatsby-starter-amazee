@@ -39,9 +39,7 @@ const Layout: React.FC<{
   }, [pageContext.language]);
 
   return (
-    <CurrentPathProvider
-      path={delocalizePath(location.pathname, pageContext.language)}
-    >
+    <CurrentPathProvider path={delocalizePath(location.pathname)}>
       <PageWrapper>{children}</PageWrapper>
     </CurrentPathProvider>
   );
