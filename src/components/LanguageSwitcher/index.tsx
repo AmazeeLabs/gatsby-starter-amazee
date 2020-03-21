@@ -16,7 +16,7 @@ const LanguageSwitcher: React.FC = () => {
   const currentLanguage = i18n.language;
 
   const handleChange = (evt: ChangeEvent<HTMLSelectElement>) => {
-    navigate(localizePath(currentPath, evt.target.value, currentLanguage));
+    navigate(localizePath(currentPath, evt.target.value));
   };
 
   return (
