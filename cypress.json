@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:8000",
   "testFiles": "**/*.{feature,features}",
-  "video": false
+  "video": false,
+  "$schema": "https://on.cypress.io/cypress.schema.json"
 }

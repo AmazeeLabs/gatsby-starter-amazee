@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "generated",
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -17,5 +18,5 @@
     "typeRoots": ["./types", "./node_modules/@types"],
     "sourceMap": true
   },
-  "include": [".storybook", "src", "mocks"]
+  "include": ["src", "graphql/src", "mocks", "cypress", "types"]
 }
