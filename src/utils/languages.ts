@@ -7,6 +7,20 @@ export const languages = {
 // TODO: Define the default language.
 export const defaultLanguage = 'en';
 
+// Helper function used by localizePath and delocalizePath.
+const languagePrefixes = Object.keys(languages);
+const getPathSegments = (path: string) => {
+  const segments = path.split('/').slice(1);
+
+  // Strip the current language from the URL.
+  if (languagePrefixes.includes(segments[0])) {
+    segments.splice(0, 1);
+  }
+
+  // Remove any empty segments.
+  return segments.filter(s => s.length);
+};
+
 /**
  * Handle language prefixes on paths.
  *
@@ -17,46 +31,24 @@ export const defaultLanguage = 'en';
  *   The path to process.
  * @param targetLanguage
  *   The target language.
- * @param currentLanguage
- *   The current language.
- * @param defaultLanguage
- *   The default language.
  */
-export const localizePath = (
-  path: string,
-  targetLanguage: string,
-  currentLanguage: string,
-  defaultLanguage: string
-) => {
-  if (currentLanguage === targetLanguage) {
-    return path;
+export const localizePath = (path: string, targetLanguage: string) => {
+  const segments = getPathSegments(path);
+
+  // Add the target language to the URL.
+  if (targetLanguage !== defaultLanguage) {
+    segments.unshift(targetLanguage);
   }
 
-  const segments = path.split('/').slice(1);
-
-  if (currentLanguage === defaultLanguage) {
-    segments.splice(0, 0, targetLanguage);
-  } else if (targetLanguage === defaultLanguage) {
-    segments.splice(0, 1);
-  } else {
-    segments.splice(0, 1, targetLanguage);
-  }
-
-  return `/${segments.filter(s => s.length).join('/')}`;
+  return `/${segments.join('/')}`;
 };
 
 /**
  * Remove a language prefix from the current path if present.
+ *
+ * @param path
+ *   The path to process.
  */
-export const delocalizePath = (
-  path: string,
-  currentLanguage: string,
-  defaultLanguage: string
-) => {
-  if (currentLanguage === defaultLanguage) {
-    return path;
-  }
-  const segments = path.split('/');
-  segments.splice(1, 1);
-  return `/${segments.filter(s => s.length).join('/')}`;
+export const delocalizePath = (path: string) => {
+  return `/${getPathSegments(path).join('/')}`;
 };

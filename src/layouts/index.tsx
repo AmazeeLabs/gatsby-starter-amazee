@@ -1,10 +1,9 @@
 import * as React from 'react';
-import Header from '../components/Header';
-import Navigation from '../components/Navigation';
+import PageWrapper from '../components/PageWrapper';
 import { useEffect } from 'react';
 import i18n from '../utils/i18n';
 import { CurrentPathProvider } from '../hooks/current_path';
-import { defaultLanguage, delocalizePath } from '../utils/languages';
+import { delocalizePath } from '../utils/languages';
 
 declare global {
   interface Window {
@@ -40,16 +39,8 @@ const Layout: React.FC<{
   }, [pageContext.language]);
 
   return (
-    <CurrentPathProvider
-      path={delocalizePath(
-        location.pathname,
-        pageContext.language,
-        defaultLanguage
-      )}
-    >
-      <Header />
-      <Navigation />
-      <div className="page-centered py-8">{children}</div>
+    <CurrentPathProvider path={delocalizePath(location.pathname)}>
+      <PageWrapper>{children}</PageWrapper>
     </CurrentPathProvider>
   );
 };

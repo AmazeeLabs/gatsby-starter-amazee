@@ -6,7 +6,7 @@ export default {
   component: Link,
 };
 
-export const Default = () => <Link to="">This is a link</Link>;
+export const Default = () => <Link to="/some-url">This is a link</Link>;
 
 export const ToLanguage = () => (
   <Link to="/some-url" toLanguage="de">

@@ -100,4 +100,8 @@ new ApolloServer({
   .listen({ port: 4001 })
   .then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
+    return;
+  })
+  .catch(reason => {
+    console.error(reason);
   });
