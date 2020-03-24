@@ -23,6 +23,7 @@ script:
   - yarn build
   - yarn serve -p8000 &
   - until nc -z 127.0.0.1 8000; do sleep 1 ; done
+  - yarn cypress:run:api
   - yarn cypress:run
   - kill $(jobs -p) || true
 

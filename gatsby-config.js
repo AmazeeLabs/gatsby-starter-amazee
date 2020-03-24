@@ -9,11 +9,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-// Typescript support for gatsby-* files.
-require('ts-node').register({
-  files: true,
-});
-
 module.exports = {
   siteMetadata: {
     // TODO: Adjust the static site navigation or remove it entirely.

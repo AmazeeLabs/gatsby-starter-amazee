@@ -1,3 +1,4 @@
+require('ts-node').register();
 const path = require(`path`);
 const { languages, defaultLanguage } = require('./src/utils/languages');
 
