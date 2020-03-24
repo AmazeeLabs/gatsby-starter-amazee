@@ -9,7 +9,7 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
 - PostCSS with `postcss-preset-env`
 - CSS Modules
 - TailwindCSS + PurgeCSS
-- Unit tests with jest
+- Unit tests with mocha
 - Integration tests with Cypress
 - Mocking of GraphQL API's with Apollo
 - Multilingual interfaces with i18next
@@ -54,7 +54,7 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
 - `yarn build`: Build the production web application package.
 - `yarn serve`: Locally serve the web application package.
 - `yarn develop`: Run the live-refreshing development host.
-- `yarn jest`: Run all jest unit tests.
+- `yarn test`: Run all mocha unit tests.
 - `yarn cypress:run:api`: Run all tests that target the API (requires `yarn mocks` and `yarn develop` to be already running).
 - `yarn cypress:test`: Run all Cypress tests (requires `yarn mocks` and `yarn develop` to be already running).
 - `yarn lint`: Run eslint checks.

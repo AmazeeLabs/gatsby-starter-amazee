@@ -25,6 +25,7 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-layout',
     'gatsby-plugin-postcss',
+    'gatsby-plugin-react-helmet',
     // TODO: Add static data sources and remove this example.
     {
       resolve: 'gatsby-source-graphql',
