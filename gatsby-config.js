@@ -6,9 +6,10 @@
 
 require('dotenv').config({ path: `.env` });
 
-// Read in environment variables based on the current `PROJECT_ENV`.
+// Read in additional environment variables based on the `CURRENT_APP_ENV`
+// environment variable.
 require('dotenv').config({
-  path: `.environments/${process.env.PROJECT_ENV || 'local'}.env`,
+  path: `.environments/${process.env.CURRENT_APP_ENV || 'local'}.env`,
 });
 
 module.exports = {

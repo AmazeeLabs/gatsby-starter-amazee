@@ -1,15 +1,16 @@
 # Environment configuration
 
 All parts of the application can be configured by setting environment variables. They have to be available to the Gatsby build process as well as the GraphQL API (Function App). For an up-to-date list of all available environment variables please refer to [.env.example](../.env.example).
+Many parts of the application need different configuration based on what environment they are run in, e.g. local development can use mocked data sources while production cannot. These differences can be configured by setting environment variables. They have to be available to the Gatsby build process as well as the GraphQL API. For an up-to-date list of all available environment variables please refer to the `/.environments/*.env` files.
 
 Local and Lagoon environments are configured automatically.
 
 ## Loading and precedence
 
-There is one special variable called `PROJECT_ENV` that is used to indicate the current environment and control aggregation of additional environment specific settings. Based on that, environment values are collected from multiple sources (lower in the list wins):
+There is one special variable called `CURRENT_APP_ENV` that is used to indicate the current environment and control aggregation of additional environment specific settings. Based on that, environment values are collected from multiple sources (lower in the list wins):
 
 - `.env.example`: The local development defaults. This file is not loaded in the configuration, and serves as an example to create `.env` file
-- `.environments/[PROJECT_ENV].env`: Settings specific to different deployment environments (e.g. local, dev, prod).
+- `.environments/[CURRENT_APP_ENV].env`: Settings specific to different deployment environments (e.g. local, dev, prod).
 - `.env`: Local development overrides. (ignored for git)
 - `process.env` variable: Has any variables injected at runtime. Used for all secrets that should not be committed to Git.
 
