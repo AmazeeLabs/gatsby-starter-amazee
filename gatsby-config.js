@@ -29,7 +29,7 @@ module.exports = {
     'gatsby-plugin-layout',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
-    // TODO: Add static data sources and remove this example.
+    // TODO: Update the data source configuration's typeName and fieldName.
     {
       resolve: 'gatsby-source-graphql',
       options: {
@@ -38,20 +38,5 @@ module.exports = {
         url: process.env.GATSBY_GRAPHQL_BUILD_ENDPOINT,
       },
     },
-  ].concat(
-    process.env.NODE_ENV === 'development'
-      ? [
-          // TODO: Add mock servers for external data sources.
-          // This is a very bad example for a data source override. Find a better one.
-          {
-            resolve: 'gatsby-source-graphql',
-            options: {
-              typeName: 'swapiMocked',
-              fieldName: 'swapi',
-              url: process.env.GATSBY_GRAPHQL_LIVE_ENDPOINT,
-            },
-          },
-        ]
-      : []
-  ),
+  ],
 };
