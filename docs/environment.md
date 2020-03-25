@@ -1,39 +1,49 @@
 # Environment configuration
 
-All parts of the application can be configured by setting environment variables. They have to be available to the Gatsby build process as well as the GraphQL API (Function App). For an up-to-date list of all available environment variables please refer to [.env.example](../.env.example).
 Many parts of the application need different configuration based on what environment they are run in, e.g. local development can use mocked data sources while production cannot. These differences can be configured by setting environment variables. They have to be available to the Gatsby build process as well as the GraphQL API. For an up-to-date list of all available environment variables please refer to the `/.environments/*.env` files.
 
-Local and Lagoon environments are configured automatically.
+All environments (e.g. local, Lagoon, Azure, etc.) are configured automatically using those `.env` files.
 
 ## Loading and precedence
 
-There is one special variable called `CURRENT_APP_ENV` that is used to indicate the current environment and control aggregation of additional environment specific settings. Based on that, environment values are collected from multiple sources (lower in the list wins):
+Environment variables are collected from multiple sources:
 
-- `.env.example`: The local development defaults. This file is not loaded in the configuration, and serves as an example to create `.env` file
-- `.environments/[CURRENT_APP_ENV].env`: Settings specific to different deployment environments (e.g. local, dev, prod).
-- `.env`: Local development overrides. (ignored for git)
-- `process.env` variable: Has any variables injected at runtime. Used for all secrets that should not be committed to Git.
+- `/.env`: Environment variables needed only for your own local machine. This file, if needed, must be created manually and will be ignored by Git. An example of how to create a `.env` file is provided with `.env.example`; this example file is ignored by the environment loader.
+
+  If any variables are written in both `.env` and `.environments/*.env` files, the value used in `.env` will take precedence.
+
+- `/.environments/local.env`: Environment variables needed for your local machine that can be shared settings for all local developers.
+
+- `/.environments/pullrequest.env`: Environment variables needed for feature branch environments created for GitHub pull requests.
+
+- `/.environments/dev.env`: Environment variables neeeded for the shared development environment.
+
+- `/.environments/prod.env`: Environment variables needed for the production environment.
+
+There is one special variable, called `CURRENT_APP_ENV`, that is used to indicate the current environment and control which of the environment-specific settings in `/.environments` are used. This variable defaults to `local`. Setting this variable in a `/.environments/*.env` file will have no effect, so environments should ensure the `CURRENT_APP_ENV` variable is set by other means.
+
+Environment variables loaded from the above files will be available in JavaScript inside the `process.env` object.
 
 ## Secrets
 
-There is a set of secrets that have to be defined **and not committed** if the system should talk to real external services:
+If the system needs to communicate to external services, there may be a set of secrets (e.g. authentication tokens or SSH keys) that have to be defined **and not committed to Git**.
 
 @TODO add list of secrets per application
 
 ### How to properly add a new secret to the application
 
-As an example, our app needs to have a secret access token to access SWAPI, that should not be commited.
+As an example, let's say our app needs to have a secret access token to access SWAPI, that should not be committed to Git.
 
 - For the repository, we need to add an example line to `.env.example` to make it known to developers, using a placeholder as a value.  
   E.g.
 
-```
-SWAPI_ACCESS_TOKEN=replaceme
-```
+  ```shell
+  SWAPI_ACCESS_TOKEN=use-your-personal-access-token-here
+  ```
 
-- The developers will need to get the real key and add it to their own local `.env` (which is ignored on git)
+- The developers will need to get their own access token and add it to the `.env` file on their local machine.
 
-- Make sure all other environments have the key added. (e.g. travis-ci, lagoon, prod, dev)
+- For all other environments (e.g. Travis CI, Lagoon environments), follow their documentation on how to add secret keys to their environments.
 
 ## Usage
 

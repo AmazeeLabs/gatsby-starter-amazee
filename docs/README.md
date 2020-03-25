@@ -2,4 +2,5 @@
 
 ## Table of contents
 
-- [Enviroments](enviroments.md)
+- [Development](development.md) Package.json commands, project structure
+- [Environment](environment.md) Configuration of different application hosting environments
