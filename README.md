@@ -25,7 +25,7 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
     gatsby new my-project https://github.com/AmazeeLabs/gatsby-starter-amazee
     ```
 
-1.  **Start developing.**
+2.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
@@ -35,7 +35,7 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
     yarn develop
     ```
 
-1.  **Open the source code and start editing!**
+3.  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 
@@ -43,22 +43,10 @@ Kick off your Amazee project with this boilerplate. This starter ships with the 
 
     Open the `my-project` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and the browser will update in real time!
 
-1.  **Review the TODO's:**
+4.  **Read the docs**
 
-    After creation the project is full of `TODO` comments that will lead you to different parts that can/have to be
-    modified and also point you to external documentation on these.
+    [Read more documentation](./docs/README.md) in `/docs`.
 
-## Package commands overview
+5.  **Review the TODOs:**
 
-- `yarn mocks`: Start the mocked GraphQL mocked services for local development.
-- `yarn build`: Build the production web application package.
-- `yarn serve`: Locally serve the web application package.
-- `yarn develop`: Run the live-refreshing development host.
-- `yarn test`: Run all mocha unit tests.
-- `yarn cypress:run:api`: Run all tests that target the API (requires `yarn mocks` and `yarn develop` to be already running).
-- `yarn cypress:test`: Run all Cypress tests (requires `yarn mocks` and `yarn develop` to be already running).
-- `yarn lint`: Run eslint checks.
-- `yarn typecheck`: Run TypeScript checks.
-- `yarn format:check`: Run code formatting checks.
-- `yarn storybook`: Run storybook development server to work on components.
-- `yarn tailwind`: (Re-)build a local version of the full tailwind stylesheet for development reference.
+    After creation the project is full of `TODO` comments that will lead you to different parts that can/have to be modified and also point you to external documentation on these.
