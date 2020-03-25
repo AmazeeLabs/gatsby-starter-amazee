@@ -2,11 +2,13 @@
 
 Many parts of the application need different configuration based on what environment they are run in, e.g. local development can use mocked data sources while production cannot. These differences can be configured by setting environment variables. They have to be available to the Gatsby build process as well as the GraphQL API. For an up-to-date list of all available environment variables please refer to the `/.environments/*.env` files.
 
-All environments (e.g. local, Lagoon, Azure, etc.) are configured automatically using those `.env` files.
+This application uses a single environment variable, `CURRENT_APP_ENV`, to control which sets of environment variables are loaded for a specific environment. All environments (e.g. Lagoon, Azure, etc.) are configured using those `.env` files and, by default, an environment will get the `local` configuration. To use a different `*.env` file, **non-local environments MUST define the `CURRENT_APP_ENV` environment variable for this configuration switching to work properly** (see below for details.)
 
 ## Loading and precedence
 
-Environment variables are collected from multiple sources:
+Environment variables are collected from multiple sources.
+
+There is one special variable, called `CURRENT_APP_ENV`, that is used to indicate the current environment and control which of the environment-specific settings in `/.environments` are used. This variable defaults to `local`. Setting this variable in a `/.environments/*.env` file will have no effect, so environments should ensure the `CURRENT_APP_ENV` variable is set by other means.
 
 - `/.env`: Environment variables needed only for your own local machine. This file, if needed, must be created manually and will be ignored by Git. An example of how to create a `.env` file is provided with `.env.example`; this example file is ignored by the environment loader.
 
@@ -19,8 +21,6 @@ Environment variables are collected from multiple sources:
 - `/.environments/dev.env`: Environment variables neeeded for the shared development environment.
 
 - `/.environments/prod.env`: Environment variables needed for the production environment.
-
-There is one special variable, called `CURRENT_APP_ENV`, that is used to indicate the current environment and control which of the environment-specific settings in `/.environments` are used. This variable defaults to `local`. Setting this variable in a `/.environments/*.env` file will have no effect, so environments should ensure the `CURRENT_APP_ENV` variable is set by other means.
 
 Environment variables loaded from the above files will be available in JavaScript inside the `process.env` object.
 
