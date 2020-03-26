@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  ignorePatterns: ['cypress', 'public'],
+  ignorePatterns: ['cypress', 'public', 'storybook-static'],
   settings: {
     react: {
       version: 'detect',

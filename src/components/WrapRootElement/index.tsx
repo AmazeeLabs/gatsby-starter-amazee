@@ -3,7 +3,13 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import fetch from 'isomorphic-fetch';
 
-export const wrapRootElement = ({ element }: { element: ReactNode }) => {
+/**
+ * This component is used by gatsby-browser.ts and gatsby-ssr.ts to add an
+ * Apollo Provider to the app.
+ */
+export const wrapRootElement: React.FC<{ element: ReactNode }> = ({
+  element,
+}) => {
   // TODO: Remove or replace the Apollo client information.
   // The Apollo client and wrapping provider are necessary for loading dynamic
   // data in the browser. If the site is completely static the wrapping provider
