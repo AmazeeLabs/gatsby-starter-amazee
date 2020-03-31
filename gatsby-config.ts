@@ -18,6 +18,12 @@ dotenvConfig({
 // TODO: Adjust this depending on the hosting setup and project repository name.
 export const pathPrefix = '/gatsby-starter-amazee';
 
+export const siteMetadata = {
+  title: 'Star Wars Database',
+  titleTemplate: '%s - Star Wars Database',
+  description: 'This is a Gatsby example project.',
+};
+
 export const plugins = [
   'gatsby-plugin-postcss',
   'gatsby-plugin-tsconfig-paths',

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import List from 'components/List';
+import Head from 'components/Head';
 import OneColumn from 'components/layouts/OneColumn';
 import withPageWrapper from 'hocs/withPageWrapper';
 
@@ -33,6 +34,7 @@ const CharactersPage: React.FC<{
   const { t } = useTranslation();
   return (
     <OneColumn>
+      <Head title={t('swapi.pages.characters.title')} />
       <h1 className="mb-8">{t('swapi.pages.characters.title')}</h1>
       <List
         items={data.swapi.allPeople.map((person) => ({
