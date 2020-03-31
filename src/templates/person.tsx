@@ -31,10 +31,10 @@ const PersonPage: React.FC<PersonPageProps> = ({ id }) => {
   // from the client.
   // TODO: Learn about querying data at runtime.
   // https://www.gatsbyjs.org/docs/static-query/#usestaticquery
-  const { data, error, loading } = useQuery<{ Person: PersonResult }>(
+  const { data, error, loading } = useQuery<{ person: PersonResult }>(
     gql`
       query PersonQuery($id: ID!) {
-        Person(id: $id) {
+        person(id: $id) {
           id
           name
           films {
@@ -56,13 +56,13 @@ const PersonPage: React.FC<PersonPageProps> = ({ id }) => {
     console.log(error);
   }
 
-  return data && data.Person ? (
+  return data && data.person ? (
     <>
       <h1 className="mb-8">
-        {t('Films with "{{name}}"', { name: data.Person.name })}
+        {t('Films with "{{name}}"', { name: data.person.name })}
       </h1>
       <List
-        items={data.Person.films.map((film: Film) => ({
+        items={data.person.films.map((film: Film) => ({
           id: film.id,
           label: `${film.title} (Episode ${film.episodeId})`,
           path: `/films/${film.id}`,

@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 export const FilmQuery = graphql`
   query FilmQuery($id: ID!) {
     swapi {
-      Film(id: $id) {
+      film(id: $id) {
         id
         title
         episodeId
@@ -24,7 +24,7 @@ export const FilmQuery = graphql`
 const FilmPage: React.FC<{
   data: {
     swapi: {
-      Film: {
+      film: {
         id: string;
         title: string;
         episodeId: number;
@@ -39,15 +39,15 @@ const FilmPage: React.FC<{
   const { t } = useTranslation();
   return (
     <>
-      <h1 className="mb-2">{data.swapi.Film.title}</h1>
-      {data.swapi.Film.episodeId && (
+      <h1 className="mb-2">{data.swapi.film.title}</h1>
+      {data.swapi.film.episodeId && (
         <p className="mb-8">
-          {t('Episode {{episodeId}}', { episodeId: data.swapi.Film.episodeId })}
+          {t('Episode {{episodeId}}', { episodeId: data.swapi.film.episodeId })}
         </p>
       )}
       <h2>{t('Characters')}</h2>
       <List
-        items={data.swapi.Film.characters.map(character => ({
+        items={data.swapi.film.characters.map(character => ({
           id: character.id,
           label: character.name,
           path: `/persons/${character.id}`,

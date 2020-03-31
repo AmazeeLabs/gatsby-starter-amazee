@@ -65,8 +65,8 @@ new ApolloServer({
     type Query {
       allFilms: [Film]!
       allPersons: [Person]!
-      Person(id: ID!): Person
-      Film(id: ID!): Film
+      person(id: ID!): Person
+      film(id: ID!): Film
     }
 
     type Film {
@@ -86,9 +86,9 @@ new ApolloServer({
     Query: () => ({
       allFilms: () => films,
       allPersons: () => persons,
-      Person: (_: any, { id }: { id: String }) =>
+      person: (_: any, { id }: { id: String }) =>
         persons.filter(person => person.id === id).pop(),
-      Film: (_: any, { id }: { id: String }) =>
+      film: (_: any, { id }: { id: String }) =>
         films.filter(film => film.id === id).pop(),
     }),
   },
