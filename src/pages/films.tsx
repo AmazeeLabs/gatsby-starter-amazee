@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import Head from '../components/Head';
 import List from '../components/List';
 import { useTranslation } from 'react-i18next';
 
@@ -33,6 +34,7 @@ const IndexPage: React.FC<{
   const { t } = useTranslation();
   return (
     <>
+      <Head title={t('Films')} />
       <h1 className="mb-8">{t('Films')}</h1>
       <List
         items={data.swapi.allFilms.map(film => ({

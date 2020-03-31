@@ -18,6 +18,9 @@ dotenvConfig({
 export const pathPrefix = '/gatsby-starter-amazee';
 
 export const siteMetadata = {
+  title: 'Star Wars Database',
+  titleTemplate: '%s - Star Wars Database',
+  description: 'This is a Gatsby example project.',
   // TODO: Adjust the static site navigation or remove it entirely.
   navigation: [
     { path: '/', label: 'Home' },
