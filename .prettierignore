@@ -1,4 +1,8 @@
+.github
 .cache
+.vscode
+.idea
+_local
 package.json
 package-lock.json
 public
