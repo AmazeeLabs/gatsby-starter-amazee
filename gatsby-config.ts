@@ -14,6 +14,9 @@ dotenvConfig({
   path: `.environments/${process.env.CURRENT_APP_ENV || 'local'}.env`,
 });
 
+// TODO: Adjust this depending on the hosting setup and project repository name.
+export const pathPrefix = '/gatsby-starter-amazee';
+
 export const siteMetadata = {
   // TODO: Adjust the static site navigation or remove it entirely.
   navigation: [

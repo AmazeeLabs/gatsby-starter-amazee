@@ -30,7 +30,7 @@ jobs:
 
       - run: yarn install
 
-      - run: ./node_modules/.bin/concurrently -k "yarn run mocks" "yarn run build" || true
+      - run: ./node_modules/.bin/concurrently -k "yarn run mocks" "yarn run build --prefix-paths" || true
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
