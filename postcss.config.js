@@ -13,6 +13,8 @@ module.exports = {
     require('postcss-import'),
     // Automatic prefixing and browser compatibility.
     require('postcss-preset-env')({ stage: 0 }),
+    // Unwrap nested rules like how Sass does it.
+    require('postcss-nested'),
     // Apply tailwind features.
     require('tailwindcss'),
     // On production, purge all selectors not used in the src/ folder. This MUST

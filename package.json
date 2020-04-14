@@ -95,6 +95,7 @@
     "mocha": "^7.1.0",
     "postcss-discard-comments": "^4.0.2",
     "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^1.19.1",
     "react-docgen-typescript-loader": "^3.6.0",
