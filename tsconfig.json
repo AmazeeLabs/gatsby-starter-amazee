@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -8,8 +10,6 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
@@ -17,5 +17,5 @@
     "typeRoots": ["./types", "./node_modules/@types"],
     "sourceMap": true
   },
-  "include": [".storybook", "src", "mocks", "types"]
+  "include": ["src", ".storybook", "mocks", "plugins", "types"]
 }
