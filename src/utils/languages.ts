@@ -4,16 +4,17 @@ export const languages = {
   de: 'Deutsch',
 };
 
+export const languageCodes = Object.keys(languages);
+
 // TODO: Define the default language.
 export const defaultLanguage = 'en';
 
 // Helper function used by localizePath and delocalizePath.
-const languagePrefixes = Object.keys(languages);
 const getPathSegments = (path: string) => {
   const segments = path.split('/').slice(1);
 
   // Strip the current language from the URL.
-  if (languagePrefixes.includes(segments[0])) {
+  if (languageCodes.includes(segments[0])) {
     segments.splice(0, 1);
   }
 

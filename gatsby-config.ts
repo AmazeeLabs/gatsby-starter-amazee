@@ -5,6 +5,11 @@
  */
 
 import { config as dotenvConfig } from 'dotenv';
+import {
+  languageCodes,
+  defaultLanguage,
+  localizePath,
+} from './src/utils/languages';
 
 dotenvConfig({ path: `.env` });
 
@@ -40,6 +45,15 @@ export const plugins = [
       typeName: 'swapi',
       fieldName: 'swapi',
       url: process.env.GATSBY_GRAPHQL_BUILD_ENDPOINT,
+    },
+  },
+  {
+    resolve: 'gatsby-i18n-create-page',
+    options: {
+      defaultLanguage,
+      languageCodes,
+      localizePath,
+      prefixDefaultLanguagePages: false,
     },
   },
 ];

@@ -3,7 +3,7 @@ import PageWrapper from '../components/PageWrapper';
 import { useEffect } from 'react';
 import i18n from '../utils/i18n';
 import { CurrentPathProvider } from '../hooks/current_path';
-import { delocalizePath } from '../utils/languages';
+import { defaultLanguage, delocalizePath } from '../utils/languages';
 
 declare global {
   interface Window {
@@ -31,12 +31,14 @@ const Layout: React.FC<{
     language: string;
   };
 }> = ({ children, location, pageContext }) => {
+  const currentLanguage = pageContext.language || defaultLanguage;
+
   useEffect(() => {
-    i18n.changeLanguage(pageContext.language);
+    i18n.changeLanguage(currentLanguage);
     if (typeof window !== 'undefined') {
-      window.__gatsby_language = pageContext.language;
+      window.__gatsby_language = currentLanguage;
     }
-  }, [pageContext.language]);
+  }, [currentLanguage]);
 
   return (
     <CurrentPathProvider path={delocalizePath(location.pathname)}>

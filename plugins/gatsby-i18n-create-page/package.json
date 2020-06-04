@@ -1,0 +1,14 @@
+{
+  "name": "gatsby-i18n-create-page",
+  "version": "1.0.0",
+  "description": "Creates pages using provided i18n utilities",
+  "main": "index.js",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "i18n",
+    "i18next"
+  ],
+  "author": "John Albin Wilkins <virtually.johnalbin@gmail.com>",
+  "license": "MIT"
+}
