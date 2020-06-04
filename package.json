@@ -83,7 +83,7 @@
     "chai": "^4.2.0",
     "cypress": "^4.7.0",
     "cypress-cucumber-preprocessor": "https://github.com/liamchilds/cypress-cucumber-preprocessor.git#configurable-loc-non-global-steps",
-    "cypress-wait-until": "^1.6.1",
+    "cypress-wait-until": "^1.7.1",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-promise": "^4.2.1",
