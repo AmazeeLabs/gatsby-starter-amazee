@@ -52,7 +52,7 @@
     "typescript": "^3.7.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
+    "@babel/core": "^7.10.2",
     "@cypress/webpack-preprocessor": "latest",
     "@storybook/addon-a11y": "^5.3.17",
     "@storybook/addon-actions": "^5.3.17",
