@@ -33,7 +33,6 @@ export const plugins = [
   'gatsby-plugin-typescript',
   'gatsby-plugin-layout',
   'gatsby-plugin-postcss',
-  'gatsby-plugin-react-helmet',
   // TODO: Update the data source configuration's typeName and fieldName.
   {
     resolve: 'gatsby-source-graphql',
