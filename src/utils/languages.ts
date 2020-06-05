@@ -1,10 +1,10 @@
 // TODO: Define the list of languages for this project.
-export const languages = {
+export const languageNames: { [key: string]: string } = {
   en: 'English',
   de: 'Deutsch',
 };
 
-export const languageCodes = Object.keys(languages);
+export const languageCodes = Object.keys(languageNames);
 
 // TODO: Define the default language.
 export const defaultLanguage = 'en';
