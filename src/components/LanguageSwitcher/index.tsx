@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
-import { languages, localizePath } from '../../utils/languages';
-import { useCurrentPath } from '../../hooks/current_path';
-import { navigate } from 'gatsby';
 import { ChangeEvent } from 'react';
+import { navigate } from 'gatsby';
+import { useTranslation } from 'react-i18next';
+import { useCurrentPath } from 'hooks/current_path';
+import { languages, localizePath } from 'utils/languages';
 
 const languageOptions: { [key: string]: string } = languages;
 

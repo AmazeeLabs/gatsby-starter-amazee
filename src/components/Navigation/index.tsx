@@ -2,10 +2,10 @@ import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
-import Link from '../Link';
-import navigate from '../../utils/navigate';
-import { isSubPath } from '../../utils/paths';
-import { useCurrentPath } from '../../hooks/current_path';
+import Link from 'components/Link';
+import { useCurrentPath } from 'hooks/current_path';
+import navigate from 'utils/navigate';
+import { isSubPath } from 'utils/paths';
 
 const Navigation: React.FC = () => {
   const { t } = useTranslation();

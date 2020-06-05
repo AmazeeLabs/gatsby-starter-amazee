@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Header from '../Header';
-import Navigation from '../Navigation';
+import Header from 'components/Header';
+import Navigation from 'components/Navigation';
 
 const PageWrapper: React.FC<{ className?: string }> = ({
   className,
