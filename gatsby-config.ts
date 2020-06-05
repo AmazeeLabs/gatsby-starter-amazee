@@ -35,7 +35,6 @@ export const siteMetadata = {
 };
 
 export const plugins = [
-  'gatsby-plugin-typescript',
   'gatsby-plugin-layout',
   'gatsby-plugin-postcss',
   // TODO: Update the data source configuration's typeName and fieldName.
