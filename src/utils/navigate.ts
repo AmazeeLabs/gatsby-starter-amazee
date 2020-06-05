@@ -1,4 +1,5 @@
-import { navigate as gatsbyNavigate } from 'gatsby';
+// eslint-disable-next-line deprecate/import
+import { navigate as gatsbyNavigate } from 'gatsby-link';
 import { localizePath } from './languages';
 
 /**
