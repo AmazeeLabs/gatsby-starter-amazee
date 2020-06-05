@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-person-tsx","path":"/cimode/persons/1","result":{"data":{"swapi":{"Person":{"id":"1","name":"Luke Skywalker","films":[{"id":"1","title":"A New Hope","episodeId":4},{"id":"2","title":"The Empire Strikes Back","episodeId":5}]}}},"pageContext":{"id":"1","language":"cimode"}}}
