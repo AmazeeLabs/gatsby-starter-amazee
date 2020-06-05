@@ -3,9 +3,7 @@ import { ChangeEvent } from 'react';
 import { navigate } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { useCurrentPath } from 'hooks/current_path';
-import { languages, localizePath } from 'utils/languages';
-
-const languageOptions: { [key: string]: string } = languages;
+import { languageCodes, languageNames, localizePath } from 'utils/languages';
 
 /**
  * Component that allows the user to switch the site's language.
@@ -30,9 +28,14 @@ const LanguageSwitcher: React.FC = () => {
         value={currentLanguage}
         className="px-3 py-2 bg-amazee-gray appearance-none text-white"
       >
-        {Object.keys(languages).map(lang => (
-          <option key={lang} value={lang}>
-            {languageOptions[lang]}
+        {languageCodes.map(langCode => (
+          <option
+            key={langCode}
+            value={langCode}
+            lang={langCode}
+            className="text-black"
+          >
+            {languageNames[langCode]}
           </option>
         ))}
       </select>
