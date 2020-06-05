@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { ChangeEvent } from 'react';
-import { navigate } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { useCurrentPath } from 'hooks/current_path';
-import { languageCodes, languageNames, localizePath } from 'utils/languages';
+import { languageCodes, languageNames } from 'utils/languages';
+import navigate from 'utils/navigate';
 
 /**
  * Component that allows the user to switch the site's language.
@@ -13,9 +13,8 @@ const LanguageSwitcher: React.FC = () => {
   const currentPath = useCurrentPath();
   const currentLanguage = i18n.language;
 
-  const handleChange = (evt: ChangeEvent<HTMLSelectElement>) => {
-    navigate(localizePath(currentPath, evt.target.value));
-  };
+  const handleChange = (evt: ChangeEvent<HTMLSelectElement>) =>
+    navigate(currentPath, {}, evt.target.value);
 
   return (
     <div>
