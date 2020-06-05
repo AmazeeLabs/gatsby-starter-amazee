@@ -25,9 +25,10 @@ export const pathPrefix = '/gatsby-starter-amazee';
 export const siteMetadata = {
   // TODO: Adjust the static site navigation or remove it entirely.
   navigation: [
-    { path: '/', label: 'Home' },
-    { path: '/films', label: 'Films' },
+    { id: 'swapi.pages.home', path: '/', label: 'Home' },
+    { id: 'swapi.pages.films', path: '/films', label: 'Films' },
     {
+      id: 'swapi.pages.characters',
       path: '/persons',
       label: 'Characters',
     },

@@ -3,15 +3,16 @@ import { TranslationResource } from './index';
 const de: TranslationResource = {
   de: {
     translation: {
-      'Star Wars Database': 'Star Wars Datenbank',
-      Home: 'Startseite',
-      Films: 'Filme',
-      Characters: 'Charaktere',
-      Welcome: 'Willkommen',
-      'This is a Gatsby example project.':
-        'Das ist ein beispielhaftes Gatsby Projekt.',
-      'Episode {{episodeId}}': 'Zeichen {{episodeId}}',
-      'Films with "{{name}}"': 'Filme mit "{{name}}"',
+      'global.siteName': 'Star Wars Datenbank',
+      'global.navigation.title': 'Hauptnavigation',
+      'global.languageSwitcher.label': 'Sprache ändern:',
+      'swapi.pages.home': 'Startseite',
+      'swapi.pages.films': 'Filme',
+      'swapi.pages.characters': 'Charaktere',
+      'swapi.homepage.title': 'Willkommen',
+      'swapi.homepage.text': 'Das ist ein beispielhaftes Gatsby Projekt.',
+      'swapi.films.episode': 'Zeichen {{episodeId}}',
+      'swapi.characters.heading': 'Filme mit "{{name}}"',
     },
   },
 };
