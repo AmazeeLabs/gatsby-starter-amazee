@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import List from '../components/List';
 import { useTranslation } from 'react-i18next';
+import List from 'components/List';
 
 // By exporting this query, we tell Gatsby to execute it with the context
 // variables provided as arguments and to fill it with the query result.

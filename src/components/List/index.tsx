@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Link from '../Link';
+import Link from 'components/Link';
 
 /**
  * A simple list of links.

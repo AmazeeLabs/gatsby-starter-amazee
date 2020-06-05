@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { RouteComponentProps, Router } from '@reach/router';
-import List from '../components/List';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { useTranslation } from 'react-i18next';
+import List from 'components/List';
 
 interface PersonPageProps extends RouteComponentProps {
   id?: number;

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { DecoratorFn } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
+import { CurrentPathProvider } from 'hooks/current_path';
 import Navigation from './index';
-import { CurrentPathProvider } from '../../hooks/current_path';
 
 export default {
   title: 'Components/Navigation',

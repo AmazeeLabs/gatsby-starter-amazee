@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby';
 import { useTranslation } from 'react-i18next';
-import { defaultLanguage } from '../../utils/languages';
+import { defaultLanguage } from 'utils/languages';
 
 /**
  * Override of the standard Gatsby Link component.

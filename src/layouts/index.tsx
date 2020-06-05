@@ -1,9 +1,9 @@
 import * as React from 'react';
-import PageWrapper from '../components/PageWrapper';
 import { useEffect } from 'react';
-import i18n from '../utils/i18n';
-import { CurrentPathProvider } from '../hooks/current_path';
-import { defaultLanguage, delocalizePath } from '../utils/languages';
+import PageWrapper from 'components/PageWrapper';
+import { CurrentPathProvider } from 'hooks/current_path';
+import i18n from 'utils/i18n';
+import { defaultLanguage, delocalizePath } from 'utils/languages';
 
 declare global {
   interface Window {
