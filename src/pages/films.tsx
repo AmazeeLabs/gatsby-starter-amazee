@@ -33,7 +33,7 @@ const IndexPage: React.FC<{
   const { t } = useTranslation();
   return (
     <>
-      <h1 className="mb-8">{t('Films')}</h1>
+      <h1 className="mb-8">{t('swapi.pages.films', 'Films')}</h1>
       <List
         items={data.swapi.allFilms.map(film => ({
           id: film.id,

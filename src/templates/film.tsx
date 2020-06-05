@@ -42,10 +42,12 @@ const FilmPage: React.FC<{
       <h1 className="mb-2">{data.swapi.Film.title}</h1>
       {data.swapi.Film.episodeId && (
         <p className="mb-8">
-          {t('Episode {{episodeId}}', { episodeId: data.swapi.Film.episodeId })}
+          {t('swapi.films.episode', 'Episode {{episodeId}}', {
+            episodeId: data.swapi.Film.episodeId,
+          })}
         </p>
       )}
-      <h2>{t('Characters')}</h2>
+      <h2>{t('swapi.pages.characters', 'Characters')}</h2>
       <List
         items={data.swapi.Film.characters.map(character => ({
           id: character.id,
