@@ -14,7 +14,6 @@
     "isolatedModules": true,
     "noEmit": false,
     "jsx": "react",
-    "typeRoots": ["./types", "./node_modules/@types"],
     "sourceMap": true
   },
   "include": ["src", ".storybook", "mocks", "plugins", "types"]
