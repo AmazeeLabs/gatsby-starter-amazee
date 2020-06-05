@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{QeBL:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),c=a("9kay");t.default=function(){var e=Object(c.b)().t;return n.createElement(n.Fragment,null,n.createElement("h1",{className:"mb-8"},e("Welcome")),n.createElement("p",null,e("This is a Gatsby example project.")))}}}]);
-//# sourceMappingURL=component---src-pages-index-tsx-5705e15fe4547b9fa3fc.js.map
