@@ -49,7 +49,7 @@ const FilmPage: React.FC<{
       )}
       <h2>{t('swapi.pages.characters', 'Characters')}</h2>
       <List
-        items={data.swapi.Film.characters.map(character => ({
+        items={data.swapi.Film.characters.map((character) => ({
           id: character.id,
           label: character.name,
           path: `/persons/${character.id}`,

@@ -4,7 +4,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
   content: ['./src/**/*.tsx'],
 
   // Include any special characters used in Tailwind CSS class names.
-  defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+  defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
 });
 
 module.exports = {

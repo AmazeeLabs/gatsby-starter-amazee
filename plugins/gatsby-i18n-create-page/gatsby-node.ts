@@ -18,7 +18,7 @@ export type GatsbyI18nextCreatePagePluginOptions = {
 // https://www.gatsbyjs.org/docs/creating-and-modifying-pages/
 export const onCreatePage: GatsbyNode['onCreatePage'] = async (
   { page, actions, reporter },
-  pluginOptions
+  pluginOptions,
 ) => {
   const { createPage, deletePage } = actions;
 
@@ -39,7 +39,7 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = async (
 
   if (defaultLanguage === INVALID_LANGUAGE) {
     reporter.panicOnBuild(
-      `Error: The "defaultLanguage" option is required for the gatsby-i18n-create-page plugin.`
+      `Error: The "defaultLanguage" option is required for the gatsby-i18n-create-page plugin.`,
     );
     return;
   }
@@ -67,9 +67,9 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = async (
   // Build multilingual pages for all the given languages.
   languageCodes
     .filter(
-      language => rebuildDefaultLanguagePages || language !== defaultLanguage
+      (language) => rebuildDefaultLanguagePages || language !== defaultLanguage,
     )
-    .forEach(language => {
+    .forEach((language) => {
       createPage<{
         language: string;
       }>({

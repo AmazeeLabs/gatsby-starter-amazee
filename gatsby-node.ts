@@ -29,7 +29,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   if (filmsResult.errors) {
     reporter.panicOnBuild(
       `Error while running allFilms GraphQL query in gatsby-node.`,
-      filmsResult.errors
+      filmsResult.errors,
     );
     return;
   }
@@ -61,7 +61,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   if (personsResult.errors) {
     reporter.panicOnBuild(
       `Error while running allPersons GraphQL query in gatsby-node.`,
-      personsResult.errors
+      personsResult.errors,
     );
     return;
   }

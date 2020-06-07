@@ -48,14 +48,14 @@ const PersonPage: React.FC<{
         })}
       </h1>
       <List
-        items={data.swapi.Person.films.map(film => ({
+        items={data.swapi.Person.films.map((film) => ({
           id: film.id,
           label: `${film.title} (${t(
             'swapi.films.episode',
             'Episode {{episodeId}}',
             {
               episodeId: film.episodeId,
-            }
+            },
           )})`,
           path: `/films/${film.id}`,
         }))}

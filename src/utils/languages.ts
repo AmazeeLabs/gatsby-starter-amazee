@@ -12,7 +12,7 @@ export const languageNames: { [key: string]: string } = {
 // TODO: Decide which build environments can see the fake "cimode" language.
 const displayDeveloperLanguage = true;
 export const languageCodes = Object.keys(languageNames).filter(
-  language => language !== devLangaugeCode || displayDeveloperLanguage
+  (language) => language !== devLangaugeCode || displayDeveloperLanguage,
 );
 
 // TODO: Define the default language.
@@ -28,7 +28,7 @@ const getPathSegments = (path: string) => {
   }
 
   // Remove any empty segments.
-  return segments.filter(s => s.length);
+  return segments.filter((s) => s.length);
 };
 
 /**

@@ -9,7 +9,7 @@ export default {
   component: Navigation,
 };
 
-const pathDecorator: DecoratorFn = storyFn => (
+const pathDecorator: DecoratorFn = (storyFn) => (
   <CurrentPathProvider
     path={select<string>(
       'Current path',
@@ -19,7 +19,7 @@ const pathDecorator: DecoratorFn = storyFn => (
         Characters: '/persons',
         Other: '/non-matching-path',
       },
-      '/'
+      '/',
     )}
   >
     {storyFn()}
