@@ -27,7 +27,7 @@ const LanguageSwitcher: React.FC = () => {
         value={currentLanguage}
         className="px-3 py-2 bg-amazee-gray appearance-none text-white"
       >
-        {languageCodes.map(langCode => (
+        {languageCodes.map((langCode) => (
           <option
             key={langCode}
             value={langCode}

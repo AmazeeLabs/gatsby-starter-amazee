@@ -35,7 +35,7 @@ const IndexPage: React.FC<{
     <>
       <h1 className="mb-8">{t('swapi.pages.films', 'Films')}</h1>
       <List
-        items={data.swapi.allFilms.map(film => ({
+        items={data.swapi.allFilms.map((film) => ({
           id: film.id,
           label: film.title,
           path: `/films/${film.id}`,

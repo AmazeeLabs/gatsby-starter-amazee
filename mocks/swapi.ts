@@ -87,12 +87,12 @@ new ApolloServer({
       allFilms: () => films,
       allPersons: () => persons,
       Person: (_: any, { id }: { id: String }) =>
-        persons.filter(person => person.id === id).pop(),
+        persons.filter((person) => person.id === id).pop(),
       Film: (_: any, { id }: { id: String }) =>
-        films.filter(film => film.id === id).pop(),
+        films.filter((film) => film.id === id).pop(),
     }),
   },
-  formatError: error => {
+  formatError: (error) => {
     console.log(error);
     return error;
   },
@@ -102,6 +102,6 @@ new ApolloServer({
     console.log(`🚀 Server ready at ${url}`);
     return;
   })
-  .catch(reason => {
+  .catch((reason) => {
     console.error(reason);
   });

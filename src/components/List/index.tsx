@@ -16,7 +16,7 @@ const List: React.FC<{
 }> = ({ items }) =>
   items.length ? (
     <ul>
-      {items.map(item => (
+      {items.map((item) => (
         <li
           key={item.id}
           className="border-solid border-gray-300 border-b-2 last:border-b-0"

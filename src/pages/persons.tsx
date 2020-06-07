@@ -33,7 +33,7 @@ const PersonsPage: React.FC<{
     <>
       <h1 className="mb-8">{t('swapi.pages.characters', 'Characters')}</h1>
       <List
-        items={data.swapi.allPersons.map(person => ({
+        items={data.swapi.allPersons.map((person) => ({
           id: person.id,
           label: person.name,
           path: `/persons/${person.id}`,

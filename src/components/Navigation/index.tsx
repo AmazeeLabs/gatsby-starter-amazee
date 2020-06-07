@@ -50,16 +50,16 @@ const Navigation: React.FC = () => {
       </h2>
       <select
         className="sm:hidden block appearance-none w-full bg-amazee-dark border-2 border-amazee-yellow px-3 py-2"
-        onChange={event => navigate(event.target.value)}
+        onChange={(event) => navigate(event.target.value)}
       >
-        {items.map(item => (
+        {items.map((item) => (
           <option key={item.path} value={item.path}>
             {t(item.id, item.label)}
           </option>
         ))}
       </select>
       <ul className="hidden sm:flex">
-        {items.map(item => (
+        {items.map((item) => (
           <li key={item.path}>
             <Link
               to={item.path}
@@ -67,7 +67,7 @@ const Navigation: React.FC = () => {
                 {
                   'border-amazee-dark': !isSubPath(currentPath, item.path),
                   'border-amazee-yellow': isSubPath(currentPath, item.path),
-                }
+                },
               )}`}
             >
               {t(item.id, item.label)}

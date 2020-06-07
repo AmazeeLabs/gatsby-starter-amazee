@@ -55,7 +55,7 @@ const storySort = (options = {}) => (a, b) => {
         {
           numeric: true,
           sensitivity: 'accent',
-        }
+        },
       );
     }
 

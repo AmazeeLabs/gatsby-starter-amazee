@@ -13,7 +13,7 @@ import { localizePath } from './languages';
 const navigate: (
   to: string,
   options?: object,
-  language?: string
+  language?: string,
 ) => Promise<void> = (to, options = {}, language = undefined) => {
   // If a language is given, use it instead of the current language.
   if (language) {

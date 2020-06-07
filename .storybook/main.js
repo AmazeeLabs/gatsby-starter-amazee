@@ -22,7 +22,7 @@ module.exports = {
     // https://www.gatsbyjs.org/docs/visual-testing-with-storybook/
 
     // Modify existing rules.
-    config.module.rules = config.module.rules.map(rule => {
+    config.module.rules = config.module.rules.map((rule) => {
       switch (`${rule.test}`) {
         case '/\\.(mjs|jsx?)$/':
           // Add TypeScript to this rule.
@@ -30,7 +30,7 @@ module.exports = {
           // Use babel-plugin-remove-graphql-queries to remove static queries
           // from components when rendering in storybook. (See Gatsby docs.)
           rule.use[0].options.plugins.push(
-            require.resolve('babel-plugin-remove-graphql-queries')
+            require.resolve('babel-plugin-remove-graphql-queries'),
           );
           // Add babel-preset-react-app. (See Storybook docs.)
           rule.use[0].options.presets.push([
