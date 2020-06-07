@@ -1,4 +1,6 @@
 module.exports = {
+  // We use purgeCSS in postcss.config.js.
+  purge: false,
   theme: {
     // TODO: Decide if pre-packaged tailwind components should be used.
     // To replace the entire pre-configured tailwind theme, remove this
