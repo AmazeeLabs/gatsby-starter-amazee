@@ -16,7 +16,7 @@ const pathDecorator: DecoratorFn = (storyFn) => (
       {
         Home: '/',
         Films: '/films',
-        Characters: '/persons',
+        Characters: '/characters',
         Other: '/non-matching-path',
       },
       '/',

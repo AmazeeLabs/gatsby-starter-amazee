@@ -15,8 +15,8 @@ export interface Person {
 //
 export const TypeDef = gql`
   extend type Query {
-    allPersons: [Person]!
-    Person(id: ID, name: String): Person
+    allPeople: [Person]!
+    person(id: ID, name: String): Person
   }
 
   type Person {

@@ -7,10 +7,10 @@ import List from 'components/List';
 // variables provided as arguments and to fill it with the query result.
 // TODO: Learn about Gatsby's GraphQL layer.
 // https://www.gatsbyjs.org/docs/graphql-concepts/
-export const PersonsQuery = graphql`
-  query PersonsQuery {
+export const AllPeopleQuery = graphql`
+  query AllPeopleQuery {
     swapi {
-      allPersons {
+      allPeople {
         id
         name
       }
@@ -18,10 +18,10 @@ export const PersonsQuery = graphql`
   }
 `;
 
-const PersonsPage: React.FC<{
+const CharactersPage: React.FC<{
   data: {
     swapi: {
-      allPersons: {
+      allPeople: {
         id: string;
         name: string;
       }[];
@@ -33,14 +33,14 @@ const PersonsPage: React.FC<{
     <>
       <h1 className="mb-8">{t('swapi.pages.characters', 'Characters')}</h1>
       <List
-        items={data.swapi.allPersons.map((person) => ({
+        items={data.swapi.allPeople.map((person) => ({
           id: person.id,
           label: person.name,
-          path: `/persons/${person.id}`,
+          path: `/characters/${person.id}`,
         }))}
       />
     </>
   );
 };
 
-export default PersonsPage;
+export default CharactersPage;

@@ -33,7 +33,7 @@ const films: Film.Film[] = [
   },
 ];
 
-const persons: Person.Person[] = [
+const people: Person.Person[] = [
   {
     id: '1',
     name: 'Luke Skywalker',
@@ -51,22 +51,22 @@ const persons: Person.Person[] = [
   },
 ];
 
-persons[0].films = [films[0], films[1]];
-persons[1].films = [films[1], films[2]];
-persons[2].films = [films[0], films[1], films[2]];
+people[0].films = [films[0], films[1]];
+people[1].films = [films[1], films[2]];
+people[2].films = [films[0], films[1], films[2]];
 
-films[0].characters = [persons[0], persons[2]];
-films[1].characters = [persons[0], persons[1], persons[2]];
-films[2].characters = [persons[1], persons[2]];
+films[0].characters = [people[0], people[2]];
+films[1].characters = [people[0], people[1], people[2]];
+films[2].characters = [people[1], people[2]];
 
 export const mockResolvers = <any>{
   Query: () => ({
     allFilms: () => films,
-    allPersons: () => persons,
-    Person: (_: any, { id }: { id: String }) => {
-      return persons.filter((person) => person.id === id).pop();
+    allPeople: () => people,
+    person: (_: any, { id }: { id: String }) => {
+      return people.filter((person) => person.id === id).pop();
     },
-    Film: (_: any, { id }: { id: String }) => {
+    film: (_: any, { id }: { id: String }) => {
       return films.filter((film) => film.id === id).pop();
     },
   }),

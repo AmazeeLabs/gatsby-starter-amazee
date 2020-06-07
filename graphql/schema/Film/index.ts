@@ -17,7 +17,7 @@ export interface Film {
 export const TypeDef = gql`
   extend type Query {
     allFilms: [Film]!
-    Film(id: ID, title: String): Film
+    film(id: ID, title: String): Film
   }
 
   type Film {

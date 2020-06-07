@@ -13,7 +13,7 @@ But(/^the list should not contain "([^"]*)"$/, function (title) {
 });
 
 Given(/^a visitor requests the list of films with "([^"]*)"$/, function (name) {
-  cy.visit('/persons');
+  cy.visit('/characters');
   cy.contains(name).click();
 });
 
