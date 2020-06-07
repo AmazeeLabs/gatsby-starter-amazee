@@ -8,7 +8,7 @@ import List from 'components/List';
 export const PersonQuery = graphql`
   query PersonQuery($id: ID!) {
     swapi {
-      Person(id: $id) {
+      person(id: $id) {
         id
         name
         films {
@@ -27,7 +27,7 @@ export const PersonQuery = graphql`
 const PersonPage: React.FC<{
   data: {
     swapi: {
-      Person: {
+      person: {
         id: string;
         name: string;
         films: {
@@ -44,11 +44,11 @@ const PersonPage: React.FC<{
     <>
       <h1 className="mb-8">
         {t('swapi.characters.heading', 'Films with "{{name}}"', {
-          name: data.swapi.Person.name,
+          name: data.swapi.person.name,
         })}
       </h1>
       <List
-        items={data.swapi.Person.films.map((film) => ({
+        items={data.swapi.person.films.map((film) => ({
           id: film.id,
           label: `${film.title} (${t(
             'swapi.films.episode',

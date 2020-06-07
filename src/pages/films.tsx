@@ -19,7 +19,7 @@ export const FilmsQuery = graphql`
   }
 `;
 
-const IndexPage: React.FC<{
+const FilmsPage: React.FC<{
   data: {
     swapi: {
       allFilms: {
@@ -45,4 +45,4 @@ const IndexPage: React.FC<{
   );
 };
 
-export default IndexPage;
+export default FilmsPage;

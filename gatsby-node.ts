@@ -13,7 +13,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   // https://www.gatsbyjs.org/docs/creating-and-modifying-pages/
 
   // Create a page for each film result.
-  const filmsResult: {
+  const allFilms: {
     data?: { swapi: { allFilms: { id: string }[] } };
     errors?: any;
   } = await graphql(`
@@ -26,15 +26,15 @@ export const createPages: GatsbyNode['createPages'] = async ({
     }
   `);
 
-  if (filmsResult.errors) {
+  if (allFilms.errors) {
     reporter.panicOnBuild(
       `Error while running allFilms GraphQL query in gatsby-node.`,
-      filmsResult.errors,
+      allFilms.errors,
     );
     return;
   }
 
-  filmsResult.data?.swapi.allFilms.forEach(({ id }) => {
+  allFilms.data?.swapi.allFilms.forEach(({ id }) => {
     createPage<{ id: string }>({
       path: `/films/${id}`,
       component: pathResolve(`./src/templates/film.tsx`),
@@ -45,30 +45,30 @@ export const createPages: GatsbyNode['createPages'] = async ({
   });
 
   // Create a page for each person result.
-  const personsResult: {
-    data?: { swapi: { allPersons: { id: string }[] } };
+  const allPeople: {
+    data?: { swapi: { allPeople: { id: string }[] } };
     errors?: any;
   } = await graphql(`
     query {
       swapi {
-        allPersons {
+        allPeople {
           id
         }
       }
     }
   `);
 
-  if (personsResult.errors) {
+  if (allPeople.errors) {
     reporter.panicOnBuild(
-      `Error while running allPersons GraphQL query in gatsby-node.`,
-      personsResult.errors,
+      `Error while running allPeople GraphQL query in gatsby-node.`,
+      allPeople.errors,
     );
     return;
   }
 
-  personsResult.data?.swapi.allPersons.forEach(({ id }) => {
+  allPeople.data?.swapi.allPeople.forEach(({ id }) => {
     createPage<{ id: string }>({
-      path: `/persons/${id}`,
+      path: `/characters/${id}`,
       component: pathResolve(`./src/templates/person.tsx`),
       context: {
         id,

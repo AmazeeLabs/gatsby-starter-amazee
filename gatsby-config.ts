@@ -29,7 +29,7 @@ export const siteMetadata = {
     { id: 'swapi.pages.films', path: '/films', label: 'Films' },
     {
       id: 'swapi.pages.characters',
-      path: '/persons',
+      path: '/characters',
       label: 'Characters',
     },
   ],
