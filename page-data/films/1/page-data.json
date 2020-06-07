@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-film-tsx","path":"/films/1","result":{"data":{"swapi":{"Film":{"id":"1","title":"A New Hope","episodeId":4,"characters":[{"id":"1","name":"Luke Skywalker"},{"id":"3","name":"Han Solo"}]}}},"pageContext":{"id":"1"}}}
+{"componentChunkName":"component---src-templates-film-tsx","path":"/films/1","result":{"data":{"swapi":{"film":{"id":"1","title":"A New Hope","episodeId":4,"characters":[{"id":"1","name":"Luke Skywalker"},{"id":"3","name":"Han Solo"}]}}},"pageContext":{"id":"1"}}}

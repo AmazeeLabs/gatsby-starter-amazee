@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{QeBL:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),c=a("9Koi");t.default=function(){var e=Object(c.a)().t;return n.createElement(n.Fragment,null,n.createElement("h1",{className:"mb-8"},e("swapi.homepage.title","Welcome")),n.createElement("p",null,e("swapi.homepage.text","This is a Gatsby example project.")))}}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-ddcfb33c5be25cc28a5b.js.map
