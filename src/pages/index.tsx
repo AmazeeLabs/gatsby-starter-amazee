@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
+import withPageWrapper from 'hocs/withPageWrapper';
 
 const IndexPage: React.FC = () => {
   const { t } = useTranslation();
@@ -11,4 +12,4 @@ const IndexPage: React.FC = () => {
   );
 };
 
-export default IndexPage;
+export default withPageWrapper(IndexPage);
