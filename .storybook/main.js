@@ -1,4 +1,5 @@
 const path = require('path');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   stories: ['./Home.stories.tsx', '../src/**/*.stories.tsx'],
@@ -17,9 +18,11 @@ module.exports = {
 
     // We modify rules based on Storybook and Gatsby docs. We don't use
     // @storybook/preset-typescript, but instead use babel-loader to work with
-    // Gatsby.
+    // Gatsby. We also use the webpack plugin, tsconfig-paths-webpack-plugin, in
+    // in order to support TypeScript path mappings added to tsconfig.
     // https://storybook.js.org/docs/configurations/typescript-config/#setting-up-typescript-with-babel-loader
     // https://www.gatsbyjs.org/docs/visual-testing-with-storybook/
+    // https://github.com/dividab/tsconfig-paths-webpack-plugin
 
     // Modify existing rules.
     config.module.rules = config.module.rules.map((rule) => {
@@ -85,6 +88,12 @@ module.exports = {
         },
       ],
     });
+
+    // Add support for tsconfig path mapping.
+    if (!config.resolve.plugins) {
+      config.resolve.plugins = [];
+    }
+    config.resolve.plugins.push(new TsconfigPathsPlugin());
 
     // Find modules whose files end with .ts and .tsx.
     // https://storybook.js.org/docs/configurations/typescript-config/
