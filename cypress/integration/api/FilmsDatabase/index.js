@@ -1,49 +1,51 @@
 import { Given, Then, But } from 'cypress-cucumber-preprocessor/steps';
 
-Given(/^a visitor requests the film listing$/, function() {
-  cy.graphqlQuery(`{ allFilms { title } }`).then(result => {
+Given(/^a visitor requests the film listing$/, function () {
+  cy.graphqlQuery(`{ allFilms { title } }`).then((result) => {
     cy.state('list', result.body.data.allFilms);
   });
 });
 
-Given(/^a visitor requests the list of films with "([^"]*)"$/, function(name) {
-  cy.graphqlQuery(`{ allPersons { name, id } }`).then(result => {
-    const id = result.body.data.allPersons.filter(p => p.name === name).pop()
+Given(/^a visitor requests the list of films with "([^"]*)"$/, function (name) {
+  cy.graphqlQuery(`{ allPeople { name, id } }`).then((result) => {
+    const id = result.body.data.allPeople.filter((p) => p.name === name).pop()
       .id;
     cy.graphqlQuery(
-      `query ($id: ID!) { Person(id: $id) { films { title } } }`,
-      { id }
-    ).then(result => {
-      cy.state('list', result.body.data.Person.films);
+      `query ($id: ID!) { person(id: $id) { films { title } } }`,
+      { id },
+    ).then((result) => {
+      cy.state('list', result.body.data.person.films);
     });
   });
 });
 
-Given(/^a visitor requests the list of characters in "([^"]*)"$/, function(
-  title
+Given(/^a visitor requests the list of characters in "([^"]*)"$/, function (
+  title,
 ) {
-  cy.graphqlQuery(`{ allFilms { title, id } }`).then(result => {
-    const id = result.body.data.allFilms.filter(f => f.title === title).pop()
+  cy.graphqlQuery(`{ allFilms { title, id } }`).then((result) => {
+    const id = result.body.data.allFilms.filter((f) => f.title === title).pop()
       .id;
     cy.graphqlQuery(
-      `query ($id: ID!) { Film(id: $id) { characters { name } } }`,
-      { id }
-    ).then(result => {
-      cy.state('list', result.body.data.Film.characters);
+      `query ($id: ID!) { film(id: $id) { characters { name } } }`,
+      { id },
+    ).then((result) => {
+      cy.state('list', result.body.data.film.characters);
     });
   });
 });
 
-Then(/^the list should contain "([^"]*)"$/, function(title) {
+Then(/^the list should contain "([^"]*)"$/, function (title) {
   expect(
-    cy.state('list').filter(item => item.title === title || item.name === title)
-      .length
+    cy
+      .state('list')
+      .filter((item) => item.title === title || item.name === title).length,
   ).to.equal(1);
 });
 
-But(/^the list should not contain "([^"]*)"$/, function(title) {
+But(/^the list should not contain "([^"]*)"$/, function (title) {
   expect(
-    cy.state('list').filter(item => item.title === title || item.name === title)
-      .length
+    cy
+      .state('list')
+      .filter((item) => item.title === title || item.name === title).length,
   ).to.equal(0);
 });

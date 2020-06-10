@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
-import { languages, localizePath } from '../../utils/languages';
-import { useCurrentPath } from '../../hooks/current_path';
-import { navigate } from 'gatsby';
 import { ChangeEvent } from 'react';
-
-const languageOptions: { [key: string]: string } = languages;
+import { useTranslation } from 'react-i18next';
+import { useCurrentPath } from 'hooks/current_path';
+import { languageCodes, languageNames } from 'utils/languages';
+import navigate from 'utils/navigate';
 
 /**
  * Component that allows the user to switch the site's language.
@@ -15,14 +13,13 @@ const LanguageSwitcher: React.FC = () => {
   const currentPath = useCurrentPath();
   const currentLanguage = i18n.language;
 
-  const handleChange = (evt: ChangeEvent<HTMLSelectElement>) => {
-    navigate(localizePath(currentPath, evt.target.value));
-  };
+  const handleChange = (evt: ChangeEvent<HTMLSelectElement>) =>
+    navigate(currentPath, {}, evt.target.value);
 
   return (
     <div>
       <label htmlFor="language-switcher" className="sr-only">
-        {t('Change language:')}
+        {t('global.languageSwitcher.label', 'Change language:')}
       </label>
       <select
         id="language-switcher"
@@ -30,9 +27,14 @@ const LanguageSwitcher: React.FC = () => {
         value={currentLanguage}
         className="px-3 py-2 bg-amazee-gray appearance-none text-white"
       >
-        {Object.keys(languages).map(lang => (
-          <option key={lang} value={lang}>
-            {languageOptions[lang]}
+        {languageCodes.map((langCode) => (
+          <option
+            key={langCode}
+            value={langCode}
+            lang={langCode}
+            className="text-black"
+          >
+            {languageNames[langCode]}
           </option>
         ))}
       </select>

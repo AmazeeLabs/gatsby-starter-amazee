@@ -1,24 +1,34 @@
+// When i18next is using the "cimode" language, t() will return the
+// translation key. @see https://www.i18next.com/overview/api#changelanguage
+const devLangaugeCode = 'cimode';
+
 // TODO: Define the list of languages for this project.
-export const languages = {
+export const languageNames: { [key: string]: string } = {
   en: 'English',
   de: 'Deutsch',
+  [devLangaugeCode]: 'Developer',
 };
+
+// TODO: Decide which build environments can see the fake "cimode" language.
+const displayDeveloperLanguage = true;
+export const languageCodes = Object.keys(languageNames).filter(
+  (language) => language !== devLangaugeCode || displayDeveloperLanguage,
+);
 
 // TODO: Define the default language.
 export const defaultLanguage = 'en';
 
 // Helper function used by localizePath and delocalizePath.
-const languagePrefixes = Object.keys(languages);
 const getPathSegments = (path: string) => {
   const segments = path.split('/').slice(1);
 
   // Strip the current language from the URL.
-  if (languagePrefixes.includes(segments[0])) {
+  if (languageCodes.includes(segments[0])) {
     segments.splice(0, 1);
   }
 
   // Remove any empty segments.
-  return segments.filter(s => s.length);
+  return segments.filter((s) => s.length);
 };
 
 /**

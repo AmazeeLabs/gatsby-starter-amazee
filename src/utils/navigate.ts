@@ -1,5 +1,6 @@
-import { defaultLanguage } from './languages';
-import { navigate as gatsbyNavigate } from 'gatsby';
+// eslint-disable-next-line deprecate/import
+import { navigate as gatsbyNavigate } from 'gatsby-link';
+import { localizePath } from './languages';
 
 /**
  * Override of the standard Gatsby `navigate` function.
@@ -10,14 +11,19 @@ import { navigate as gatsbyNavigate } from 'gatsby';
  * To be used identically to Gatsby's `navigate`.
  * https://www.gatsbyjs.org/docs/gatsby-link/#how-to-use-the-navigate-helper-function
  */
-const navigate = (to: string, options = {}) => {
-  if (typeof window === 'undefined') {
-    return;
+const navigate: (
+  to: string,
+  options?: object,
+  language?: string,
+) => Promise<void> = (to, options = {}, language = undefined) => {
+  // If a language is given, use it instead of the current language.
+  if (language) {
+    to = localizePath(to, language);
   }
 
-  const language = window.__gatsby_language;
-  if (language !== defaultLanguage) {
-    to = `/${language}${to}`;
+  // Otherwise, use the current language.
+  else if (typeof window !== 'undefined' && window.__gatsby_language) {
+    to = localizePath(to, window.__gatsby_language);
   }
 
   return gatsbyNavigate(to, options);

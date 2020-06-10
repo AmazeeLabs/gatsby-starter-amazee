@@ -1,25 +1,25 @@
 import * as React from 'react';
 import { DecoratorFn } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
+import { CurrentPathProvider } from 'hooks/current_path';
 import Navigation from './index';
-import { CurrentPathProvider } from '../../hooks/current_path';
 
 export default {
   title: 'Components/Navigation',
   component: Navigation,
 };
 
-const pathDecorator: DecoratorFn = storyFn => (
+const pathDecorator: DecoratorFn = (storyFn) => (
   <CurrentPathProvider
     path={select<string>(
       'Current path',
       {
         Home: '/',
         Films: '/films',
-        Characters: '/persons',
+        Characters: '/characters',
         Other: '/non-matching-path',
       },
-      '/'
+      '/',
     )}
   >
     {storyFn()}

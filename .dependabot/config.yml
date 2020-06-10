@@ -5,7 +5,7 @@ update_configs:
   - package_manager: "javascript"
     directory: "/"
     update_schedule: "monthly"
-    target_branch: "master"
+    target_branch: "development"
     allowed_updates:
       - match:
           dependency_type: "development"

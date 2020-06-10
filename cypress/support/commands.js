@@ -29,10 +29,10 @@ import 'cypress-wait-until';
 
 // FIXME: Move to dedicated plugin.
 Cypress.Commands.add('waitForNavigate', { prevSubject: 'optional' }, () => {
-  cy.window().then(win => {
+  cy.window().then((win) => {
     const currentPath = win.location.pathname;
     cy.waitUntil(() =>
-      cy.window().then(win => win.location.pathname !== currentPath)
+      cy.window().then((win) => win.location.pathname !== currentPath),
     );
   });
 });

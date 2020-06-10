@@ -5,6 +5,11 @@
  */
 
 import { config as dotenvConfig } from 'dotenv';
+import {
+  languageCodes,
+  defaultLanguage,
+  localizePath,
+} from './src/utils/languages';
 
 dotenvConfig({ path: `.env` });
 
@@ -23,20 +28,19 @@ export const siteMetadata = {
   description: 'This is a Gatsby example project.',
   // TODO: Adjust the static site navigation or remove it entirely.
   navigation: [
-    { path: '/', label: 'Home' },
-    { path: '/films', label: 'Films' },
+    { id: 'swapi.pages.home', path: '/', label: 'Home' },
+    { id: 'swapi.pages.films', path: '/films', label: 'Films' },
     {
-      path: '/persons',
+      id: 'swapi.pages.characters',
+      path: '/characters',
       label: 'Characters',
     },
   ],
 };
 
 export const plugins = [
-  'gatsby-plugin-typescript',
-  'gatsby-plugin-layout',
   'gatsby-plugin-postcss',
-  'gatsby-plugin-react-helmet',
+  'gatsby-plugin-tsconfig-paths',
   // TODO: Update the data source configuration's typeName and fieldName.
   {
     resolve: 'gatsby-source-graphql',
@@ -44,6 +48,15 @@ export const plugins = [
       typeName: 'swapi',
       fieldName: 'swapi',
       url: process.env.GATSBY_GRAPHQL_BUILD_ENDPOINT,
+    },
+  },
+  {
+    resolve: 'gatsby-i18n-create-page',
+    options: {
+      defaultLanguage,
+      languageCodes,
+      localizePath,
+      prefixDefaultLanguagePages: false,
     },
   },
 ];

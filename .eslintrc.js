@@ -30,7 +30,13 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint', 'promise'],
+  plugins: [
+    'react',
+    'react-hooks',
+    '@typescript-eslint',
+    'promise',
+    'deprecate',
+  ],
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
@@ -38,5 +44,9 @@ module.exports = {
     'react/prefer-stateless-function': ['error'],
     'no-unused-vars': ['off'],
     '@typescript-eslint/no-unused-vars': ['error'],
+    'deprecate/import': [
+      'error',
+      { name: 'gatsby-link', use: 'components/Link or utils/navigate' },
+    ],
   },
 };
