@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useEffect } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import { CurrentPathProvider } from 'hooks/current_path';
@@ -37,9 +38,11 @@ const PageWrapper: React.FC<GatsbyPageProps> = ({
 
   return (
     <CurrentPathProvider path={delocalizePath(location.pathname)}>
-      <Header />
-      <Navigation />
-      {children}
+      <HelmetProvider>
+        <Header />
+        <Navigation />
+        {children}
+      </HelmetProvider>
     </CurrentPathProvider>
   );
 };
