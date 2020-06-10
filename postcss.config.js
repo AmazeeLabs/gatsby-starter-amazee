@@ -13,7 +13,7 @@ module.exports = {
     require('postcss-import'),
     // Automatic prefixing and browser compatibility.
     require('postcss-preset-env')({ stage: 0 }),
-    // Unwrap nested rules like how Sass does it.
+    // Allow Sass-style nested rulesets.
     require('postcss-nested'),
     // Apply tailwind features.
     require('tailwindcss'),
