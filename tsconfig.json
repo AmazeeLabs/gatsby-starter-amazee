@@ -19,7 +19,7 @@
     "paths": {
       "components/*": ["src/components/*"],
       "hocs/*": ["src/utils/hocs/*"],
-      "hooks/*": ["src/hooks/*"],
+      "hooks/*": ["src/utils/hooks/*"],
       "types/*": ["src/types/*"],
       "utils/*": ["src/utils/*"]
     }
