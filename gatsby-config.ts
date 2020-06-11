@@ -5,11 +5,7 @@
  */
 
 import { config as dotenvConfig } from 'dotenv';
-import {
-  languageCodes,
-  defaultLanguage,
-  localizePath,
-} from './src/utils/languages';
+import { languageCodes, defaultLanguage, localizePath } from './src/utils/i18n';
 
 dotenvConfig({ path: `.env` });
 

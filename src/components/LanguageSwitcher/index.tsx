@@ -2,8 +2,7 @@ import * as React from 'react';
 import { ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCurrentPath } from 'hooks/current_path';
-import { languageCodes, languageNames } from 'utils/languages';
-import navigate from 'utils/navigate';
+import { languageCodes, languageNames, navigate } from 'utils/i18n';
 
 /**
  * Component that allows the user to switch the site's language.

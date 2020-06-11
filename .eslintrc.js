@@ -46,7 +46,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error'],
     'deprecate/import': [
       'error',
-      { name: 'gatsby-link', use: 'components/Link or utils/navigate' },
+      { name: 'gatsby-link', use: 'components/Link or utils/i18n/navigate' },
     ],
   },
 };

@@ -8,7 +8,7 @@ export type TranslationResource = {
   };
 };
 
-// TODO: Optionally, use a i18next backend plugins so the translated srings are
+// TODO: Optionally, use a i18next backend plugins so the translated strings are
 //   not stored in these files.
 //   https://www.i18next.com/how-to/add-or-load-translations
 
