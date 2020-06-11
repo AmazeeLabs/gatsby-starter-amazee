@@ -3,14 +3,7 @@ import { useEffect } from 'react';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import { CurrentPathProvider } from 'hooks/current_path';
-import i18n from 'utils/i18n';
-import { defaultLanguage, delocalizePath } from 'utils/languages';
-
-declare global {
-  interface Window {
-    __gatsby_language: string;
-  }
-}
+import i18n, { defaultLanguage, delocalizePath } from 'utils/i18n';
 
 export type GatsbyPageProps = {
   /**

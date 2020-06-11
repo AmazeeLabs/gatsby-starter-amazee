@@ -2,6 +2,12 @@
 import { navigate as gatsbyNavigate } from 'gatsby-link';
 import { localizePath } from './languages';
 
+declare global {
+  interface Window {
+    __gatsby_language: string;
+  }
+}
+
 /**
  * Override of the standard Gatsby `navigate` function.
  *

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 import Link from 'components/Link';
 import { useCurrentPath } from 'hooks/current_path';
-import navigate from 'utils/navigate';
+import { navigate } from 'utils/i18n';
 import { isSubPath } from 'utils/paths';
 
 const Navigation: React.FC = () => {
