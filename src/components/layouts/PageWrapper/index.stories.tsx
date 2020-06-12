@@ -1,9 +1,9 @@
 import * as React from 'react';
-import withPageWrapper from 'utils/hocs/withPageWrapper';
+import withPageWrapper from 'hocs/withPageWrapper';
 import PageWrapper from './index';
 
 export default {
-  title: 'HOCs/withPageWrapper',
+  title: 'Components/Layouts/withPageWrapper',
   component: PageWrapper,
 };
 
