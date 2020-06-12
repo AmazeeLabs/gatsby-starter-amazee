@@ -6,4 +6,5 @@ _local
 package.json
 package-lock.json
 public
+static
 storybook-static

@@ -24,10 +24,11 @@ This project follows the recommended Gatsby structure documented at https://www.
 - `/src/pages`: Static Gatsby pages whose URLS are defined statically
 - `/src/templates`: Gatsby templates to build static pages whose URLs are defined with data from GraphQL queries
 - `/src/components`: Standard React components used to build your site
-- `/src/layouts`: Layout components used by Gatsby pages @TODO Move to `/src/components`
-- `/src/hooks`: Custom React hooks
-- `/src/styles`: Shared CSS files
 - `/src/utils`: Shared utility functions
+- `/src/utils/i18n`: Utility functions related to internationalization
+- `/src/utils/hocs`: Higher-order components
+- `/src/utils/hooks`: Custom React hooks
+- `/src/styles`: Shared CSS files
 
 ### Where do dynamic pages go?
 

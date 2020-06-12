@@ -1,12 +1,22 @@
-/* TODO: Add necessary webfonts or remove this example. */
+/*
+ * The order that files are @imported is IMPORTANT!
+ *
+ * Please follow the comments on where to add additional CSS files.
+ */
+
+/* purgecss start ignore */
+/*
+ * Load fonts first for best performance.
+ */
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
+/*
+ * Base styles (default styles for HTML elements)
+ */
 @tailwind base;
+/* @import './default-html.css'; */
 
 /* TODO: Adjust global styling. */
-/* Use tailwind @apply and the `config` functions access the global tailwind theme configuration: */
-/* https://tailwindcss.com/docs/functions-and-directives/#apply */
-/* https://tailwindcss.com/docs/functions-and-directives/#theme */
 body {
   font-family: 'Montserrat', sans-serif;
   color: theme('colors.amazee.dark');
@@ -32,10 +42,13 @@ strong {
   @apply font-bold;
 }
 
+/*
+ * Component styles
+ *
+ * Custom components: https://tailwindcss.com/docs/extracting-components
+ */
 @tailwind components;
-
-/* TODO: Add custom components. */
-/* https://tailwindcss.com/docs/extracting-components#extracting-css-components-with-apply */
+/* @import './shared-components/layout.css'; */
 
 /**
  * A responsive centered page container.
@@ -47,8 +60,11 @@ strong {
   }
 }
 
-
+/*
+ * Utility styles
+ *
+ * Custom utilities: https://tailwindcss.com/docs/adding-new-utilities
+ */
+/* purgecss end ignore */
 @tailwind utilities;
-
-/* TODO: Add custom utilities. */
-/* https://tailwindcss.com/docs/adding-new-utilities/#using-css */
+/* @import './custom-utilities.css'; */

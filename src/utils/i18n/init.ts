@@ -9,10 +9,11 @@ i18n.use(initReactI18next).init({
   lng: defaultLanguage,
   whitelist: languageCodes,
 
+  debug: false,
   keySeparator: false,
 
   interpolation: {
-    escapeValue: false,
+    escapeValue: false, // Not needed for React since it escapes by default.
   },
 });
 

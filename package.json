@@ -117,7 +117,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn run format:check || echo -e '\\n\\033[0;31mWARNING:  YOUR PR WILL HAVE FAILING TESTS.\\033[0m\\n'"
+      "pre-push": "yarn run format:check || echo -e '\\n\\033[0;31mWARNING:  YOUR PR MAY HAVE FAILING TESTS.\\033[0m\\n'"
     }
   }
 }
