@@ -1,4 +1,5 @@
 import * as React from 'react';
+import OneColumn from 'components/layouts/OneColumn';
 import withPageWrapper from 'hocs/withPageWrapper';
 import PageWrapper from './index';
 
@@ -12,10 +13,19 @@ const mockGatsbyPageProps = {
   pageContext: { language: 'en' },
 };
 const ExampleComponent: React.FC = () => (
-  <p>
-    Add the PageWrapper component around your Gatsby-page-level component by
-    using <code>withPageWrapper()</code>.
-  </p>
+  <>
+    <p style={{ marginTop: '3rem' }}>
+      Add the PageWrapper component around your Gatsby-page-level component by
+      using the <code>withPageWrapper()</code> HOC.
+    </p>
+    <p>
+      Note that the `PageWrapper` component doesn’t add a layout wrapper around
+      the page content.
+    </p>
+    <OneColumn>
+      <p>For example, this content is wrapped in the `OneColumn` comonent.</p>
+    </OneColumn>
+  </>
 );
 
 export const Default = () => {

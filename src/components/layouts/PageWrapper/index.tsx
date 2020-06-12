@@ -39,7 +39,7 @@ const PageWrapper: React.FC<GatsbyPageProps> = ({
     <CurrentPathProvider path={delocalizePath(location.pathname)}>
       <Header />
       <Navigation />
-      <div className="page-centered py-8">{children}</div>
+      {children}
     </CurrentPathProvider>
   );
 };
