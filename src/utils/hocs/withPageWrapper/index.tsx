@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PageWrapper, { GatsbyPageProps } from 'components/PageWrapper';
+import PageWrapper, { GatsbyPageProps } from 'components/layouts/PageWrapper';
 
 /**
  * Wraps every page to properly handle props added by Gatsby and by gatsby-node.

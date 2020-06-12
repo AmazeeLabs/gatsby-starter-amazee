@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import List from 'components/List';
+import OneColumn from 'components/layouts/OneColumn';
 import withPageWrapper from 'hocs/withPageWrapper';
 
 // By exporting this query, we tell Gatsby to execute it with the context
@@ -31,7 +32,7 @@ const CharactersPage: React.FC<{
 }> = ({ data }) => {
   const { t } = useTranslation();
   return (
-    <>
+    <OneColumn>
       <h1 className="mb-8">{t('swapi.pages.characters', 'Characters')}</h1>
       <List
         items={data.swapi.allPeople.map((person) => ({
@@ -40,7 +41,7 @@ const CharactersPage: React.FC<{
           path: `/characters/${person.id}`,
         }))}
       />
-    </>
+    </OneColumn>
   );
 };
 

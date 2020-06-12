@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import List from 'components/List';
+import OneColumn from 'components/layouts/OneColumn';
 import withPageWrapper from 'hocs/withPageWrapper';
 
 // By exporting this query, we tell Gatsby to execute it with the context
@@ -39,7 +40,7 @@ const FilmPage: React.FC<{
 }> = ({ data }) => {
   const { t } = useTranslation();
   return (
-    <>
+    <OneColumn>
       <h1 className="mb-2">{data.swapi.film.title}</h1>
       {data.swapi.film.episodeId && (
         <p className="mb-8">
@@ -56,7 +57,7 @@ const FilmPage: React.FC<{
           path: `/characters/${character.id}`,
         }))}
       />
-    </>
+    </OneColumn>
   );
 };
 
