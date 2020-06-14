@@ -1,1 +1,1 @@
-{"data":{"site":{"siteMetadata":{"navigation":[{"id":"swapi.pages.home","label":"Home","path":"/"},{"id":"swapi.pages.films","label":"Films","path":"/films"},{"id":"swapi.pages.characters","label":"Characters","path":"/characters"}]}}}}
+{"data":{"site":{"siteMetadata":{"navigation":[{"id":"navigation.home.title","label":"Home","path":"/"},{"id":"navigation.films.title","label":"Films","path":"/films"},{"id":"navigation.characters.title","label":"Characters","path":"/characters"}]}}}}
