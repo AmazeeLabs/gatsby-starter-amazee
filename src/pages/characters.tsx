@@ -33,7 +33,9 @@ const CharactersPage: React.FC<{
   const { t } = useTranslation();
   return (
     <OneColumn>
-      <h1 className="mb-8">{t('swapi.pages.characters', 'Characters')}</h1>
+      <h1 className="mb-8">
+        {t('swapi-pages.characters.title', 'Characters')}
+      </h1>
       <List
         items={data.swapi.allPeople.map((person) => ({
           id: person.id,

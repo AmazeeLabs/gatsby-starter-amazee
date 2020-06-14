@@ -37,7 +37,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   allFilms.data?.swapi.allFilms.forEach(({ id }) => {
     createPage<{ id: string }>({
       path: `/films/${id}`,
-      component: pathResolve(`./src/templates/film.tsx`),
+      component: pathResolve(`./src/templates/films-film.tsx`),
       context: {
         id,
       },
@@ -69,7 +69,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   allPeople.data?.swapi.allPeople.forEach(({ id }) => {
     createPage<{ id: string }>({
       path: `/characters/${id}`,
-      component: pathResolve(`./src/templates/person.tsx`),
+      component: pathResolve(`./src/templates/characters-character.tsx`),
       context: {
         id,
       },

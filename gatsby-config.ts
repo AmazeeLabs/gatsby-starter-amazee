@@ -19,12 +19,13 @@ dotenvConfig({
 export const pathPrefix = '/gatsby-starter-amazee';
 
 export const siteMetadata = {
-  // TODO: Adjust the static site navigation or remove it entirely.
+  // TODO: Adjust the static site navigation. Or replace this Gatsby
+  //  useStaticQuery GraphQL with CMS API calls.
   navigation: [
-    { id: 'swapi.pages.home', path: '/', label: 'Home' },
-    { id: 'swapi.pages.films', path: '/films', label: 'Films' },
+    { id: 'navigation.home.title', path: '/', label: 'Home' },
+    { id: 'navigation.films.title', path: '/films', label: 'Films' },
     {
-      id: 'swapi.pages.characters',
+      id: 'navigation.characters.title',
       path: '/characters',
       label: 'Characters',
     },

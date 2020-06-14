@@ -46,7 +46,7 @@ const Navigation: React.FC = () => {
       className="page-centered bg-amazee-dark text-white py-2 sm:py-0"
     >
       <h2 id="navigation" className="sr-only">
-        {t('global.navigation.title', 'Main navigation')}
+        {t('navigation.main.heading', 'Main navigation')}
       </h2>
       <select
         className="sm:hidden block appearance-none w-full bg-amazee-dark border-2 border-amazee-yellow px-3 py-2"

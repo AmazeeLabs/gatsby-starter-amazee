@@ -35,7 +35,7 @@ const FilmsPage: React.FC<{
   const { t } = useTranslation();
   return (
     <OneColumn>
-      <h1 className="mb-8">{t('swapi.pages.films', 'Films')}</h1>
+      <h1 className="mb-8">{t('swapi-pages.films.title', 'Films')}</h1>
       <List
         items={data.swapi.allFilms.map((film) => ({
           id: film.id,
