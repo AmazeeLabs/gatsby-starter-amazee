@@ -45,7 +45,7 @@ const PersonPage: React.FC<{
   return (
     <OneColumn>
       <h1 className="mb-8">
-        {t('swapi.characters.heading', 'Films with "{{name}}"', {
+        {t('swapi-pages.characters-character.title', 'Films with "{{name}}"', {
           name: data.swapi.person.name,
         })}
       </h1>
@@ -53,7 +53,7 @@ const PersonPage: React.FC<{
         items={data.swapi.person.films.map((film) => ({
           id: film.id,
           label: `${film.title} (${t(
-            'swapi.films.episode',
+            'swapi-pages.films-film.episode',
             'Episode {{episodeId}}',
             {
               episodeId: film.episodeId,
