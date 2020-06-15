@@ -1,45 +1,28 @@
 import * as React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { useTranslation } from 'react-i18next';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import Link from 'components/Link';
 import { useCurrentPath } from 'hooks/current_path';
 import { navigate } from 'utils/i18n';
 import { isSubPath } from 'utils/paths';
 
+// TODO: Adjust the static site navigation. Or replace this with CMS API calls.
+//   The text for these links are found by their key in the translation files.
+const items = [
+  { key: 'navigation.main.home', path: '/', label: 'Home' },
+  { key: 'navigation.main.films', path: '/films', label: 'Films' },
+  {
+    key: 'navigation.mail.characters',
+    path: '/characters',
+    label: 'Characters',
+  },
+];
+
 const Navigation: React.FC = () => {
   const { t } = useTranslation();
   const currentPath = useCurrentPath();
 
-  // useStaticQuery allows to execute a query at build time from any component,
-  // but without arguments.
-  // https://www.gatsbyjs.org/docs/static-query/#usestaticquery
-  const data = useStaticQuery<{
-    site: {
-      siteMetadata: {
-        navigation: {
-          id: string;
-          path: string;
-          label: string;
-        }[];
-      };
-    };
-  }>(graphql`
-    query StaticNavigationQuery {
-      site {
-        siteMetadata {
-          navigation {
-            id
-            label
-            path
-          }
-        }
-      }
-    }
-  `);
-  const items = data.site.siteMetadata.navigation;
-
-  return items.length ? (
+  return (
     <nav
       role="navigation"
       aria-labelledby="navigation"
@@ -48,35 +31,41 @@ const Navigation: React.FC = () => {
       <h2 id="navigation" className="sr-only">
         {t('navigation.main.heading', 'Main navigation')}
       </h2>
-      <select
-        className="sm:hidden block appearance-none w-full bg-amazee-dark border-2 border-amazee-yellow px-3 py-2"
-        onChange={(event) => navigate(event.target.value)}
-      >
-        {items.map((item) => (
-          <option key={item.path} value={item.path}>
-            {t(item.id, item.label)}
-          </option>
-        ))}
-      </select>
-      <ul className="hidden sm:flex">
-        {items.map((item) => (
-          <li key={item.path}>
-            <Link
-              to={item.path}
-              className={`block mx-5 first:ml-0 py-2 hover:text-amazee-yellow border-solid border-b-4 ${classnames(
-                {
-                  'border-amazee-dark': !isSubPath(currentPath, item.path),
-                  'border-amazee-yellow': isSubPath(currentPath, item.path),
-                },
-              )}`}
-            >
-              {t(item.id, item.label)}
-            </Link>
-          </li>
-        ))}
-      </ul>
+
+      {items.length && (
+        <select
+          className="sm:hidden block appearance-none w-full bg-amazee-dark border-2 border-amazee-yellow px-3 py-2"
+          onChange={(event) => navigate(event.target.value)}
+        >
+          {items.map((item) => (
+            <option key={item.path} value={item.path}>
+              {t(item.key, item.label)}
+            </option>
+          ))}
+        </select>
+      )}
+
+      {items.length && (
+        <ul className="hidden sm:flex">
+          {items.map((item) => (
+            <li key={item.path}>
+              <Link
+                to={item.path}
+                className={`block mx-5 first:ml-0 py-2 hover:text-amazee-yellow border-solid border-b-4 ${classNames(
+                  {
+                    'border-amazee-dark': !isSubPath(currentPath, item.path),
+                    'border-amazee-yellow': isSubPath(currentPath, item.path),
+                  },
+                )}`}
+              >
+                {t(item.key, item.label)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </nav>
-  ) : null;
+  );
 };
 
 export default Navigation;
