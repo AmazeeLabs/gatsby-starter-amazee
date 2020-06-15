@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{QeBL:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),c=a("9Koi"),s=a("CUij"),i=a("M43v");t.default=Object(i.a)((function(){var e=Object(c.a)().t;return n.createElement(s.a,null,n.createElement("h1",{className:"mb-8"},e("swapi.pages.home.title")),n.createElement("p",null,e("swapi.pages.home.text")))}))}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-4b86e92dd88fa9f24a1d.js.map
