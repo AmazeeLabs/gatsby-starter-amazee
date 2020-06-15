@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{QeBL:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),i=a("9Koi"),s=a("tSya"),c=a("CUij"),p=a("M43v");t.default=Object(p.a)((function(){var e=Object(i.a)().t;return n.createElement(c.a,null,n.createElement(s.a,{description:e("swapi.pages.home.description")}),n.createElement("h1",{className:"mb-8"},e("swapi.pages.home.title")),n.createElement("p",null,e("swapi.pages.home.text")))}))}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-508a9776eafbbe1395a3.js.map
