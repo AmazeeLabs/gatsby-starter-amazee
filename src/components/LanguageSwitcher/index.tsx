@@ -18,7 +18,7 @@ const LanguageSwitcher: React.FC = () => {
   return (
     <div>
       <label htmlFor="language-switcher" className="sr-only">
-        {t('languageSwitcher.select.label', 'Change language:')}
+        {t('languageSwitcher.select.label')}
       </label>
       <select
         id="language-switcher"

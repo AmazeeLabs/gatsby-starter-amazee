@@ -18,6 +18,9 @@ export const languageCodes = Object.keys(languageNames).filter(
 // TODO: Define the default language.
 export const defaultLanguage = 'en';
 
+// This is the default i18next namespace. https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
+export const defaultNS = 'translation';
+
 // Helper function used by localizePath and delocalizePath.
 const getPathSegments = (path: string) => {
   const segments = path.split('/').slice(1);

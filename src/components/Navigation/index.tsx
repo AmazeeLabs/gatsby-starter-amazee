@@ -9,13 +9,9 @@ import { isSubPath } from 'utils/paths';
 // TODO: Adjust the static site navigation. Or replace this with CMS API calls.
 //   The text for these links are found by their key in the translation files.
 const items = [
-  { key: 'navigation.main.home', path: '/', label: 'Home' },
-  { key: 'navigation.main.films', path: '/films', label: 'Films' },
-  {
-    key: 'navigation.mail.characters',
-    path: '/characters',
-    label: 'Characters',
-  },
+  { key: 'navigation.main.home', path: '/' },
+  { key: 'navigation.main.films', path: '/films' },
+  { key: 'navigation.main.characters', path: '/characters' },
 ];
 
 const Navigation: React.FC = () => {
@@ -29,7 +25,7 @@ const Navigation: React.FC = () => {
       className="page-centered bg-amazee-dark text-white py-2 sm:py-0"
     >
       <h2 id="navigation" className="sr-only">
-        {t('navigation.main.heading', 'Main navigation')}
+        {t('navigation.main.heading')}
       </h2>
 
       {items.length && (
@@ -39,7 +35,7 @@ const Navigation: React.FC = () => {
         >
           {items.map((item) => (
             <option key={item.path} value={item.path}>
-              {t(item.key, item.label)}
+              {t(item.key)}
             </option>
           ))}
         </select>
@@ -58,7 +54,7 @@ const Navigation: React.FC = () => {
                   },
                 )}`}
               >
-                {t(item.key, item.label)}
+                {t(item.key)}
               </Link>
             </li>
           ))}

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import { CurrentPathProvider } from 'hooks/current_path';
-import i18n, { defaultLanguage, delocalizePath } from 'utils/i18n';
+import i18next, { defaultLanguage, delocalizePath } from 'utils/i18n';
 
 export type GatsbyPageProps = {
   /**
@@ -29,7 +29,7 @@ const PageWrapper: React.FC<GatsbyPageProps> = ({
   const currentLanguage = pageContext.language || defaultLanguage;
 
   useEffect(() => {
-    i18n.changeLanguage(currentLanguage);
+    i18next.changeLanguage(currentLanguage);
     if (typeof window !== 'undefined') {
       window.__gatsby_language = currentLanguage;
     }
