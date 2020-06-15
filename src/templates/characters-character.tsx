@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import List from 'components/List';
+import Meta from 'components/Meta';
 import OneColumn from 'components/layouts/OneColumn';
 import withPageWrapper from 'hocs/withPageWrapper';
 
@@ -44,6 +45,11 @@ const PersonPage: React.FC<{
   const { t } = useTranslation();
   return (
     <OneColumn>
+      <Meta
+        description={t('swapi.pages.characters-character.description', {
+          name: data.swapi.person.name,
+        })}
+      />
       <h1 className="mb-8">
         {t('swapi.pages.characters-character.title', {
           name: data.swapi.person.name,

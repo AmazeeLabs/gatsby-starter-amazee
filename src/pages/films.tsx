@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import List from 'components/List';
-import Head from 'components/Head';
+import Meta from 'components/Meta';
 import OneColumn from 'components/layouts/OneColumn';
 import withPageWrapper from 'hocs/withPageWrapper';
 
@@ -36,7 +36,7 @@ const FilmsPage: React.FC<{
   const { t } = useTranslation();
   return (
     <OneColumn>
-      <Head title={t('swapi.pages.films.title')} />
+      <Meta description={t('swapi.pages.films.description')} />
       <h1 className="mb-8">{t('swapi.pages.films.title')}</h1>
       <List
         items={data.swapi.allFilms.map((film) => ({

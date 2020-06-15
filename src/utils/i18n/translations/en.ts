@@ -7,6 +7,9 @@ const en: TranslationData = {
   global: {
     // @TODO Update the site name.
     siteName: 'Star Wars Database',
+    metadata: {
+      description: 'This is the default page description.',
+    },
   },
 
   //
@@ -40,19 +43,24 @@ const en: TranslationData = {
   swapi: {
     pages: {
       home: {
+        description: 'The homepage of the SWAPI example site',
         title: 'Welcome',
         text: 'This is a Gatsby example project.',
       },
       characters: {
+        description: 'Characters in the Star Wars universe',
         title: 'Characters',
       },
       'characters-character': {
+        description: 'The Star Wars character, {{ name }}',
         title: 'Films with "{{name}}"',
       },
       films: {
+        description: 'Films in the Star Wars universe',
         title: 'Films',
       },
       'films-film': {
+        description: 'The Star Wars film, {{ title }}',
         episode: 'Episode {{episodeId}}',
         characters: 'Characters',
       },
