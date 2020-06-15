@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import List from 'components/List';
+import Meta from 'components/Meta';
 import OneColumn from 'components/layouts/OneColumn';
 import withPageWrapper from 'hocs/withPageWrapper';
 
@@ -41,6 +42,11 @@ const FilmPage: React.FC<{
   const { t } = useTranslation();
   return (
     <OneColumn>
+      <Meta
+        description={t('swapi.pages.films-film.description', {
+          title: data.swapi.film.title,
+        })}
+      />
       <h1 className="mb-2">{data.swapi.film.title}</h1>
       {data.swapi.film.episodeId && (
         <p className="mb-8">

@@ -1,9 +1,16 @@
 import * as React from 'react';
 import { useEffect } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import Header from 'components/Header';
+import Meta from 'components/Meta';
 import Navigation from 'components/Navigation';
 import { CurrentPathProvider } from 'hooks/current_path';
-import i18next, { defaultLanguage, delocalizePath } from 'utils/i18n';
+import i18next, {
+  defaultLanguage,
+  defaultTitleTemplate,
+  delocalizePath,
+} from 'utils/i18n';
 
 export type GatsbyPageProps = {
   /**
@@ -35,11 +42,25 @@ const PageWrapper: React.FC<GatsbyPageProps> = ({
     }
   }, [currentLanguage]);
 
+  const { t } = useTranslation();
+
   return (
     <CurrentPathProvider path={delocalizePath(location.pathname)}>
-      <Header />
-      <Navigation />
-      {children}
+      <HelmetProvider>
+        <Helmet
+          htmlAttributes={{
+            lang: currentLanguage,
+            // Needed for Open Graph meta tags.
+            prefix: 'og: http://ogp.me/ns#',
+          }}
+          titleTemplate={defaultTitleTemplate(t)}
+          defaultTitle={t('global.siteName')}
+        />
+        <Meta description={t('global.metadata.description')} />
+        <Header />
+        <Navigation />
+        {children}
+      </HelmetProvider>
     </CurrentPathProvider>
   );
 };
