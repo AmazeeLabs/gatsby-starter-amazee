@@ -1,10 +1,13 @@
+import { defaultNS } from '../languages';
 import de from './de';
+import en from './en';
 
-export type TranslationResource = {
+export type TranslationData = {
+  [key: string]: string | TranslationData;
+};
+type TranslationResource = {
   [languageCode: string]: {
-    translation: {
-      [key: string]: string;
-    };
+    [defaultNS]: TranslationData;
   };
 };
 
@@ -14,7 +17,12 @@ export type TranslationResource = {
 
 // Translated strings for this project.
 const translations: TranslationResource = {
-  ...de,
+  en: {
+    [defaultNS]: en,
+  },
+  de: {
+    [defaultNS]: de,
+  },
 };
 
 export default translations;

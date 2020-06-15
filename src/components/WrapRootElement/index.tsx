@@ -11,10 +11,10 @@ export const wrapRootElement: React.FC<{ element: ReactNode }> = ({
   element,
 }) => {
   // TODO: Remove or replace the Apollo client information.
-  // The Apollo client and wrapping provider are necessary for loading dynamic
-  // data in the browser. If the site is completely static the wrapping provider
-  // can be removed.
-  // https://www.gatsbyjs.org/docs/client-data-fetching/
+  //   The Apollo client and wrapping provider are necessary for loading dynamic
+  //   data in the browser. If the site is completely static the wrapping
+  //   provider can be removed.
+  //   https://www.gatsbyjs.org/docs/client-data-fetching/
   const client = new ApolloClient({
     uri: process.env.GATSBY_GRAPHQL_LIVE_ENDPOINT,
     fetch,

@@ -18,20 +18,6 @@ dotenvConfig({
 // TODO: Adjust this depending on the hosting setup and project repository name.
 export const pathPrefix = '/gatsby-starter-amazee';
 
-export const siteMetadata = {
-  // TODO: Adjust the static site navigation. Or replace this Gatsby
-  //  useStaticQuery GraphQL with CMS API calls.
-  navigation: [
-    { id: 'navigation.home.title', path: '/', label: 'Home' },
-    { id: 'navigation.films.title', path: '/films', label: 'Films' },
-    {
-      id: 'navigation.characters.title',
-      path: '/characters',
-      label: 'Characters',
-    },
-  ],
-};
-
 export const plugins = [
   'gatsby-plugin-postcss',
   'gatsby-plugin-tsconfig-paths',

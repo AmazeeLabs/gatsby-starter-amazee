@@ -45,20 +45,16 @@ const PersonPage: React.FC<{
   return (
     <OneColumn>
       <h1 className="mb-8">
-        {t('swapi-pages.characters-character.title', 'Films with "{{name}}"', {
+        {t('swapi.pages.characters-character.title', {
           name: data.swapi.person.name,
         })}
       </h1>
       <List
         items={data.swapi.person.films.map((film) => ({
           id: film.id,
-          label: `${film.title} (${t(
-            'swapi-pages.films-film.episode',
-            'Episode {{episodeId}}',
-            {
-              episodeId: film.episodeId,
-            },
-          )})`,
+          label: `${film.title} (${t('swapi.pages.films-film.episode', {
+            episodeId: film.episodeId,
+          })})`,
           path: `/films/${film.id}`,
         }))}
       />
