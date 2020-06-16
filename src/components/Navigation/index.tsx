@@ -8,7 +8,7 @@ import { isSubPath } from 'utils/paths';
 
 // TODO: Adjust the static site navigation. Or replace this with CMS API calls.
 //   The text for these links are found by their key in the translation files.
-const items = [
+export const navLinks = [
   { key: 'navigation.main.home', path: '/' },
   { key: 'navigation.main.films', path: '/films' },
   { key: 'navigation.main.characters', path: '/characters' },
@@ -28,12 +28,12 @@ const Navigation: React.FC = () => {
         {t('navigation.main.heading')}
       </h2>
 
-      {items.length && (
+      {navLinks.length && (
         <select
           className="sm:hidden block appearance-none w-full bg-amazee-dark border-2 border-amazee-yellow px-3 py-2"
           onChange={(event) => navigate(event.target.value)}
         >
-          {items.map((item) => (
+          {navLinks.map((item) => (
             <option key={item.path} value={item.path}>
               {t(item.key)}
             </option>
@@ -41,9 +41,9 @@ const Navigation: React.FC = () => {
         </select>
       )}
 
-      {items.length && (
+      {navLinks.length && (
         <ul className="hidden sm:flex">
-          {items.map((item) => (
+          {navLinks.map((item) => (
             <li key={item.path}>
               <Link
                 to={item.path}

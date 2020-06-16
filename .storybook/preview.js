@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions';
-import { addParameters } from '@storybook/react';
+import { addDecorator, addParameters } from '@storybook/react';
+import { withCurrentPathProvider, withHelmetProvider } from 'utils/decorators';
 import storySort from './storySort';
 
 // Make sure the global stylesheet is added to the storybook build.
@@ -7,6 +8,10 @@ import '!style-loader!css-loader!postcss-loader!../src/styles/tailwind.css';
 
 // Tell webpack to bundle the logo file used in Storybook manager.js.
 import './logo.svg';
+
+// Add global decorators.
+addDecorator(withHelmetProvider);
+addDecorator(withCurrentPathProvider);
 
 // Configure how Storybook looks.
 addParameters({

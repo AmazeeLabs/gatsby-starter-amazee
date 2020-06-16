@@ -1,9 +1,11 @@
 import * as React from 'react';
+import { withOneColumn } from 'utils/decorators';
 import List from './index';
 
 export default {
   title: 'Components/List',
   component: List,
+  decorators: [withOneColumn],
 };
 
 export const Filled = () => (
