@@ -14,9 +14,11 @@ import * as React from 'react';
 // Create a new react context with initial value '/'.
 const CurrentPathContext = React.createContext<string>('/');
 
+export type CurrentPathProviderProps = { path: string };
+
 // Provide a `CurrentPathProvider` component that is used to set the path in the
 // global layout component (see `src/layouts/index.tsx).
-export const CurrentPathProvider: React.FC<{ path: string }> = ({
+export const CurrentPathProvider: React.FC<CurrentPathProviderProps> = ({
   path,
   children,
 }) => (
