@@ -1,11 +1,11 @@
 import React from 'react';
-import { withHelmetFYI } from 'utils/decorators';
+import { withHelmetFYI, withOneColumn } from 'utils/decorators';
 import Meta from './index';
 
 export default {
   title: 'Components/Meta',
   component: Meta,
-  decorators: [withHelmetFYI],
+  decorators: [withHelmetFYI, withOneColumn],
 };
 
 export const Description = () => (

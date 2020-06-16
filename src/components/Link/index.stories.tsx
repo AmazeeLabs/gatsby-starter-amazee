@@ -1,9 +1,11 @@
 import * as React from 'react';
+import { withOneColumn } from 'utils/decorators';
 import Link from './index';
 
 export default {
   title: 'Components/Link',
   component: Link,
+  decorators: [withOneColumn],
 };
 
 export const Default = () => <Link to="/some-url">This is a link</Link>;
