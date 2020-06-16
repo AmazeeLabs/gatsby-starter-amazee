@@ -13,7 +13,7 @@ export const defaultTitleTemplate = (t: TFunction) => {
  * the Helmet title to be "Blog", Helmet will add a title element to the page of
  * "Blog | The site name".
  *
- * If you want the title element of "My new blog post: Blog | The site name",
+ * If you want the title element of "My new blog post | The site name - Blog",
  * this function can provide the re-usable pieces you need. Usage:
  *
  * ```
@@ -29,5 +29,5 @@ export const defaultTitleTemplate = (t: TFunction) => {
 export const getSectionTitleTemplate = (t: TFunction) => (
   sectionTitle: string,
 ) => {
-  return `%s: ${sectionTitle} | ${t('global.siteName')}`;
+  return `%s | ${t('global.siteName')} - ${sectionTitle}`;
 };

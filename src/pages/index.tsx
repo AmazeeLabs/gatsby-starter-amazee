@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import Meta from 'components/Meta';
 import OneColumn from 'components/layouts/OneColumn';
+import Title from 'components/Title';
 import withPageWrapper from 'hocs/withPageWrapper';
 
 const IndexPage: React.FC = () => {
@@ -9,7 +10,9 @@ const IndexPage: React.FC = () => {
   return (
     <OneColumn>
       <Meta description={t('swapi.pages.home.description')} />
-      <h1 className="mb-8">{t('swapi.pages.home.title')}</h1>
+      <Title className="mb-8" isHomepage>
+        {t('swapi.pages.home.title')}
+      </Title>
       <p>{t('swapi.pages.home.text')}</p>
     </OneColumn>
   );
