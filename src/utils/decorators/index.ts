@@ -4,3 +4,4 @@
 export { withCurrentPathProvider } from './withCurrentPathProvider';
 export { withHelmetFYI } from './withHelmetFYI';
 export { withHelmetProvider } from './withHelmetProvider';
+export { withPageWrapper } from './withPageWrapper';

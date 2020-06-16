@@ -47,6 +47,7 @@ module.exports = {
     'deprecate/import': [
       'error',
       { name: 'gatsby-link', use: 'components/Link or utils/i18n/navigate' },
+      { name: 'components/layouts/PageWrapper', use: 'hocs/withPageWrapper' },
     ],
   },
 };

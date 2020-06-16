@@ -1,6 +1,6 @@
 import * as React from 'react';
 import OneColumn from 'components/layouts/OneColumn';
-import withPageWrapper from 'hocs/withPageWrapper';
+import { GatsbyPageProps } from 'hocs/withPageWrapper';
 import PageWrapper from './index';
 
 export default {
@@ -8,7 +8,17 @@ export default {
   component: PageWrapper,
 };
 
-const mockGatsbyPageProps = {
+// Mock the PageWrapper to show how the real one should be used in a
+// non-storybook setting.
+const withPageWrapper = (
+  PageComponent: React.FC<any>,
+): React.FC<GatsbyPageProps> => (props) => (
+  <PageWrapper>
+    <PageComponent {...props} />
+  </PageWrapper>
+);
+
+const gatsbyPageProps: GatsbyPageProps = {
   location: ({ pathname: '/' } as unknown) as Location,
   pageContext: { language: 'en' },
 };
@@ -18,17 +28,20 @@ const ExampleComponent: React.FC = () => (
       Add the PageWrapper component around your Gatsby-page-level component by
       using the <code>withPageWrapper()</code> HOC.
     </p>
-    <p>
-      Note that the `PageWrapper` component doesn’t add a layout wrapper around
-      the page content.
-    </p>
+
     <OneColumn>
-      <p>For example, this content is wrapped in the `OneColumn` comonent.</p>
+      <p>
+        By noticing the previous paragraph, you can see that the{' '}
+        <code>PageWrapper</code> component doesn’t wrap any layout around the
+        page content. You will need to add your own layout wrapper to the page
+        content, e.g. this paragraph is wrapped in the <code>OneColumn</code>{' '}
+        component.
+      </p>
     </OneColumn>
   </>
 );
 
 export const Default = () => {
   const ExamplePageComponent = withPageWrapper(ExampleComponent);
-  return <ExamplePageComponent {...mockGatsbyPageProps} />;
+  return <ExamplePageComponent {...gatsbyPageProps} />;
 };
