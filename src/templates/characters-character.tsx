@@ -1,14 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { useTranslation } from 'react-i18next';
-import List from 'components/containers/List';
-import Meta from 'components/common/Meta';
-import OneColumn from 'components/layouts/OneColumn';
-import Title from 'components/common/Title';
+import CharacterTemplate from 'components/pages/characters/CharacterTemplate';
 import withPageWrapper from 'hocs/withPageWrapper';
 
 // By exporting this query, we tell Gatsby to execute it with the context
 // variables provided as arguments and to fill it with the query result.
+// https://www.gatsbyjs.org/docs/page-query/
 export const PersonQuery = graphql`
   query PersonQuery($id: ID!) {
     swapi {
@@ -28,7 +25,7 @@ export const PersonQuery = graphql`
 /**
  * The main visual template for the person page, including an apollo query.
  */
-const PersonPage: React.FC<{
+const Page: React.FC<{
   data: {
     swapi: {
       person: {
@@ -42,35 +39,6 @@ const PersonPage: React.FC<{
       };
     };
   };
-}> = ({ data }) => {
-  const { t } = useTranslation();
-  return (
-    <OneColumn>
-      <Meta
-        description={t('swapi.pages.characters-character.description', {
-          name: data.swapi.person.name,
-        })}
-      />
-      <Title
-        className="mb-8"
-        sectionTitle={t('swapi.pages.characters.title')}
-        headTitle={data.swapi.person.name}
-      >
-        {t('swapi.pages.characters-character.title', {
-          name: data.swapi.person.name,
-        })}
-      </Title>
-      <List
-        items={data.swapi.person.films.map((film) => ({
-          id: film.id,
-          label: `${film.title} (${t('swapi.pages.films-film.episode', {
-            episodeId: film.episodeId,
-          })})`,
-          path: `/films/${film.id}`,
-        }))}
-      />
-    </OneColumn>
-  );
-};
+}> = ({ data }) => <CharacterTemplate character={data.swapi.person} />;
 
-export default withPageWrapper(PersonPage);
+export default withPageWrapper(Page);

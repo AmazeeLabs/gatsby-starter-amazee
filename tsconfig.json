@@ -18,6 +18,7 @@
     "baseUrl": "./",
     "paths": {
       "components/*": ["src/components/*"],
+      "schema/*": ["src/graphql/schema/*"],
       "hocs/*": ["src/utils/hocs/*"],
       "hooks/*": ["src/utils/hooks/*"],
       "types/*": ["src/types/*"],

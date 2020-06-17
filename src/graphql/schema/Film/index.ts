@@ -8,7 +8,7 @@ import { mockFilmResolver, mockAllFilmsResolver } from './resolvers';
 export interface Film {
   id?: string;
   title?: string;
-  episodeId?: number;
+  episodeId?: string;
   characters?: Person[];
 }
 
@@ -24,7 +24,7 @@ export const TypeDef = gql`
   type Film {
     id: ID!
     title: String!
-    episodeId: Int!
+    episodeId: String!
     characters: [Person]!
   }
 `;
