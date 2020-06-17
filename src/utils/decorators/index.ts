@@ -2,6 +2,7 @@
 // Just use: import { withMyChosenDecorator } from 'utils/decorators';
 
 export { withCurrentPathProvider } from './withCurrentPathProvider';
+export { withDefaultTitleTemplate } from './withDefaultTitleTemplate';
 export { withHelmetFYI } from './withHelmetFYI';
 export { withHelmetProvider } from './withHelmetProvider';
 export { withOneColumn } from './withOneColumn';

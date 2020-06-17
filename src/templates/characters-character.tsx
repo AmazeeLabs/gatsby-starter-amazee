@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import List from 'components/List';
 import Meta from 'components/Meta';
 import OneColumn from 'components/layouts/OneColumn';
+import Title from 'components/Title';
 import withPageWrapper from 'hocs/withPageWrapper';
 
 // By exporting this query, we tell Gatsby to execute it with the context
@@ -50,11 +51,15 @@ const PersonPage: React.FC<{
           name: data.swapi.person.name,
         })}
       />
-      <h1 className="mb-8">
+      <Title
+        className="mb-8"
+        sectionTitle={t('swapi.pages.characters.title')}
+        headTitle={data.swapi.person.name}
+      >
         {t('swapi.pages.characters-character.title', {
           name: data.swapi.person.name,
         })}
-      </h1>
+      </Title>
       <List
         items={data.swapi.person.films.map((film) => ({
           id: film.id,
