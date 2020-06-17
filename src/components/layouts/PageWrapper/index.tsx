@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Header from 'components/global/Header';
-import Meta from 'components/Meta';
+import Meta from 'components/common/Meta';
 import Navigation from 'components/global/Navigation';
 import i18next, { defaultTitleTemplate } from 'utils/i18n';
 

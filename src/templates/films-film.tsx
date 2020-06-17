@@ -2,9 +2,9 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import List from 'components/List';
-import Meta from 'components/Meta';
+import Meta from 'components/common/Meta';
 import OneColumn from 'components/layouts/OneColumn';
-import Title from 'components/Title';
+import Title from 'components/common/Title';
 import withPageWrapper from 'hocs/withPageWrapper';
 
 // By exporting this query, we tell Gatsby to execute it with the context

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import Meta from 'components/Meta';
+import Meta from 'components/common/Meta';
 import OneColumn from 'components/layouts/OneColumn';
-import Title from 'components/Title';
+import Title from 'components/common/Title';
 import withPageWrapper from 'hocs/withPageWrapper';
 
 const IndexPage: React.FC = () => {
