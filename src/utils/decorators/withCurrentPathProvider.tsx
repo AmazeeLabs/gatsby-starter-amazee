@@ -2,7 +2,7 @@ import React from 'react';
 import { DecoratorFn } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
 import { CurrentPathProvider } from 'hooks/current_path';
-import { navLinks } from 'components/Navigation';
+import { navLinks } from 'components/global/Navigation';
 import { useTranslation } from 'react-i18next';
 
 const Provider: React.FC = ({ children }) => {
