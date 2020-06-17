@@ -2,7 +2,7 @@ import React from 'react';
 import OneColumn from './index';
 
 export default {
-  title: 'Components/Layouts/One Column',
+  title: 'Unused Components/Layouts/One Column',
   component: OneColumn,
 };
 

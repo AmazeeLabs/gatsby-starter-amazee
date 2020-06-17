@@ -7,7 +7,7 @@ import {
 import Title from './index';
 
 export default {
-  title: 'Components/Title',
+  title: 'Unused Components/Common/Title',
   component: Title,
   decorators: [withHelmetFYI, withOneColumn, withDefaultTitleTemplate],
 };

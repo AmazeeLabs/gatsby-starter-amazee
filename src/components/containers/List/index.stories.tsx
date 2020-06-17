@@ -3,7 +3,7 @@ import { withOneColumn } from 'utils/decorators';
 import List from './index';
 
 export default {
-  title: 'Components/List',
+  title: 'Unused Components/Containers/List',
   component: List,
   decorators: [withOneColumn],
 };
