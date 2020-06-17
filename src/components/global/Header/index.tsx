@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from 'components/LanguageSwitcher';
+import LanguageSwitcher from 'components/global/LanguageSwitcher';
 
 /**
  * A simple header component, displaying the page title and the language switcher.
