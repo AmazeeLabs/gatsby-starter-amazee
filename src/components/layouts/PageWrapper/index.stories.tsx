@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import OneColumn from 'components/layouts/OneColumn';
 import { GatsbyPageProps } from 'hocs/withPageWrapper';
 import PageWrapper from './index';

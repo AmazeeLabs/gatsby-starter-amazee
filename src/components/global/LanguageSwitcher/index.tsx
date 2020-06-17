@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCurrentPath } from 'hooks/current_path';

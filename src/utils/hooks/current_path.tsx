@@ -9,7 +9,7 @@
  * https://reactjs.org/docs/hooks-reference.html#usecontext
  */
 import { useContext } from 'react';
-import * as React from 'react';
+import React from 'react';
 
 // Create a new react context with initial value '/'.
 const CurrentPathContext = React.createContext<string>('/');
