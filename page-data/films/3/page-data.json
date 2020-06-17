@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-films-film-tsx","path":"/films/3","result":{"data":{"swapi":{"film":{"id":"3","title":"Return of the Jedi","episodeId":6,"characters":[{"id":"2","name":"Leia Organa"},{"id":"3","name":"Han Solo"}]}}},"pageContext":{"id":"3"}}}
+{"componentChunkName":"component---src-templates-films-film-tsx","path":"/films/3","result":{"data":{"swapi":{"film":{"id":"3","title":"Return of the Jedi","episodeId":"6","characters":[{"id":"2","name":"Leia Organa"},{"id":"3","name":"Han Solo"}]}}},"pageContext":{"id":"3"}}}
