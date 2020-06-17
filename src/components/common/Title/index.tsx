@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Helmet, HelmetProps } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { getSectionTitleTemplate } from 'utils/i18n';

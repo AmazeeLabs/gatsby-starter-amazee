@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 // eslint-disable-next-line deprecate/import
 import GatsbyLink, { GatsbyLinkProps } from 'gatsby-link';
 import { useTranslation } from 'react-i18next';

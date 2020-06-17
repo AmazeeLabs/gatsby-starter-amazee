@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 // eslint-disable-next-line deprecate/import
 import PageWrapper from 'components/layouts/PageWrapper';
 import i18next, { defaultLanguage, delocalizePath } from 'utils/i18n';
