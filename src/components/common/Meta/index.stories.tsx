@@ -3,7 +3,7 @@ import { withHelmetFYI, withOneColumn } from 'utils/decorators';
 import Meta from './index';
 
 export default {
-  title: 'Components/Meta',
+  title: 'Components/Common/Meta',
   component: Meta,
   decorators: [withHelmetFYI, withOneColumn],
 };

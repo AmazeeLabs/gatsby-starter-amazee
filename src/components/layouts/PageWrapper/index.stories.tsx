@@ -4,7 +4,7 @@ import { GatsbyPageProps } from 'hocs/withPageWrapper';
 import PageWrapper from './index';
 
 export default {
-  title: 'Components/Layouts/withPageWrapper',
+  title: 'Unused Components/Layouts/withPageWrapper',
   component: PageWrapper,
 };
 

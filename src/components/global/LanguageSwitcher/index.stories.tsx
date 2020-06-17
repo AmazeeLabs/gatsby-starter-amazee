@@ -3,7 +3,7 @@ import { withOneColumn } from 'utils/decorators';
 import LanguageSwitcher from './index';
 
 export default {
-  title: 'Components/LanguageSwitcher',
+  title: 'Unused Components/Global/LanguageSwitcher',
   component: LanguageSwitcher,
   decorators: [withOneColumn],
 };

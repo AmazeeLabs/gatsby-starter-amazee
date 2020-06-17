@@ -3,7 +3,7 @@ import { withOneColumn } from 'utils/decorators';
 import Link from './index';
 
 export default {
-  title: 'Components/Link',
+  title: 'Components/Common/Link',
   component: Link,
   decorators: [withOneColumn],
 };

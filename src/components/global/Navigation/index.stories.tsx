@@ -5,7 +5,7 @@ import { withCurrentPathProvider } from 'utils/decorators';
 import Navigation from './index';
 
 export default {
-  title: 'Components/Navigation',
+  title: 'Unused Components/Global/Navigation',
   component: Navigation,
 };
 

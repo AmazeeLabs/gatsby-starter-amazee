@@ -22,7 +22,14 @@ addParameters({
     showRoots: true,
     storySort: storySort({
       method: 'alphabetical',
-      order: ['Home', 'Foundations', 'Pages', ['Home page'], 'Components'],
+      order: [
+        'Home',
+        'Foundations',
+        'Pages',
+        ['Home page'],
+        'Components',
+        'Unused Components',
+      ],
     }),
   },
 });
