@@ -5,7 +5,11 @@ import { CurrentPathProvider } from 'hooks/current_path';
 import { navLinks } from 'components/global/Navigation';
 import { useTranslation } from 'react-i18next';
 
-const Provider: React.FC = ({ children }) => {
+const Provider: React.FC<{ path?: string; withSelector?: boolean }> = ({
+  path = '/',
+  withSelector,
+  children,
+}) => {
   const { t } = useTranslation();
   const selectOptions: { [key: string]: string } = {};
 
@@ -16,13 +20,28 @@ const Provider: React.FC = ({ children }) => {
 
   return (
     <CurrentPathProvider
-      path={select<string>('Current path', selectOptions, '/')}
+      path={
+        withSelector
+          ? select<string>('Current path', selectOptions, path)
+          : path
+      }
     >
       {children}
     </CurrentPathProvider>
   );
 };
 
-export const withCurrentPathProvider: DecoratorFn = (storyFn) => (
+// Provider with no selector.
+export const withCurrentPathProviderFallback: DecoratorFn = (storyFn) => (
   <Provider>{storyFn()}</Provider>
+);
+
+// Provider with a path selector.
+export const withCurrentPathProvider = ({
+  path = '/',
+  withSelector = false,
+}): DecoratorFn => (storyFn) => (
+  <Provider path={path} withSelector={withSelector}>
+    {storyFn()}
+  </Provider>
 );

@@ -1,6 +1,9 @@
 import { action } from '@storybook/addon-actions';
 import { addDecorator, addParameters } from '@storybook/react';
-import { withCurrentPathProvider, withHelmetProvider } from 'utils/decorators';
+import {
+  withCurrentPathProviderFallback,
+  withHelmetProvider,
+} from 'utils/decorators';
 import storySort from './storySort';
 
 // Make sure the global stylesheet is added to the storybook build.
@@ -11,7 +14,7 @@ import './logo.svg';
 
 // Add global decorators.
 addDecorator(withHelmetProvider);
-addDecorator(withCurrentPathProvider);
+addDecorator(withCurrentPathProviderFallback);
 
 // Configure how Storybook looks.
 addParameters({
@@ -19,7 +22,7 @@ addParameters({
     showRoots: true,
     storySort: storySort({
       method: 'alphabetical',
-      order: ['Home', 'Foundations', 'Pages', 'Components'],
+      order: ['Home', 'Foundations', 'Pages', ['Home page'], 'Components'],
     }),
   },
 });
