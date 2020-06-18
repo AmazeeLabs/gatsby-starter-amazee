@@ -34,7 +34,13 @@ const en: TranslationData = {
   // Keys defined in src/components/pages. Note that NO translations should
   // be found in src/pages and src/templates.
   //
-  pages: {},
+  pages: {
+    404: {
+      error: '404: Not Found',
+      title: 'Page not found',
+      text: 'This page cannot be found.',
+    },
+  },
 
   //
   // These swapi translations are only for the demo content and should be

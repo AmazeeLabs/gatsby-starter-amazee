@@ -23,7 +23,13 @@ const de: TranslationData = {
     },
   },
 
-  pages: {},
+  pages: {
+    404: {
+      error: '404: Nicht Gefunden',
+      title: 'Seite nicht gefunden',
+      text: 'Diese Seite kann nicht gefunden werden.',
+    },
+  },
 
   swapi: {
     pages: {
