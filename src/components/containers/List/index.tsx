@@ -21,7 +21,11 @@ const List: React.FC<{
           key={item.id}
           className="border-solid border-gray-300 border-b-2 last:border-b-0"
         >
-          <Link to={item.path} className="block px-5 py-2 hover:bg-gray-100">
+          <Link
+            to={item.path}
+            className="block px-5 py-2 hover:bg-gray-100"
+            noLinkStyles
+          >
             {item.label}
           </Link>
         </li>

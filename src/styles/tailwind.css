@@ -76,6 +76,10 @@ a {
   }
 }
 
+.link-styles-off {
+  text-decoration: none;
+}
+
 /*
  * Utility styles
  *

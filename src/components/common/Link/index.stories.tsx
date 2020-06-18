@@ -15,3 +15,9 @@ export const ToLanguage = () => (
     This is a link that will always open to the German language version.
   </Link>
 );
+
+export const NoLinkStyles = () => (
+  <Link to="/some-url" noLinkStyles>
+    This is a link with default link styles removed
+  </Link>
+);
