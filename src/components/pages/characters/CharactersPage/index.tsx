@@ -15,7 +15,7 @@ const CharactersPage: React.FC<{ characters: CharactersProp }> = ({
   return (
     <OneColumn>
       <Meta description={t('swapi.pages.characters.description')} />
-      <Title className="mb-8">{t('swapi.pages.characters.title')}</Title>
+      <Title>{t('swapi.pages.characters.title')}</Title>
       <List
         items={characters.map((character) => ({
           id: character.id,

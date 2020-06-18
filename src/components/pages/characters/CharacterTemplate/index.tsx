@@ -26,7 +26,6 @@ const CharacterTemplate: React.FC<{
         })}
       />
       <Title
-        className="mb-8"
         sectionTitle={t('swapi.pages.characters.title')}
         headTitle={character.name}
       >

@@ -9,9 +9,7 @@ const HomePage: React.FC = () => {
   return (
     <OneColumn>
       <Meta description={t('swapi.pages.home.description')} />
-      <Title className="mb-8" isHomepage>
-        {t('swapi.pages.home.title')}
-      </Title>
+      <Title isHomepage>{t('swapi.pages.home.title')}</Title>
       <p>{t('swapi.pages.home.text')}</p>
     </OneColumn>
   );
