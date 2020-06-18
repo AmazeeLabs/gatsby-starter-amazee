@@ -15,7 +15,7 @@ const FilmsPage: React.FC<{
   return (
     <OneColumn>
       <Meta description={t('swapi.pages.films.description')} />
-      <Title className="mb-8">{t('swapi.pages.films.title')}</Title>
+      <Title>{t('swapi.pages.films.title')}</Title>
       <List
         items={films.map((film) => ({
           id: film.id,

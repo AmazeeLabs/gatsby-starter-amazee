@@ -25,19 +25,32 @@ body {
 h1 {
   @apply text-2xl;
   @apply font-bold;
-  @apply mb-6;
+  @apply mb-8;
 }
 
 h2 {
   @apply text-xl;
   @apply font-bold;
-  @apply mb-6;
+  @apply my-6;
 }
 
 h3 {
   @apply text-lg;
   @apply font-bold;
-  @apply mb-6;
+  @apply my-6;
+}
+
+h4 {
+  @apply text-base;
+  @apply font-bold;
+  @apply my-6;
+}
+
+h5,
+h6 {
+  @apply text-sm;
+  @apply font-bold;
+  @apply my-6;
 }
 
 p {
