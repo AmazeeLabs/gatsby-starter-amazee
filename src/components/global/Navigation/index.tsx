@@ -53,6 +53,7 @@ const Navigation: React.FC = () => {
                     'border-amazee-yellow': isSubPath(currentPath, item.path),
                   },
                 )}`}
+                noLinkStyles
               >
                 {t(item.key)}
               </Link>
