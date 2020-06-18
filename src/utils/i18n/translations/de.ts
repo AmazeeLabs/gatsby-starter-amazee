@@ -8,18 +8,24 @@ const de: TranslationData = {
     },
   },
 
-  navigation: {
-    main: {
-      heading: 'Hauptnavigation',
-      home: 'Startseite',
-      films: 'Filme',
-      characters: 'Charaktere',
+  footer: {
+    legal: {
+      copyright: 'Alle Rechte vorbehalten.',
     },
   },
 
   languageSwitcher: {
     select: {
       label: 'Sprache ändern:',
+    },
+  },
+
+  navigation: {
+    main: {
+      heading: 'Hauptnavigation',
+      home: 'Startseite',
+      films: 'Filme',
+      characters: 'Charaktere',
     },
   },
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import Footer from 'components/global/Footer';
 import Header from 'components/global/Header';
 import Meta from 'components/common/Meta';
 import Navigation from 'components/global/Navigation';
@@ -31,6 +32,7 @@ const PageWrapper: React.FC = ({ children }) => {
       <Header />
       <Navigation />
       {children}
+      <Footer />
     </>
   );
 };

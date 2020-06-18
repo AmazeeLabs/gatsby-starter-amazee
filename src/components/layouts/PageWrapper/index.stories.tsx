@@ -24,7 +24,7 @@ const gatsbyPageProps: GatsbyPageProps = {
 };
 const ExampleComponent: React.FC = () => (
   <>
-    <p style={{ marginTop: '3rem' }}>
+    <p>
       Add the PageWrapper component around your Gatsby-page-level component by
       using the <code>withPageWrapper()</code> HOC.
     </p>

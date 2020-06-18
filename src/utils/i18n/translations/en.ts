@@ -1,5 +1,30 @@
 import { TranslationData } from './index';
 
+// This file can be split into multiple files quite easily. For example, one
+// strategy is to include translation files with each component, which makes it
+// easy for developers, but can be challenging if translators need to edit
+// files.
+//
+// A strategy that is easier when translators need to edit files is to keep all
+// language files next to each other and add directories for each language in
+// this directory. For example, create multiple files in
+// src/utils/i18n/translations/en and merge them together using the same
+// method as above.
+//
+// To merge multiple translation files into this file, follow this pattern:
+//
+//   import enGlobal from 'utils/i18n/translations/en/global';
+//   import enComponents from 'utils/i18n/translations/en/components';
+//   import enPages from 'utils/i18n/translations/en/pages';
+//
+//   const en: TranslationData = {
+//     ...enGlobal,
+//     ...enComponents,
+//     ...enPages,
+//   };
+//
+//   export default en;
+
 const en: TranslationData = {
   //
   // Keys that are used in multiple places in src/components.
@@ -15,18 +40,24 @@ const en: TranslationData = {
   //
   // Keys defined in src/components.
   //
-  navigation: {
-    main: {
-      heading: 'Main navigation',
-      home: 'Home',
-      films: 'Films',
-      characters: 'Characters',
+  footer: {
+    legal: {
+      copyright: 'All Rights Reserved.',
     },
   },
 
   languageSwitcher: {
     select: {
       label: 'Change language:',
+    },
+  },
+
+  navigation: {
+    main: {
+      heading: 'Main navigation',
+      home: 'Home',
+      films: 'Films',
+      characters: 'Characters',
     },
   },
 
