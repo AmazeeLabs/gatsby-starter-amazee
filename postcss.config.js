@@ -7,6 +7,13 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
   defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
 });
 
+const isProduction =
+  process.env.NODE_ENV === 'production' &&
+  // We run storybook scripts with the NODE_ENV=production prefix in order to
+  // get the babel-plugin-remove-graphql-queries to work properly. So we have to
+  // ensure that we aren't running a storybook script when checking NODE_ENV.
+  process.argv[1].indexOf('storybook') === -1;
+
 module.exports = {
   plugins: [
     // Transform @import rules by inlining content.
@@ -17,9 +24,9 @@ module.exports = {
     require('postcss-nested'),
     // Apply tailwind features.
     require('tailwindcss'),
-    // On production, purge all selectors not used in the src/ folder. This MUST
-    // be done before stripping "purgecss start ignore" CSS comments.
-    ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
+    // On production, purge all selectors not used in our codebase. This MUST be
+    // done before stripping "purgecss start ignore" CSS comments.
+    ...(isProduction ? [purgecss] : []),
     // Strip CSS comments.
     require('postcss-discard-comments'),
     // Add vendor prefixes.
