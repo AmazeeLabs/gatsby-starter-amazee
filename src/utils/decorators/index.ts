@@ -10,3 +10,6 @@ export { withHelmetFYI } from './withHelmetFYI';
 export { withHelmetProvider } from './withHelmetProvider';
 export { withOneColumn } from './withOneColumn';
 export { withPageWrapper } from './withPageWrapper';
+
+// TODO: Change project name in Storybook.
+export const projectName = 'Amazee’s Gatsby Starter';
