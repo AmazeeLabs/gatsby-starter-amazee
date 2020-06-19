@@ -1,7 +1,7 @@
 // https://tailwindcss.com/docs/controlling-file-size#setting-up-purgecss
 const purgecss = require('@fullhuman/postcss-purgecss')({
-  // Specify the paths to all of the template files in your project.
-  content: ['./src/**/*.tsx'],
+  // Specify the paths to all of the components in your project.
+  content: ['./src/components/**/!(*.stories).tsx'],
 
   // Include any special characters used in Tailwind CSS class names.
   defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
