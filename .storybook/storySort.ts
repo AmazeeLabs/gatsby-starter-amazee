@@ -1,4 +1,17 @@
-const storySort = (options = {}) => (a, b) => {
+// This has been copied from the upcoming Storybook 6 codebase.
+type Comparator<T> = ((a: T, b: T) => boolean) | ((a: T, b: T) => number);
+type StorySortMethod = 'configure' | 'alphabetical';
+type StorySortOrder = (string | StorySortOrder)[];
+interface StorySortObjectParameter {
+  method?: StorySortMethod;
+  order?: StorySortOrder;
+  locales?: string;
+}
+
+const storySort = (options: StorySortObjectParameter = {}): Comparator<any> => (
+  a: any,
+  b: any,
+): number => {
   // If the two stories have the same story kind, then use the default
   // ordering, which is the order they are defined in the story file.
   if (a[1].kind === b[1].kind) {
@@ -62,7 +75,9 @@ const storySort = (options = {}) => (a, b) => {
     // If a nested array is provided for a name, use it for ordering.
     const index = order.indexOf(nameA);
     order =
-      index !== -1 && Array.isArray(order[index + 1]) ? order[index + 1] : [];
+      index !== -1 && Array.isArray(order[index + 1])
+        ? (order[index + 1] as StorySortOrder)
+        : [];
 
     // We'll need to look at the next part of the name.
     depth += 1;
