@@ -23,8 +23,8 @@ addParameters({
     storySort: storySort({
       method: 'alphabetical',
       order: [
-        'Home',
         'Foundations',
+        ['Welcome'],
         'Pages',
         ['Home page'],
         'Components',

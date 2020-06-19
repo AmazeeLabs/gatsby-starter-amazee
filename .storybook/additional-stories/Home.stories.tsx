@@ -1,12 +1,10 @@
 import React from 'react';
 import OneColumn from 'components/layouts/OneColumn';
+import { projectName } from 'utils/decorators';
 
 export default {
-  title: 'Home/Welcome',
+  title: 'Foundations/Welcome',
 };
-
-// TODO: Change project name in Storybook.
-const projectName = 'Amazee’s Gatsby Starter';
 
 export const toProject = () => (
   <OneColumn>

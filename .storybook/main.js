@@ -2,7 +2,7 @@ const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
-  stories: ['./Home.stories.tsx', '../src/**/*.stories.tsx'],
+  stories: ['./additional-stories/*.stories.tsx', '../src/**/*.stories.tsx'],
   addons: [
     // We don't use @storybook/preset-typescript. See webpack config below.
     '@storybook/addon-actions',
