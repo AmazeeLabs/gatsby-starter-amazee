@@ -17,7 +17,7 @@ export const About = () => (
     <p>
       Once you’ve finished adding new components, you can use this Storybook
       category to find unused components and delete them. This “About” story is
-      located in: <code>src/components/global/UnusedComponentsStory</code>
+      located in: <code>.storybook/additional-stories</code>
     </p>
   </OneColumn>
 );
