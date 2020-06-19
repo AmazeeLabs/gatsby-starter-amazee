@@ -37,17 +37,28 @@ addParameters({
 // These modifications are from Gatsby docs:
 // https://www.gatsbyjs.org/docs/visual-testing-with-storybook/
 
+declare global {
+  interface Window {
+    ___loader: {
+      enqueue: () => void;
+      hovering: () => void;
+    };
+    __BASE_PATH__: string;
+    ___navigate: (pathname: string) => void;
+  }
+}
+
 // Gatsby's Link overrides:
 // Gatsby defines a global called ___loader to prevent its method calls from
 // creating console errors you override it here.
-global.___loader = {
+window.___loader = {
   enqueue: () => {},
   hovering: () => {},
 };
 
 // Gatsby internal mocking to prevent unnecessary errors in storybook testing
 // environment.
-global.__BASE_PATH__ = '';
+window.__BASE_PATH__ = '';
 
 // This is to utilized to override the window.___navigate method Gatsby defines
 // and uses to report what path a Link would be taking us to if it wasn't inside
