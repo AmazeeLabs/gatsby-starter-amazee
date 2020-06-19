@@ -2,7 +2,7 @@ import React from 'react';
 import OneColumn from 'components/layouts/OneColumn';
 
 export default {
-  title: 'Home/Welcome',
+  title: 'Foundations/Welcome',
 };
 
 // TODO: Change project name in Storybook.
