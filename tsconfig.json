@@ -15,6 +15,7 @@
     "noEmit": false,
     "outDir": "generated",
     "jsx": "react",
+    "typeRoots": ["./typings", "./node_modules/@types"],
     "sourceMap": true,
     "baseUrl": "./",
     "paths": {
@@ -32,6 +33,6 @@
     "mocks/**/*",
     "plugins/**/*",
     "src/**/*",
-    "types/**/*"
+    "typings/**/*"
   ]
 }
