@@ -27,12 +27,5 @@
       "utils/*": ["src/utils/*"]
     }
   },
-  "include": [
-    ".storybook/**/*",
-    "graphql/**/*",
-    "mocks/**/*",
-    "plugins/**/*",
-    "src/**/*",
-    "typings/**/*"
-  ]
+  "include": [".storybook/**/*", "plugins/**/*", "src/**/*", "typings/**/*"]
 }
