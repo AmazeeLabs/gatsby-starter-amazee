@@ -13,7 +13,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
+    "outDir": "generated",
     "jsx": "react",
+    "typeRoots": ["./typings", "./node_modules/@types"],
     "sourceMap": true,
     "baseUrl": "./",
     "paths": {
@@ -25,5 +27,5 @@
       "utils/*": ["src/utils/*"]
     }
   },
-  "include": ["src", ".storybook", "graphql", "mocks", "plugins", "types"]
+  "include": [".storybook/**/*", "plugins/**/*", "src/**/*", "typings/**/*"]
 }
