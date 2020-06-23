@@ -1,0 +1,5 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" r="48.5" fill-opacity="0.3" fill="currentColor"/>
+<circle cx="50" cy="50" r="48.5" fill="none" stroke-width="3" stroke="currentColor"/>
+<path d="M65 60.235L54.6063 49.9738L64.8563 39.6213L60.235 35L49.97 45.3975L39.5825 35.1438L35 39.7262L45.4013 50.0262L35.1438 60.4175L39.7262 65L50.0225 54.6025L60.3787 64.8563L65 60.235Z" fill="currentColor"/>
+</svg>
