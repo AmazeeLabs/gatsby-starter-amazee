@@ -7,7 +7,7 @@ import {
 import storySort from './storySort';
 
 // Make sure the global stylesheet is added to the storybook build.
-import '!style-loader!css-loader!postcss-loader!../src/styles/tailwind.css';
+import '!style-loader!css-loader!postcss-loader!../src/assets/styles/tailwind.css';
 
 // Tell webpack to bundle the logo file used in Storybook manager.js.
 import './logo.svg';

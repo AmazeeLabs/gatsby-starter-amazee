@@ -23,12 +23,16 @@ This project follows the recommended Gatsby structure documented at https://www.
 
 - `/src/pages`: Static Gatsby pages whose URLS are defined statically
 - `/src/templates`: Gatsby templates to build static pages whose URLs are defined with data from GraphQL queries
-- `/src/components`: Standard React components used to build your site
+- `/src/components`: Standard React components used to build your site. See [the `src/components/\_README.md](../src/components/_README.md) file to understand how to keep components organized.
+- `/src/graphql`: Code for GraphQL services, schema, and mocked data
 - `/src/utils`: Shared utility functions
 - `/src/utils/i18n`: Utility functions related to internationalization
 - `/src/utils/hocs`: Higher-order components
 - `/src/utils/hooks`: Custom React hooks
-- `/src/styles`: Shared CSS files
+- `/src/utils/decorators`: Storybook decorators
+- `/src/assets/icons`: SVG assets used by the `Icon` component
+- `/src/assets/styles`: Shared CSS files
+- `/static`: Assets that can't easily be included with components, such as the `favicon.ico`. See [Gatsby's docs on the static folder](https://www.gatsbyjs.org/docs/static-folder/).
 
 ### Where do dynamic pages go?
 
