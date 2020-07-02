@@ -38,7 +38,10 @@ export const webpackFinal = async (
         // Add TypeScript to this rule.
         rule.test = /\.(mjs|jsx?|tsx?)$/;
         // Use babel-plugin-remove-graphql-queries to remove static queries
-        // from components when rendering in storybook. (See Gatsby docs.)
+        // from components when rendering in storybook. This only works if you:
+        // - build Gatsby before starting Storybook so that the plugin can
+        //   replace the queries with data stored in the "public" directory
+        // - start Storybook with NODE_ENV=production. (See Gatsby docs.)
         rule.use[0].options.plugins.push(
           require.resolve('babel-plugin-remove-graphql-queries'),
         );
