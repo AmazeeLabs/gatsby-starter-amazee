@@ -16,8 +16,8 @@ export interface Person {
 //
 export const TypeDef = gql`
   extend type Query {
-    allPeople: [Person]!
-    person(id: ID, name: String): Person
+    allPersons: [Person]!
+    Person(id: ID, name: String): Person
   }
 
   type Person {
@@ -28,22 +28,11 @@ export const TypeDef = gql`
 `;
 
 //
-// Resolvers
-//
-// @TODO Add here.
-// export const resolvers = {
-//   Query: {
-//     person: personResolver,
-//     allPeople: allPeopleResolver,
-//   },
-// };
-
-//
 // Mocked resolvers
 //
 export const mockResolvers = {
   Query: {
-    person: mockPersonResolver,
-    allPeople: mockAllPeopleResolver,
+    Person: mockPersonResolver,
+    allPersons: mockAllPeopleResolver,
   },
 };
