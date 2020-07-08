@@ -74,10 +74,10 @@ const en: TranslationData = {
   },
 
   //
-  // These swapi translations are only for the demo content and should be
+  // These api translations are only for the demo content and should be
   // deleted.
   //
-  swapi: {
+  api: {
     pages: {
       home: {
         description: 'The homepage of the SWAPI example site',

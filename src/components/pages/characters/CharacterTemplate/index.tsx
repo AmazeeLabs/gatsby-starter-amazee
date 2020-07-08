@@ -21,22 +21,22 @@ const CharacterTemplate: React.FC<{
   return (
     <OneColumn>
       <Meta
-        description={t('swapi.pages.characters-character.description', {
+        description={t('api.pages.characters-character.description', {
           name: character.name,
         })}
       />
       <Title
-        sectionTitle={t('swapi.pages.characters.title')}
+        sectionTitle={t('api.pages.characters.title')}
         headTitle={character.name}
       >
-        {t('swapi.pages.characters-character.title', {
+        {t('api.pages.characters-character.title', {
           name: character.name,
         })}
       </Title>
       <List
         items={character.films.map((film) => ({
           id: film.id,
-          label: `${film.title} (${t('swapi.pages.films-film.episode', {
+          label: `${film.title} (${t('api.pages.films-film.episode', {
             episodeId: film.episodeId,
           })})`,
           path: `/films/${film.id}`,

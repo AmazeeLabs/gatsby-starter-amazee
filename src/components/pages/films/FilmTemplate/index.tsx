@@ -18,21 +18,21 @@ const FilmTemplate: React.FC<{
   return (
     <OneColumn>
       <Meta
-        description={t('swapi.pages.films-film.description', {
+        description={t('api.pages.films-film.description', {
           title: film.title,
         })}
       />
-      <Title className="mb-2" sectionTitle={t('swapi.pages.films.title')}>
+      <Title className="mb-2" sectionTitle={t('api.pages.films.title')}>
         {film.title}
       </Title>
       {film.episodeId && (
         <p className="mb-8">
-          {t('swapi.pages.films-film.episode', {
+          {t('api.pages.films-film.episode', {
             episodeId: film.episodeId,
           })}
         </p>
       )}
-      <h2>{t('swapi.pages.films-film.characters')}</h2>
+      <h2>{t('api.pages.films-film.characters')}</h2>
       <List
         items={film.characters.map((character) => ({
           id: character.id,

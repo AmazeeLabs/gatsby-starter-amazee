@@ -8,7 +8,7 @@ import withPageWrapper from 'hocs/withPageWrapper';
 // https://www.gatsbyjs.org/docs/page-query/
 export const PersonQuery = graphql`
   query PersonQuery($id: ID!) {
-    swapi {
+    api {
       person: Person(id: $id) {
         id
         name
@@ -27,7 +27,7 @@ export const PersonQuery = graphql`
  */
 const Page: React.FC<{
   data: {
-    swapi: {
+    api: {
       person: {
         id: string;
         name: string;
@@ -39,6 +39,6 @@ const Page: React.FC<{
       };
     };
   };
-}> = ({ data }) => <CharacterTemplate character={data.swapi.person} />;
+}> = ({ data }) => <CharacterTemplate character={data.api.person} />;
 
 export default withPageWrapper(Page);
