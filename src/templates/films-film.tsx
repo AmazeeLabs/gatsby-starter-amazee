@@ -2,40 +2,24 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import FilmTemplate from 'components/pages/films/FilmTemplate';
 import withPageWrapper from 'hocs/withPageWrapper';
+import { FilmDetailsQuery } from 'typings/graphql/build';
 
 // By exporting this query, we tell Gatsby to execute it with the context
 // variables provided as arguments and to fill it with the query result.
 // https://www.gatsbyjs.org/docs/page-query/
 export const FilmQuery = graphql`
-  query FilmQuery($id: ID!) {
+  query FilmDetails($id: ID!) {
     api {
       film: Film(id: $id) {
-        id
-        title
-        episodeId
-        characters {
-          id
-          name
-        }
+        ...Film
       }
     }
   }
 `;
 
 const Page: React.FC<{
-  data: {
-    api: {
-      film: {
-        id: string;
-        title: string;
-        episodeId: string;
-        characters: {
-          id: string;
-          name: string;
-        }[];
-      };
-    };
-  };
-}> = ({ data }) => <FilmTemplate film={data.api.film} />;
+  data: FilmDetailsQuery;
+}> = ({ data }) =>
+  data.api.film ? <FilmTemplate film={data.api.film} /> : <div />;
 
 export default withPageWrapper(Page);

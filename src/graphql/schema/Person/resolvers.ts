@@ -1,5 +1,5 @@
-import { Person } from './index';
 import { people as mockPeople } from '../mockedData';
+import { CharacterFragment } from '../../../../typings/graphql/build';
 
 //
 // Resolvers
@@ -19,7 +19,7 @@ export const mockPersonResolver = (
   args?: { id?: string; name?: string },
   context?: any,
   info?: any,
-): Person | undefined => {
+): CharacterFragment | undefined => {
   const { id, name } = args || {};
 
   if (id) {
@@ -30,5 +30,5 @@ export const mockPersonResolver = (
     return mockPeople.filter((person) => person.name === name).pop();
   }
 
-  return {};
+  return undefined;
 };

@@ -1,7 +1,8 @@
 import React from 'react';
 import { withPageWrapper, withCurrentPathProvider } from 'utils/decorators';
 import { films } from 'schema/mockedData';
-import FilmTemplate, { FilmProp } from './index';
+import FilmTemplate from './index';
+import { FilmFragment } from '../../../../../typings/graphql/build';
 
 export default {
   title: 'Pages/films/Film page',
@@ -10,10 +11,10 @@ export default {
 };
 
 // Mock data.
-const film: FilmProp = {
+const film: FilmFragment = {
   id: `${films[0].id}`,
   title: `${films[0].title}`,
-  episodeId: `${films[0].episodeId}`,
+  episodeId: films[0].episodeId,
   characters: (films[0].characters || []).map((character) => ({
     id: `${character.id}`,
     name: `${character.name}`,

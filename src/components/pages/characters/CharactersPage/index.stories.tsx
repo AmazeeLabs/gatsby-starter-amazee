@@ -1,7 +1,8 @@
 import React from 'react';
 import { withPageWrapper, withCurrentPathProvider } from 'utils/decorators';
 import { people } from 'schema/mockedData';
-import CharactersPage, { CharactersProp } from './index';
+import CharactersPage from './index';
+import { CharacterFragment } from 'typings/graphql/build';
 
 export default {
   title: 'Pages/characters/Characters list page',
@@ -13,7 +14,7 @@ export default {
 };
 
 // Mock data.
-const characters: CharactersProp = people.map((person) => ({
+const characters: CharacterFragment[] = people.map((person) => ({
   id: `${person.id}`,
   name: `${person.name}`,
 }));

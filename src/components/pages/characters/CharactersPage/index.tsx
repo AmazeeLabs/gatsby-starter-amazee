@@ -4,11 +4,9 @@ import List from 'components/containers/List';
 import Meta from 'components/common/Meta';
 import OneColumn from 'components/layouts/OneColumn';
 import Title from 'components/common/Title';
-import { Person } from 'schema/Person';
+import { CharacterFragment } from '../../../../../typings/graphql/build';
 
-export type CharactersProp = Required<Omit<Person, 'films'>>[];
-
-const CharactersPage: React.FC<{ characters: CharactersProp }> = ({
+const CharactersPage: React.FC<{ characters: CharacterFragment[] }> = ({
   characters,
 }) => {
   const { t } = useTranslation();

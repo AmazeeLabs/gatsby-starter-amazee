@@ -1,7 +1,7 @@
-import { Person } from './index';
+import { CharacterFragment } from '../../../../typings/graphql/build';
 
 // Films have circular references to Person, so they are created in the Film mocks.
-export const people: Person[] = [
+export const people: CharacterFragment[] = [
   {
     id: '1',
     name: 'Luke Skywalker',

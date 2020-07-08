@@ -4,16 +4,22 @@ import List from 'components/containers/List';
 import Meta from 'components/common/Meta';
 import OneColumn from 'components/layouts/OneColumn';
 import Title from 'components/common/Title';
-import { Film } from 'schema/Film';
-import { Person } from 'schema/Person';
+import { graphql } from 'gatsby';
+import { FilmFragment } from 'typings/graphql/build';
 
-export type FilmProp = Required<Omit<Film, 'characters'>> & {
-  characters: Required<Omit<Person, 'films'>>[];
-};
+export const fragment = graphql`
+  fragment Film on api_Film {
+    id
+    title
+    episodeId
+    characters {
+      id
+      name
+    }
+  }
+`;
 
-const FilmTemplate: React.FC<{
-  film: FilmProp;
-}> = ({ film }) => {
+const FilmTemplate: React.FC<{ film: FilmFragment }> = ({ film }) => {
   const { t } = useTranslation();
   return (
     <OneColumn>
@@ -33,13 +39,15 @@ const FilmTemplate: React.FC<{
         </p>
       )}
       <h2>{t('api.pages.films-film.characters')}</h2>
-      <List
-        items={film.characters.map((character) => ({
-          id: character.id,
-          label: character.name,
-          path: `/characters/${character.id}`,
-        }))}
-      />
+      {film.characters && (
+        <List
+          items={film.characters.map((character) => ({
+            id: character.id,
+            label: character.name,
+            path: `/characters/${character.id}`,
+          }))}
+        />
+      )}
     </OneColumn>
   );
 };
