@@ -27,7 +27,7 @@ export const plugins = [
     options: {
       typeName: 'swapi',
       fieldName: 'swapi',
-      url: 'https://swapi.graph.cool',
+      url: process.env.GATSBY_GRAPHQL_BUILD_ENDPOINT,
     },
   },
   {
