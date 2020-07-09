@@ -16,7 +16,6 @@ This project is primarily made with Gatsby. [Gatsby’s documentation](https://w
 - `yarn format:check`: Run code formatting checks.
 - `yarn storybook`: Run storybook development server to work on components.
 - `yarn tailwind`: (Re-)build a local version of the full tailwind stylesheet for development reference.
-- `yarn commit`: Guided commit process that makes sure conventional commit requirements are met.
 
 ## Project structure
 
