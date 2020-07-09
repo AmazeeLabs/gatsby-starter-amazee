@@ -28,7 +28,7 @@ const Page: React.FC<{
       film: {
         id: string;
         title: string;
-        episodeId: string;
+        episodeId: number;
         characters: {
           id: string;
           name: string;

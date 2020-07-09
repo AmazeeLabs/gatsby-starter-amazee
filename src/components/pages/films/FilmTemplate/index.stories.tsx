@@ -13,7 +13,7 @@ export default {
 const film: FilmProp = {
   id: `${films[0].id}`,
   title: `${films[0].title}`,
-  episodeId: `${films[0].episodeId}`,
+  episodeId: films[0].episodeId,
   characters: (films[0].characters || []).map((character) => ({
     id: `${character.id}`,
     name: `${character.name}`,

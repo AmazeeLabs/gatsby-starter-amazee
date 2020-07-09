@@ -34,7 +34,7 @@ const Page: React.FC<{
         films: {
           id: string;
           title: string;
-          episodeId: string;
+          episodeId: number;
         }[];
       };
     };
