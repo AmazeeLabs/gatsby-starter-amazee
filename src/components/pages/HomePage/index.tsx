@@ -8,9 +8,9 @@ const HomePage: React.FC = () => {
   const { t } = useTranslation();
   return (
     <OneColumn>
-      <Meta description={t('api.pages.home.description')} />
-      <Title isHomepage>{t('api.pages.home.title')}</Title>
-      <p>{t('api.pages.home.text')}</p>
+      <Meta description={t('swapi.pages.home.description')} />
+      <Title isHomepage>{t('swapi.pages.home.title')}</Title>
+      <p>{t('swapi.pages.home.text')}</p>
     </OneColumn>
   );
 };

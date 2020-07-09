@@ -4,50 +4,42 @@ import List from 'components/containers/List';
 import Meta from 'components/common/Meta';
 import OneColumn from 'components/layouts/OneColumn';
 import Title from 'components/common/Title';
-import { graphql } from 'gatsby';
-import { FilmFragment } from 'typings/graphql/build';
+import { Film } from 'schema/Film';
+import { Person } from 'schema/Person';
 
-export const fragment = graphql`
-  fragment Film on api_Film {
-    id
-    title
-    episodeId
-    characters {
-      id
-      name
-    }
-  }
-`;
+export type FilmProp = Required<Omit<Film, 'characters'>> & {
+  characters: Required<Omit<Person, 'films'>>[];
+};
 
-const FilmTemplate: React.FC<{ film: FilmFragment }> = ({ film }) => {
+const FilmTemplate: React.FC<{
+  film: FilmProp;
+}> = ({ film }) => {
   const { t } = useTranslation();
   return (
     <OneColumn>
       <Meta
-        description={t('api.pages.films-film.description', {
+        description={t('swapi.pages.films-film.description', {
           title: film.title,
         })}
       />
-      <Title className="mb-2" sectionTitle={t('api.pages.films.title')}>
+      <Title className="mb-2" sectionTitle={t('swapi.pages.films.title')}>
         {film.title}
       </Title>
       {film.episodeId && (
         <p className="mb-8">
-          {t('api.pages.films-film.episode', {
+          {t('swapi.pages.films-film.episode', {
             episodeId: film.episodeId,
           })}
         </p>
       )}
-      <h2>{t('api.pages.films-film.characters')}</h2>
-      {film.characters && (
-        <List
-          items={film.characters.map((character) => ({
-            id: character.id,
-            label: character.name,
-            path: `/characters/${character.id}`,
-          }))}
-        />
-      )}
+      <h2>{t('swapi.pages.films-film.characters')}</h2>
+      <List
+        items={film.characters.map((character) => ({
+          id: character.id,
+          label: character.name,
+          path: `/characters/${character.id}`,
+        }))}
+      />
     </OneColumn>
   );
 };

@@ -37,7 +37,7 @@ const de: TranslationData = {
     },
   },
 
-  api: {
+  swapi: {
     pages: {
       home: {
         description: 'Die Homepage der SWAPI-Beispielseite',

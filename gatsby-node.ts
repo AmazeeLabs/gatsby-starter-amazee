@@ -1,6 +1,5 @@
 import { resolve as pathResolve } from 'path';
 import { GatsbyNode } from 'gatsby';
-import { FilmIndexQuery, PersonIndexQuery } from './typings/graphql/build';
 
 export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
@@ -14,9 +13,12 @@ export const createPages: GatsbyNode['createPages'] = async ({
   // https://www.gatsbyjs.org/docs/creating-and-modifying-pages/
 
   // Create a page for each film result.
-  const allFilms = await graphql<FilmIndexQuery>(`
-    query FilmIndex {
-      api {
+  const allFilms: {
+    data?: { swapi: { allFilms: { id: string }[] } };
+    errors?: any;
+  } = await graphql(`
+    query {
+      swapi {
         allFilms {
           id
         }
@@ -32,7 +34,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     return;
   }
 
-  allFilms.data?.api.allFilms.forEach(({ id }) => {
+  allFilms.data?.swapi.allFilms.forEach(({ id }) => {
     createPage<{ id: string }>({
       path: `/films/${id}`,
       component: pathResolve(`./src/templates/films-film.tsx`),
@@ -43,10 +45,13 @@ export const createPages: GatsbyNode['createPages'] = async ({
   });
 
   // Create a page for each person result.
-  const allPeople = await graphql<PersonIndexQuery>(`
-    query PersonIndex {
-      api {
-        allPersons {
+  const allPeople: {
+    data?: { swapi: { allPeople: { id: string }[] } };
+    errors?: any;
+  } = await graphql(`
+    query {
+      swapi {
+        allPeople {
           id
         }
       }
@@ -61,7 +66,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     return;
   }
 
-  allPeople.data?.api.allPersons.forEach(({ id }) => {
+  allPeople.data?.swapi.allPeople.forEach(({ id }) => {
     createPage<{ id: string }>({
       path: `/characters/${id}`,
       component: pathResolve(`./src/templates/characters-character.tsx`),

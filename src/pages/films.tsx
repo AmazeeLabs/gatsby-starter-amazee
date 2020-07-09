@@ -2,14 +2,13 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import FilmsPage from 'components/pages/films/FilmsPage';
 import withPageWrapper from 'hocs/withPageWrapper';
-import { FilmListQuery } from 'typings/graphql/build';
 
 // By exporting this query, we tell Gatsby to execute it with the context
 // variables provided as arguments and to fill it with the query result.
 // https://www.gatsbyjs.org/docs/page-query/
-export const query = graphql`
-  query FilmList {
-    api {
+export const FilmsQuery = graphql`
+  query FilmsQuery {
+    swapi {
       allFilms {
         id
         title
@@ -19,7 +18,14 @@ export const query = graphql`
 `;
 
 const Page: React.FC<{
-  data: FilmListQuery;
-}> = ({ data }) => <FilmsPage data={data} />;
+  data: {
+    swapi: {
+      allFilms: {
+        id: string;
+        title: string;
+      }[];
+    };
+  };
+}> = ({ data }) => <FilmsPage films={data.swapi.allFilms} />;
 
 export default withPageWrapper(Page);

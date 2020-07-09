@@ -4,16 +4,18 @@ import List from 'components/containers/List';
 import Meta from 'components/common/Meta';
 import OneColumn from 'components/layouts/OneColumn';
 import Title from 'components/common/Title';
-import { CharacterFragment } from '../../../../../typings/graphql/build';
+import { Person } from 'schema/Person';
 
-const CharactersPage: React.FC<{ characters: CharacterFragment[] }> = ({
+export type CharactersProp = Required<Omit<Person, 'films'>>[];
+
+const CharactersPage: React.FC<{ characters: CharactersProp }> = ({
   characters,
 }) => {
   const { t } = useTranslation();
   return (
     <OneColumn>
-      <Meta description={t('api.pages.characters.description')} />
-      <Title>{t('api.pages.characters.title')}</Title>
+      <Meta description={t('swapi.pages.characters.description')} />
+      <Title>{t('swapi.pages.characters.title')}</Title>
       <List
         items={characters.map((character) => ({
           id: character.id,
