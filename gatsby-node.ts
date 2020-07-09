@@ -1,6 +1,5 @@
 import { resolve as pathResolve } from 'path';
 import { GatsbyNode } from 'gatsby';
-import { FilmIndexQuery, PersonIndexQuery } from './typings/graphql/build';
 
 export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
@@ -14,7 +13,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
   // https://www.gatsbyjs.org/docs/creating-and-modifying-pages/
 
   // Create a page for each film result.
-  const allFilms = await graphql<FilmIndexQuery>(`
+  const allFilms: {
+    data?: { api: { allFilms: { id: string }[] } };
+    errors?: any;
+  } = await graphql(`
     query FilmIndex {
       api {
         allFilms {
@@ -43,7 +45,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
   });
 
   // Create a page for each person result.
-  const allPeople = await graphql<PersonIndexQuery>(`
+  const allPeople: {
+    data?: { api: { allPersons: { id: string }[] } };
+    errors?: any;
+  } = await graphql(`
     query PersonIndex {
       api {
         allPersons {

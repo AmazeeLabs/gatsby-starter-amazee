@@ -26,6 +26,3 @@ storybook-static
 
 # Environment specific configuration
 .env
-
-# Generated files
-typings/graphql

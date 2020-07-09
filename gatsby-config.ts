@@ -23,13 +23,6 @@ export const plugins: GatsbyConfig['plugins'] = [
   'gatsby-plugin-postcss',
   'gatsby-plugin-tsconfig-paths',
   {
-    resolve: 'gatsby-plugin-graphql-codegen',
-    options: {
-      fileName: 'typings/graphql/build.ts',
-      documentPaths: ['./src/**/*.{ts,tsx}', './gatsby-node.ts'],
-    },
-  },
-  {
     resolve: 'gatsby-i18n-create-page',
     options: {
       defaultLanguage,

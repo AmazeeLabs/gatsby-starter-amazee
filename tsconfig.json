@@ -23,12 +23,9 @@
       "schema/*": ["src/graphql/schema/*"],
       "hocs/*": ["src/utils/hocs/*"],
       "hooks/*": ["src/utils/hooks/*"],
-      "typings/*": ["typings/*"],
+      "types/*": ["src/types/*"],
       "utils/*": ["src/utils/*"]
     }
   },
-  "include": [".storybook/**/*", "plugins/**/*", "src/**/*", "typings/**/*"],
-  "ts-node": {
-    "transpileOnly": true
-  }
+  "include": [".storybook/**/*", "plugins/**/*", "src/**/*", "typings/**/*"]
 }

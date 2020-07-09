@@ -1,8 +1,7 @@
 import React from 'react';
 import { withPageWrapper, withCurrentPathProvider } from 'utils/decorators';
 import { films } from 'schema/mockedData';
-import FilmsPage from './index';
-import { FilmListQuery } from 'typings/graphql/build';
+import FilmsPage, { FilmsProp } from './index';
 
 export default {
   title: 'Pages/films/Films list page',
@@ -11,13 +10,9 @@ export default {
 };
 
 // Mock data.
-const data: FilmListQuery = {
-  api: {
-    allFilms: films.map((film) => ({
-      id: `${film.id}`,
-      title: `${film.title}`,
-    })),
-  },
-};
+const data: FilmsProp = films.map((film) => ({
+  id: `${film.id}`,
+  title: `${film.title}`,
+}));
 
-export const Default = () => <FilmsPage data={data} />;
+export const Default = () => <FilmsPage films={data} />;

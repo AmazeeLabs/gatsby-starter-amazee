@@ -1,5 +1,5 @@
+import { Film } from './index';
 import { films as mockFilms } from '../mockedData';
-import { FilmFragment } from '../../../../typings/graphql/build';
 
 //
 // Resolvers
@@ -19,7 +19,7 @@ export const mockFilmResolver = (
   args?: { id?: string; title?: string },
   context?: any,
   info?: any,
-): FilmFragment | undefined => {
+): Film | undefined => {
   const { id, title } = args || {};
 
   if (id) {
@@ -30,5 +30,5 @@ export const mockFilmResolver = (
     return mockFilms.filter((film) => film.title === title).pop();
   }
 
-  return undefined;
+  return {};
 };

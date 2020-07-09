@@ -1,5 +1,16 @@
 import { gql } from 'apollo-server';
+import { Person } from '../Person';
 import { mockFilmResolver, mockAllFilmsResolver } from './resolvers';
+
+//
+// TypeScript definition
+//
+export interface Film {
+  id?: string;
+  title?: string;
+  episodeId?: number;
+  characters?: Person[];
+}
 
 //
 // GraphQL type definition

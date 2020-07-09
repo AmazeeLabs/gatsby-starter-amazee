@@ -1,6 +1,6 @@
-import { FilmFragment } from 'typings/graphql/build';
+import { Film } from './index';
 
-export const films: FilmFragment[] = [
+export const films: Film[] = [
   {
     id: '1',
     title: 'A New Hope',
