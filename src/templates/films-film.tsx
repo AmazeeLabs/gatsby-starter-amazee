@@ -8,7 +8,7 @@ import withPageWrapper from 'hocs/withPageWrapper';
 // https://www.gatsbyjs.org/docs/page-query/
 export const FilmQuery = graphql`
   query FilmQuery($id: ID!) {
-    api {
+    swapi {
       film: Film(id: $id) {
         id
         title
@@ -24,7 +24,7 @@ export const FilmQuery = graphql`
 
 const Page: React.FC<{
   data: {
-    api: {
+    swapi: {
       film: {
         id: string;
         title: string;
@@ -36,6 +36,6 @@ const Page: React.FC<{
       };
     };
   };
-}> = ({ data }) => <FilmTemplate film={data.api.film} />;
+}> = ({ data }) => <FilmTemplate film={data.swapi.film} />;
 
 export default withPageWrapper(Page);

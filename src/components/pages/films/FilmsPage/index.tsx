@@ -14,8 +14,8 @@ const FilmsPage: React.FC<{
   const { t } = useTranslation();
   return (
     <OneColumn>
-      <Meta description={t('api.pages.films.description')} />
-      <Title>{t('api.pages.films.title')}</Title>
+      <Meta description={t('swapi.pages.films.description')} />
+      <Title>{t('swapi.pages.films.title')}</Title>
       <List
         items={films.map((film) => ({
           id: film.id,

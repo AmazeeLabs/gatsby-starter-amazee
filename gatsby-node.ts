@@ -14,11 +14,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   // Create a page for each film result.
   const allFilms: {
-    data?: { api: { allFilms: { id: string }[] } };
+    data?: { swapi: { allFilms: { id: string }[] } };
     errors?: any;
   } = await graphql(`
     query FilmIndex {
-      api {
+      swapi {
         allFilms {
           id
         }
@@ -34,7 +34,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     return;
   }
 
-  allFilms.data?.api.allFilms.forEach(({ id }) => {
+  allFilms.data?.swapi.allFilms.forEach(({ id }) => {
     createPage<{ id: string }>({
       path: `/films/${id}`,
       component: pathResolve(`./src/templates/films-film.tsx`),
@@ -46,11 +46,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   // Create a page for each person result.
   const allPeople: {
-    data?: { api: { allPersons: { id: string }[] } };
+    data?: { swapi: { allPersons: { id: string }[] } };
     errors?: any;
   } = await graphql(`
     query PersonIndex {
-      api {
+      swapi {
         allPersons {
           id
         }
@@ -66,7 +66,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     return;
   }
 
-  allPeople.data?.api.allPersons.forEach(({ id }) => {
+  allPeople.data?.swapi.allPersons.forEach(({ id }) => {
     createPage<{ id: string }>({
       path: `/characters/${id}`,
       component: pathResolve(`./src/templates/characters-character.tsx`),
