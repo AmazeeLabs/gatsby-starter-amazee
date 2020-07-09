@@ -28,6 +28,17 @@ export const TypeDef = gql`
 `;
 
 //
+// Resolvers
+//
+// @TODO Add resolvers here.
+// export const resolvers = {
+//   Query: {
+//     Person: personResolver,
+//     allPersons: allPersonsResolver,
+//   },
+// };
+
+//
 // Mocked resolvers
 //
 export const mockResolvers = {

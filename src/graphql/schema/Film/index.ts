@@ -32,10 +32,10 @@ export const TypeDef = gql`
 //
 // Resolvers
 //
-// @TODO Add here.
+// @TODO Add resolvers here.
 // export const resolvers = {
 //   Query: {
-//     film: filmResolver,
+//     Film: filmResolver,
 //     allFilms: allFilmsResolver,
 //   },
 // };
