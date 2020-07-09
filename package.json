@@ -17,6 +17,7 @@
     "mock:api": "ts-node src/graphql/server.ts",
     "mocks": "nodemon -e ts ./node_modules/.bin/concurrently npm:mock:*",
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "posttest": "yarn typecheck && yarn format:check && yarn lint",
     "tailwind": "tailwind build src/assets/styles/tailwind.css > src/assets/styles/tailwind.build.css",
     "cypress:open": "cypress open",
     "cypress:open:api": "CYPRESS_API_URL=http://localhost:4001 CYPRESS_TEST_LEVEL=api CYPRESS_TAGS='not @UI' cypress open",
