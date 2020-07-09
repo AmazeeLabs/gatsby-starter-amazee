@@ -9,7 +9,7 @@ import withPageWrapper from 'hocs/withPageWrapper';
 export const AllPeopleQuery = graphql`
   query AllPeopleQuery {
     swapi {
-      allPersons {
+      allPeople {
         id
         name
       }
@@ -20,12 +20,12 @@ export const AllPeopleQuery = graphql`
 const Page: React.FC<{
   data: {
     swapi: {
-      allPersons: {
+      allPeople: {
         id: string;
         name: string;
       }[];
     };
   };
-}> = ({ data }) => <CharactersPage characters={data.swapi.allPersons} />;
+}> = ({ data }) => <CharactersPage characters={data.swapi.allPeople} />;
 
 export default withPageWrapper(Page);

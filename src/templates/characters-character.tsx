@@ -9,7 +9,7 @@ import withPageWrapper from 'hocs/withPageWrapper';
 export const PersonQuery = graphql`
   query PersonQuery($id: ID!) {
     swapi {
-      person: Person(id: $id) {
+      person(id: $id) {
         id
         name
         films {

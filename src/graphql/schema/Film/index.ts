@@ -8,7 +8,7 @@ import { mockFilmResolver, mockAllFilmsResolver } from './resolvers';
 export interface Film {
   id?: string;
   title?: string;
-  episodeId?: number;
+  episodeId?: string;
   characters?: Person[];
 }
 
@@ -18,13 +18,13 @@ export interface Film {
 export const TypeDef = gql`
   extend type Query {
     allFilms: [Film]!
-    Film(id: ID, title: String): Film
+    film(id: ID, title: String): Film
   }
 
   type Film {
     id: ID!
     title: String!
-    episodeId: Int!
+    episodeId: String!
     characters: [Person]!
   }
 `;
@@ -45,7 +45,7 @@ export const TypeDef = gql`
 //
 export const mockResolvers = {
   Query: {
-    Film: mockFilmResolver,
+    film: mockFilmResolver,
     allFilms: mockAllFilmsResolver,
   },
 };
