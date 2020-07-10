@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-pages-characters-tsx","path":"/cimode/characters","result":{"data":{"swapi":{"allPeople":[{"id":"1","name":"Luke Skywalker"},{"id":"2","name":"Leia Organa"},{"id":"3","name":"Han Solo"}]}},"pageContext":{"language":"cimode"}}}
+{"componentChunkName":"component---src-pages-characters-tsx","path":"/cimode/characters","result":{"data":{"swapi":{"allPersons":[{"id":"1","name":"Luke Skywalker"},{"id":"2","name":"Leia Organa"},{"id":"3","name":"Han Solo"}]}},"pageContext":{"language":"cimode"}}}
