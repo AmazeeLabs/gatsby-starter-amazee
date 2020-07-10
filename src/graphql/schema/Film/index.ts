@@ -8,7 +8,7 @@ import { mockFilmResolver, mockAllFilmsResolver } from './resolvers';
 export interface Film {
   id?: string;
   title?: string;
-  episodeId?: string;
+  episodeId?: number;
   characters?: Person[];
 }
 
@@ -18,13 +18,13 @@ export interface Film {
 export const TypeDef = gql`
   extend type Query {
     allFilms: [Film]!
-    film(id: ID, title: String): Film
+    Film(id: ID, title: String): Film
   }
 
   type Film {
     id: ID!
     title: String!
-    episodeId: String!
+    episodeId: Int!
     characters: [Person]!
   }
 `;
@@ -32,10 +32,10 @@ export const TypeDef = gql`
 //
 // Resolvers
 //
-// @TODO Add here.
+// @TODO Add resolvers here.
 // export const resolvers = {
 //   Query: {
-//     film: filmResolver,
+//     Film: filmResolver,
 //     allFilms: allFilmsResolver,
 //   },
 // };
@@ -45,7 +45,7 @@ export const TypeDef = gql`
 //
 export const mockResolvers = {
   Query: {
-    film: mockFilmResolver,
+    Film: mockFilmResolver,
     allFilms: mockAllFilmsResolver,
   },
 };

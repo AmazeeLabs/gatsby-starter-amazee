@@ -9,7 +9,7 @@ import withPageWrapper from 'hocs/withPageWrapper';
 export const FilmQuery = graphql`
   query FilmQuery($id: ID!) {
     swapi {
-      film(id: $id) {
+      film: Film(id: $id) {
         id
         title
         episodeId
@@ -28,7 +28,7 @@ const Page: React.FC<{
       film: {
         id: string;
         title: string;
-        episodeId: string;
+        episodeId: number;
         characters: {
           id: string;
           name: string;

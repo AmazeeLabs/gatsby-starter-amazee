@@ -7,8 +7,8 @@ import Title from 'components/common/Title';
 import { Film } from 'schema/Film';
 import { Person } from 'schema/Person';
 
-export type FilmProp = Required<Omit<Film, 'characters'>> & {
-  characters: Required<Omit<Person, 'films'>>[];
+export type FilmProp = Omit<Film, 'characters'> & {
+  characters: Omit<Person, 'films'>[];
 };
 
 const FilmTemplate: React.FC<{
@@ -35,8 +35,8 @@ const FilmTemplate: React.FC<{
       <h2>{t('swapi.pages.films-film.characters')}</h2>
       <List
         items={film.characters.map((character) => ({
-          id: character.id,
-          label: character.name,
+          id: `${character.id}`,
+          label: `${character.name}`,
           path: `/characters/${character.id}`,
         }))}
       />

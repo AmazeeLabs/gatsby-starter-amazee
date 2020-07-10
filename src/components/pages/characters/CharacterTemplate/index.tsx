@@ -7,8 +7,8 @@ import Title from 'components/common/Title';
 import { Person } from 'schema/Person';
 import { Film } from 'schema/Film';
 
-export type CharacterProp = Required<Omit<Person, 'films'>> & {
-  films: Required<Omit<Film, 'characters'>>[];
+export type CharacterProp = Omit<Person, 'films'> & {
+  films: Omit<Film, 'characters'>[];
 };
 
 /**
@@ -35,7 +35,7 @@ const CharacterTemplate: React.FC<{
       </Title>
       <List
         items={character.films.map((film) => ({
-          id: film.id,
+          id: `${film.id}`,
           label: `${film.title} (${t('swapi.pages.films-film.episode', {
             episodeId: film.episodeId,
           })})`,

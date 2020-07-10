@@ -17,9 +17,9 @@ const character: CharacterProp = {
   id: `${people[0].id}`,
   name: `${people[0].name}`,
   films: (people[0].films || []).map((film) => ({
-    id: `${film.id}`,
-    title: `${film.title}`,
-    episodeId: `${film.episodeId}`,
+    id: film.id,
+    title: film.title,
+    episodeId: film.episodeId,
   })),
 };
 
