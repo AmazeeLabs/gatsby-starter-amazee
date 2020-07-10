@@ -19,7 +19,10 @@ jobs:
           CHILD_CONCURRENCY: 1
         run: yarn install --frozen-lockfile
       - name: Build
-        run: yarn build
+        run: |
+          yarn mocks &
+          until nc -z 127.0.0.1 4001; do sleep 1 ; done
+          yarn build
       - name: Run tests
         run: yarn test
       - name: Release
