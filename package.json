@@ -7,6 +7,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "commit": "git-cz",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
@@ -16,6 +17,7 @@
     "mock:api": "ts-node src/graphql/server.ts",
     "mocks": "nodemon -e ts ./node_modules/.bin/concurrently npm:mock:*",
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "posttest": "yarn typecheck && yarn format:check && yarn lint",
     "tailwind": "tailwind build src/assets/styles/tailwind.css > src/assets/styles/tailwind.build.css",
     "cypress:open": "cypress open",
     "cypress:open:api": "CYPRESS_API_URL=http://localhost:4001 CYPRESS_TEST_LEVEL=api CYPRESS_TAGS='not @UI' cypress open",
@@ -55,7 +57,14 @@
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
     "@cypress/webpack-preprocessor": "^5.4.1",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/npm": "^7.0.5",
+    "@semantic-release/release-notes-generator": "^9.0.1",
     "@storybook/addon-a11y": "^5.3.17",
     "@storybook/addon-actions": "^5.3.17",
     "@storybook/addon-docs": "^5.3.17",
@@ -86,6 +95,7 @@
     "cypress": "^4.7.0",
     "cypress-cucumber-preprocessor": "https://github.com/liamchilds/cypress-cucumber-preprocessor.git#configurable-loc-non-global-steps",
     "cypress-wait-until": "^1.7.1",
+    "cz-conventional-changelog": "3.2.0",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-deprecate": "^0.7.0",
@@ -93,7 +103,7 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "fork-ts-checker-webpack-plugin": "^4.1.0",
-    "husky": "^4.2.3",
+    "husky": "^4.2.5",
     "lodash": "^4.17.15",
     "mocha": "^7.1.0",
     "postcss-discard-comments": "^4.0.2",
@@ -104,6 +114,7 @@
     "react-docgen-typescript-loader": "^3.6.0",
     "react-is": "^16.12.0",
     "regenerator-runtime": "^0.13.5",
+    "semantic-release": "^17.1.1",
     "tailwindcss": "^1.2.0",
     "ts-loader": "^6.2.1",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
@@ -116,9 +127,32 @@
   "bugs": {
     "url": "https://github.com/AmazeeLabs/gatsby-starter-amazee/issues"
   },
+  "release": {
+    "branches": [
+      "development"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "yarn run format:check || echo -e '\\n\\033[0;31mWARNING:  YOUR PR MAY HAVE FAILING TESTS.\\033[0m\\n'"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }

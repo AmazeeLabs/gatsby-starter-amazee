@@ -1,0 +1,27 @@
+name: Test
+on:
+  push:
+    branches-ignore:
+      - development
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install dependencies
+        env:
+          CHILD_CONCURRENCY: 1
+        run: yarn install --frozen-lockfile
+      - name: Build
+        run: |
+          yarn mocks &
+          until nc -z 127.0.0.1 4001; do sleep 1 ; done
+          yarn build
+      - name: Run tests
+        run: yarn test
