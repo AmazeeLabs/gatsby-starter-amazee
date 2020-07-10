@@ -146,7 +146,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "yarn run format:check || echo -e '\\n\\033[0;31mWARNING:  YOUR PR MAY HAVE FAILING TESTS.\\033[0m\\n'"
     }
   },
   "config": {
