@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/AmazeeLabs/gatsby-starter-amazee/compare/v1.0.1...v1.0.2) (2020-07-10)
+
+
+### Bug Fixes
+
+* **graphql:** align mock schema with swapi.graph.cool; fixes [#148](https://github.com/AmazeeLabs/gatsby-starter-amazee/issues/148) ([970041c](https://github.com/AmazeeLabs/gatsby-starter-amazee/commit/970041cbd71ccaf0677a493df00ca1ed88c39acd))
+
 ## [1.0.1](https://github.com/AmazeeLabs/gatsby-starter-amazee/compare/v1.0.0...v1.0.1) (2020-07-10)
 
 
