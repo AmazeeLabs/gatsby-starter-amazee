@@ -24,11 +24,17 @@ const characters: CharactersProp = people.map((person) => ({
 }));
 
 export const Default = () => {
-  // FIXME: Sinon stubbing does not work because storybook transpiles to
-  //        esmodules instead of commonjs.
   sinon.stub(Queries, 'useCharacterListQuery').returns({
     loading: false,
     data: { allPersons: characters },
+  });
+  return <CharactersPage />;
+};
+
+export const Empty = () => {
+  sinon.stub(Queries, 'useCharacterListQuery').returns({
+    loading: false,
+    data: { allPersons: [] },
   });
   return <CharactersPage />;
 };

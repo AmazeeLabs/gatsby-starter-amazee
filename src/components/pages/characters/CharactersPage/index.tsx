@@ -32,7 +32,6 @@ export const useCharacterListQuery = (): Pick<
 const CharactersPage: React.FC = () => {
   const { t } = useTranslation();
   const { data, loading, error } = useCharacterListQuery();
-  console.log(data, loading, error);
   return (
     <OneColumn>
       <Meta description={t('swapi.pages.characters.description')} />

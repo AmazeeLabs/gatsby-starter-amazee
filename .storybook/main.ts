@@ -24,33 +24,16 @@ export const webpackFinal = async (
   // 'PRODUCTION' is used when building the static version of storybook.
 
   // We modify rules based on Storybook and Gatsby docs. We don't use
-  // @storybook/preset-typescript, but instead use babel-loader to work with
+  // @storybook/preset-typescript, but instead use ts-loader to work with
   // Gatsby. We also use the webpack plugin, tsconfig-paths-webpack-plugin, in
   // in order to support TypeScript path mappings added to tsconfig.
-  // https://storybook.js.org/docs/configurations/typescript-config/#setting-up-typescript-with-babel-loader
+  // https://storybook.js.org/docs/configurations/typescript-config/#setting-up-typescript-with-ts-loader
   // https://www.gatsbyjs.org/docs/visual-testing-with-storybook/
   // https://github.com/dividab/tsconfig-paths-webpack-plugin
 
   // Modify existing rules.
   config.module.rules = (config.module.rules as any[]).map((rule) => {
     switch (`${rule.test}`) {
-      case '/\\.(mjs|jsx?)$/':
-        // Add TypeScript to this rule.
-        rule.test = /\.(mjs|jsx?|tsx?)$/;
-        // Use babel-plugin-remove-graphql-queries to remove static queries
-        // from components when rendering in storybook. This only works if you:
-        // - build Gatsby before starting Storybook so that the plugin can
-        //   replace the queries with data stored in the "public" directory
-        // - start Storybook with NODE_ENV=production. (See Gatsby docs.)
-        rule.use[0].options.plugins.push(
-          require.resolve('babel-plugin-remove-graphql-queries'),
-        );
-        // Add babel-preset-react-app. (See Storybook docs.)
-        rule.use[0].options.presets.push([
-          require.resolve('babel-preset-react-app'),
-          { flow: false, typescript: true },
-        ]);
-        break;
       case '/\\.css$/':
         // Make sure CSS files are processed with PostCSS.
         // https://webpack.js.org/loaders/postcss-loader/#css-modules
@@ -98,6 +81,50 @@ export const webpackFinal = async (
       },
     ],
   });
+
+  // Use babel-plugin-remove-graphql-queries to remove static queries
+  // from components when rendering in storybook. This only works if you:
+  // - build Gatsby before starting Storybook so that the plugin can
+  //   replace the queries with data stored in the "public" directory
+  // - start Storybook with NODE_ENV=production. (See Gatsby docs.)
+  config.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    loader: require.resolve('babel-loader'),
+    options: {
+      plugins: [require.resolve('babel-plugin-remove-graphql-queries')],
+    },
+  });
+
+  // Transpile Typescript using ts-loader.
+  config.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    use: [
+      {
+        loader: require.resolve('ts-loader'),
+        options: {
+          transpileOnly: true,
+          configFile: path.resolve(__dirname, '../tsconfig.json'),
+        },
+      },
+      // FIXME: Re-enable addon docs when terser plugin problems are resolved.
+      // https://github.com/storybookjs/storybook/issues/7743
+      // {
+      //   loader: require.resolve('react-docgen-typescript-loader'),
+      // },
+    ],
+  });
+
+  // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
+  config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/];
+
+  // Use installed babel-loader which is v8.0-beta (which is meant to work with @babel/core@7)
+  config.module.rules[0].use[0].loader = require.resolve('babel-loader');
+
+  // use @babel/preset-react for JSX and env (instead of staged presets)
+  config.module.rules[0].use[0].options.presets = [
+    require.resolve('@babel/preset-react'),
+    require.resolve('@babel/preset-env'),
+  ];
 
   // Add support for tsconfig path mapping.
   if (!config.resolve.plugins) {
