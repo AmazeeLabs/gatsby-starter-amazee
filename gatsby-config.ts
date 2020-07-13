@@ -31,6 +31,12 @@ export const plugins = [
     },
   },
   {
+    resolve: 'gatsby-plugin-apollo',
+    options: {
+      uri: process.env.GATSBY_GRAPHQL_LIVE_ENDPOINT,
+    },
+  },
+  {
     resolve: 'gatsby-i18n-create-page',
     options: {
       defaultLanguage,
