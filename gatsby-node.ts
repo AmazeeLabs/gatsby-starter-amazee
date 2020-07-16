@@ -43,38 +43,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
       },
     });
   });
-
-  // Create a page for each person result.
-  const allPersons: {
-    data?: { swapi: { allPersons: { id: string }[] } };
-    errors?: any;
-  } = await graphql(`
-    query PersonIndex {
-      swapi {
-        allPersons {
-          id
-        }
-      }
-    }
-  `);
-
-  if (allPersons.errors) {
-    reporter.panicOnBuild(
-      `Error while running allPersons GraphQL query in gatsby-node.`,
-      allPersons.errors,
-    );
-    return;
-  }
-
-  allPersons.data?.swapi.allPersons.forEach(({ id }) => {
-    createPage<{ id: string }>({
-      path: `/characters/${id}`,
-      component: pathResolve(`./src/templates/characters-character.tsx`),
-      context: {
-        id,
-      },
-    });
-  });
 };
 
 // WARNING: Pages programmatically created in gatsby-node will not trigger

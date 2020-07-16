@@ -7,6 +7,7 @@ import Title from 'components/common/Title';
 import { Person } from 'schema/Person';
 import { gql, useQuery, QueryResult } from '@apollo/client';
 import { Loading } from 'components/common/Loading';
+import { RouteComponentProps } from '@reach/router';
 
 export type CharactersProp = Omit<Person, 'films'>[];
 type CharacterListResult = {
@@ -29,7 +30,7 @@ export const useCharacterListQuery = (): Pick<
     }
   `);
 
-const CharactersPage: React.FC = () => {
+const CharactersPage: React.FC<RouteComponentProps> = () => {
   const { t } = useTranslation();
   const { data, loading, error } = useCharacterListQuery();
   return (

@@ -75,6 +75,7 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = async (
       }>({
         ...page,
         path: localizePath(page.path, language),
+        matchPath: page.matchPath && localizePath(page.matchPath, language),
         context: {
           ...page.context,
           language,

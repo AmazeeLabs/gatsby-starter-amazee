@@ -37,6 +37,10 @@ export const plugins = [
     },
   },
   {
+    resolve: `gatsby-plugin-create-client-paths`,
+    options: { prefixes: [`/characters/*`] },
+  },
+  {
     resolve: 'gatsby-i18n-create-page',
     options: {
       defaultLanguage,
