@@ -6,7 +6,7 @@ import OneColumn from 'components/layouts/OneColumn';
 import Title from 'components/common/Title';
 import { Person } from 'schema/Person';
 
-export type CharactersProp = Required<Omit<Person, 'films'>>[];
+export type CharactersProp = Omit<Person, 'films'>[];
 
 const CharactersPage: React.FC<{ characters: CharactersProp }> = ({
   characters,
@@ -18,8 +18,8 @@ const CharactersPage: React.FC<{ characters: CharactersProp }> = ({
       <Title>{t('swapi.pages.characters.title')}</Title>
       <List
         items={characters.map((character) => ({
-          id: character.id,
-          label: character.name,
+          id: `${character.id}`,
+          label: `${character.name}`,
           path: `/characters/${character.id}`,
         }))}
       />

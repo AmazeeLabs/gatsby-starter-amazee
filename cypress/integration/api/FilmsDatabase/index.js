@@ -7,14 +7,14 @@ Given(/^a visitor requests the film listing$/, function () {
 });
 
 Given(/^a visitor requests the list of films with "([^"]*)"$/, function (name) {
-  cy.graphqlQuery(`{ allPeople { name, id } }`).then((result) => {
-    const id = result.body.data.allPeople.filter((p) => p.name === name).pop()
+  cy.graphqlQuery(`{ allPersons { name, id } }`).then((result) => {
+    const id = result.body.data.allPersons.filter((p) => p.name === name).pop()
       .id;
     cy.graphqlQuery(
-      `query ($id: ID!) { person(id: $id) { films { title } } }`,
+      `query ($id: ID!) { Person(id: $id) { films { title } } }`,
       { id },
     ).then((result) => {
-      cy.state('list', result.body.data.person.films);
+      cy.state('list', result.body.data.Person.films);
     });
   });
 });
@@ -26,10 +26,10 @@ Given(/^a visitor requests the list of characters in "([^"]*)"$/, function (
     const id = result.body.data.allFilms.filter((f) => f.title === title).pop()
       .id;
     cy.graphqlQuery(
-      `query ($id: ID!) { film(id: $id) { characters { name } } }`,
+      `query ($id: ID!) { Film(id: $id) { characters { name } } }`,
       { id },
     ).then((result) => {
-      cy.state('list', result.body.data.film.characters);
+      cy.state('list', result.body.data.Film.characters);
     });
   });
 });

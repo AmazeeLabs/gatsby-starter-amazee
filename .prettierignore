@@ -2,6 +2,7 @@
 .cache
 .vscode
 .idea
+CHANGELOG.md
 _local
 package.json
 package-lock.json

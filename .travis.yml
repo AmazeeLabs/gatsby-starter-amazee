@@ -14,9 +14,6 @@ install:
   - yarn install --ignore-engines
 
 script:
-  - yarn lint
-  - yarn format:check
-  - yarn typecheck
   - yarn test
   - yarn mocks &
   - until nc -z 127.0.0.1 4001; do sleep 1 ; done

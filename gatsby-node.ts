@@ -17,7 +17,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     data?: { swapi: { allFilms: { id: string }[] } };
     errors?: any;
   } = await graphql(`
-    query {
+    query FilmIndex {
       swapi {
         allFilms {
           id
@@ -45,28 +45,28 @@ export const createPages: GatsbyNode['createPages'] = async ({
   });
 
   // Create a page for each person result.
-  const allPeople: {
-    data?: { swapi: { allPeople: { id: string }[] } };
+  const allPersons: {
+    data?: { swapi: { allPersons: { id: string }[] } };
     errors?: any;
   } = await graphql(`
-    query {
+    query PersonIndex {
       swapi {
-        allPeople {
+        allPersons {
           id
         }
       }
     }
   `);
 
-  if (allPeople.errors) {
+  if (allPersons.errors) {
     reporter.panicOnBuild(
-      `Error while running allPeople GraphQL query in gatsby-node.`,
-      allPeople.errors,
+      `Error while running allPersons GraphQL query in gatsby-node.`,
+      allPersons.errors,
     );
     return;
   }
 
-  allPeople.data?.swapi.allPeople.forEach(({ id }) => {
+  allPersons.data?.swapi.allPersons.forEach(({ id }) => {
     createPage<{ id: string }>({
       path: `/characters/${id}`,
       component: pathResolve(`./src/templates/characters-character.tsx`),
