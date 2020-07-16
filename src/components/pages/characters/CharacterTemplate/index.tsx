@@ -6,7 +6,7 @@ import OneColumn from 'components/layouts/OneColumn';
 import Title from 'components/common/Title';
 import { Person } from 'schema/Person';
 import { Film } from 'schema/Film';
-import { gql, useQuery } from '@apollo/client';
+import { gql, QueryResult, useQuery } from '@apollo/client';
 import { Loading } from 'components/common/Loading';
 import { RouteComponentProps } from '@reach/router';
 
@@ -14,7 +14,9 @@ export type CharacterProp = Omit<Person, 'films'> & {
   films: Omit<Film, 'characters'>[];
 };
 
-export const usePersonQuery = (id: string) =>
+export const usePersonQuery = (
+  id: string,
+): Pick<QueryResult<{ person: CharacterProp }>, 'loading' | 'data' | 'error'> =>
   useQuery<{ person: CharacterProp }>(
     gql`
       query PersonQuery($id: ID!) {

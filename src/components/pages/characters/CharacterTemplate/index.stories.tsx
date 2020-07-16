@@ -2,6 +2,8 @@ import React from 'react';
 import { withPageWrapper, withCurrentPathProvider } from 'utils/decorators';
 import { people } from 'schema/mockedData';
 import CharacterTemplate, { CharacterProp } from './index';
+import * as Queries from './index';
+import sinon from 'sinon';
 
 export default {
   title: 'Pages/characters/Character page',
@@ -23,4 +25,10 @@ const character: CharacterProp = {
   })),
 };
 
-export const Default = () => <CharacterTemplate character={character} />;
+export const Default = () => {
+  sinon.restore();
+  sinon
+    .stub(Queries, 'usePersonQuery')
+    .returns({ data: { person: character }, loading: false });
+  return <CharacterTemplate id="1" />;
+};
