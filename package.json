@@ -2,7 +2,7 @@
   "name": "gatsby-starter-amazee",
   "private": true,
   "description": "Gatsby starter for Amazee Labs projects",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
