@@ -14,16 +14,10 @@ install:
   - yarn install --ignore-engines
 
 script:
-  - yarn test
-  - yarn mocks &
-  - until nc -z 127.0.0.1 4001; do sleep 1 ; done
-  - yarn build
+  - yarn start-test mock:api "http-get://localhost:4001?query={_empty}" build
   # babel-plugin-remove-graphql-queries requires we test storybook after building Gatsby
   - yarn storybook:build
-  - yarn serve -p8000 &
-  - until nc -z 127.0.0.1 8000; do sleep 1 ; done
-  - yarn cypress:run:api
-  - yarn cypress:run
+  - yarn start-server-and-test mock:api "http-get://localhost:4001?query={_empty}" serve 8000 test
   - kill $(jobs -p) || true
 
 notifications:
