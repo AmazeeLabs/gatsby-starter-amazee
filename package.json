@@ -52,6 +52,7 @@
     "typescript": "^3.9.5"
   },
   "devDependencies": {
+    "@apollo/client": "^3.0.0-rc.12",
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@commitlint/cli": "^9.0.1",
@@ -82,6 +83,7 @@
     "@types/node": "^14.0.13",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
+    "@types/sinon": "^9.0.4",
     "@types/webpack": "^4.41.7",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
@@ -99,6 +101,8 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "fork-ts-checker-webpack-plugin": "^4.1.0",
+    "gatsby-plugin-apollo": "^3.0.1",
+    "gatsby-plugin-create-client-paths": "^2.3.10",
     "husky": "^4.2.5",
     "lodash": "^4.17.15",
     "mocha": "^7.1.0",
@@ -111,8 +115,9 @@
     "react-is": "^16.12.0",
     "regenerator-runtime": "^0.13.5",
     "semantic-release": "^17.1.1",
+    "sinon": "^9.0.2",
     "tailwindcss": "^1.2.0",
-    "ts-loader": "^6.2.1",
+    "ts-loader": "^8.0.0",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "webpack": "^4.41.6"
   },

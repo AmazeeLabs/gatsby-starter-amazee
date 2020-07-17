@@ -1,7 +1,9 @@
 import React from 'react';
 import { withPageWrapper, withCurrentPathProvider } from 'utils/decorators';
-import { people } from 'schema/mockedData';
 import CharactersPage, { CharactersProp } from './index';
+import * as Queries from './index';
+import sinon from 'sinon';
+import { people } from 'schema/mockedData';
 
 export default {
   title: 'Pages/characters/Characters list page',
@@ -9,13 +11,30 @@ export default {
   decorators: [
     withPageWrapper,
     withCurrentPathProvider({ path: '/characters' }),
+    (storyFn: any, context: any) => {
+      sinon.restore();
+      return storyFn(context);
+    },
   ],
 };
 
-// Mock data.
 const characters: CharactersProp = people.map((person) => ({
   id: `${person.id}`,
   name: `${person.name}`,
 }));
 
-export const Default = () => <CharactersPage characters={characters} />;
+export const Default = () => {
+  sinon.stub(Queries, 'useCharacterListQuery').returns({
+    loading: false,
+    data: { allPersons: characters },
+  });
+  return <CharactersPage />;
+};
+
+export const Empty = () => {
+  sinon.stub(Queries, 'useCharacterListQuery').returns({
+    loading: false,
+    data: { allPersons: [] },
+  });
+  return <CharactersPage />;
+};
