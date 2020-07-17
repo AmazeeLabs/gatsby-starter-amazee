@@ -25,26 +25,3 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 import '@testing-library/cypress/add-commands';
-import 'cypress-wait-until';
-
-// FIXME: Move to dedicated plugin.
-Cypress.Commands.add('waitForNavigate', { prevSubject: 'optional' }, () => {
-  cy.window().then((win) => {
-    const currentPath = win.location.pathname;
-    cy.waitUntil(() =>
-      cy.window().then((win) => win.location.pathname !== currentPath),
-    );
-  });
-});
-
-// FIXME: Move to dedicated plugin.
-Cypress.Commands.add('graphqlQuery', (query, variables = {}) => {
-  return cy.request({
-    url: Cypress.env('API_URL'),
-    method: 'POST',
-    body: {
-      query: query,
-      variables: variables,
-    },
-  });
-});
