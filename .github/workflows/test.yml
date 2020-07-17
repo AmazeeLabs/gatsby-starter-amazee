@@ -19,9 +19,6 @@ jobs:
           CHILD_CONCURRENCY: 1
         run: yarn install --frozen-lockfile
       - name: Build
-        run: |
-          yarn mocks &
-          until nc -z 127.0.0.1 4001; do sleep 1 ; done
-          yarn build
+        run: yarn start-test mock:api "http-get://localhost:4001?query={_empty}" build
       - name: Run tests
-        run: yarn test
+        run: yarn start-server-and-test mock:api "http-get://localhost:4001?query={_empty}" serve 8000 test

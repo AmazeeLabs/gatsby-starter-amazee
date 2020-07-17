@@ -20,9 +20,7 @@ When(
       .then((result) => {
         const langCode = result.attr('value');
         cy.get('#language-switcher').select(langCode);
-        // Wait for gatsby to actually change the window location, since this might
-        // not include a HTTP request that cypress waits for automatically.
-        cy.waitForNavigate();
+        cy.wait(100);
       });
   },
 );
