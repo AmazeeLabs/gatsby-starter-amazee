@@ -100,7 +100,7 @@
     "eslint-plugin-react-hooks": "^2.3.0",
     "fork-ts-checker-webpack-plugin": "^4.1.0",
     "husky": "^4.2.5",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "mocha": "^7.1.0",
     "postcss-discard-comments": "^4.0.2",
     "postcss-import": "^12.0.1",
